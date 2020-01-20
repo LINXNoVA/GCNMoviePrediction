@@ -16,4 +16,7 @@
 
 DEPDIR=depends
 
-# "Machine-depe
+# "Machine-dependant" options
+#MFLAGS=-fPIC
+
+CFLAGS=-c -g -O3 -fPIC -Wall -Werr
