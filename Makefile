@@ -32,4 +32,8 @@ SUNDOWN_SRC=\
 	html/html.o \
 	html/html_smartypants.o \
 	html/houdini_html_e.o \
-	ht
+	html/houdini_href_e.o
+
+all:		libsundown.so sundown smartypants html_blocks
+
+.PH
