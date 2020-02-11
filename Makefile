@@ -29,4 +29,7 @@ SUNDOWN_SRC=\
 	src/stack.o \
 	src/buffer.o \
 	src/autolink.o \
-	h
+	html/html.o \
+	html/html_smartypants.o \
+	html/houdini_html_e.o \
+	ht
