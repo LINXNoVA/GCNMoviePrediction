@@ -24,4 +24,9 @@ LDFLAGS=-g -O3 -Wall -Werror
 CC=gcc
 
 
-SUNDOW
+SUNDOWN_SRC=\
+	src/markdown.o \
+	src/stack.o \
+	src/buffer.o \
+	src/autolink.o \
+	h
