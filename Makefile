@@ -41,4 +41,7 @@ all:		libsundown.so sundown smartypants html_blocks
 # libraries
 
 libsundown.so:	libsundown.so.1
-	ln 
+	ln -f -s $^ $@
+
+libsundown.so.1: $(SUNDOWN_SRC)
+	$(CC) $(LDFLAGS) -shared -Wl $^ 
