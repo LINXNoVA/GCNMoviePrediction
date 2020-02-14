@@ -36,4 +36,9 @@ SUNDOWN_SRC=\
 
 all:		libsundown.so sundown smartypants html_blocks
 
-.PH
+.PHONY:		all clean
+
+# libraries
+
+libsundown.so:	libsundown.so.1
+	ln 
