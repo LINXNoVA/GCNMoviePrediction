@@ -49,3 +49,6 @@ libsundown.so.1: $(SUNDOWN_SRC)
 # executables
 
 sundown:	examples/sundown.o $(SUNDOWN_SRC)
+	$(CC) $(LDFLAGS) $^ -o $@
+
+smartypants: examples/smartypants.o $(SUNDOWN
