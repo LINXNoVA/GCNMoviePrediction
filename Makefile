@@ -51,4 +51,9 @@ libsundown.so.1: $(SUNDOWN_SRC)
 sundown:	examples/sundown.o $(SUNDOWN_SRC)
 	$(CC) $(LDFLAGS) $^ -o $@
 
-smartypants: examples/smartypants.o $(SUNDOWN
+smartypants: examples/smartypants.o $(SUNDOWN_SRC)
+	$(CC) $(LDFLAGS) $^ -o $@
+
+# perfect hashing
+html_blocks: src/html_blocks.h
+
