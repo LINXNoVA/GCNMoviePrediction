@@ -57,3 +57,5 @@ smartypants: examples/smartypants.o $(SUNDOWN_SRC)
 # perfect hashing
 html_blocks: src/html_blocks.h
 
+src/html_blocks.h: html_block_names.txt
+	gperf -N find_block_tag -H hash_block_ta
