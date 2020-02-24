@@ -58,4 +58,9 @@ smartypants: examples/smartypants.o $(SUNDOWN_SRC)
 html_blocks: src/html_blocks.h
 
 src/html_blocks.h: html_block_names.txt
-	gperf -N find_block_tag -H hash_block_ta
+	gperf -N find_block_tag -H hash_block_tag -C -c -E --ignore-case $^ > $@
+
+
+# housekeeping
+clean:
+	rm -f src/*.o html/*
