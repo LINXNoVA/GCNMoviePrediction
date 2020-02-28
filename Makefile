@@ -65,4 +65,10 @@ src/html_blocks.h: html_block_names.txt
 clean:
 	rm -f src/*.o html/*.o examples/*.o
 	rm -f libsundown.so libsundown.so.1 sundown smartypants
-	rm
+	rm -f sundown.exe smartypants.exe
+	rm -rf $(DEPDIR)
+
+
+# dependencies
+
+include $(wildcard $(DEPDIR)
