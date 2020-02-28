@@ -71,4 +71,10 @@ clean:
 
 # dependencies
 
-include $(wildcard $(DEPDIR)
+include $(wildcard $(DEPDIR)/*.d)
+
+
+# generic object compilations
+
+%.o:	src/%.c examples/%.c html/%.c
+	@mkdi
