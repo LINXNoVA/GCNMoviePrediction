@@ -1,0 +1,12 @@
+
+
+CFLAGS=/O2 /EHsc /I"src/" /I"examples"/ /I"html"/
+CC=cl
+
+SUNDOWN_SRC=\
+	src\markdown.obj \
+	src\stack.obj \
+	src\buffer.obj \
+	src\autolink.obj \
+	html\html.obj \
+	html\html_smartypants.obj \

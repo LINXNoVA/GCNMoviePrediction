@@ -77,4 +77,7 @@ include $(wildcard $(DEPDIR)/*.d)
 # generic object compilations
 
 %.o:	src/%.c examples/%.c html/%.c
-	@mkdi
+	@mkdir -p $(DEPDIR)
+	@$(CC) -MM $< > $(DEPDIR)/$*.d
+	$(CC) $(CFLAGS) -o $@ $<
+
