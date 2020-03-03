@@ -39,3 +39,65 @@ Features
 
 	`Sundown` is not stuck with XHTML output: the Markdown parser of the library
 	is decoupled from the renderer, so it's trivial to extend the library with
+	custom renderers. A fully functional (X)HTML renderer is included.
+
+*	**Optimized for speed**
+
+	`Sundown` is written in C, with a special emphasis on performance. When wrapped
+	on a dynamic language such as Python or Ruby, it has shown to be up to 40
+	times faster than other native alternatives.
+
+*	**Zero-dependency**
+
+	`Sundown` is a zero-dependency library composed of 3 `.c` files and their headers.
+	No dependencies, no bullshit. Only standard C99 that builds everywhere.
+
+Credits
+-------
+
+`Sundown` is based on the original Upskirt parser by Natacha Porté, with many additions
+by Vicent Marti (@vmg) and contributions from the following authors:
+
+	Ben Noordhuis, Bruno Michel, Joseph Koshy, Krzysztof Kowalczyk, Samuel Bronson,
+	Shuhei Tanuma
+
+Bindings
+--------
+
+`Sundown` is available from other programming languages thanks to these bindings developed
+by our awesome contributors.
+
+- [Redcarpet](https://github.com/vmg/redcarpet) (Ruby)
+- [RobotSkirt](https://github.com/benmills/robotskirt) (Node.js)
+- [Misaka](https://github.com/FSX/misaka) (Python)
+- [ffi-sundown](https://github.com/postmodern/ffi-sundown) (Ruby FFI)
+- [Sundown HS](https://github.com/bitonic/sundown) (Haskell)
+- [Goskirt](https://github.com/madari/goskirt) (Go)
+- [Upskirt.go](https://github.com/buu700/upskirt.go) (Go)
+- [MoonShine](https://github.com/brandonc/moonshine) (.NET)
+- [PHP-Sundown](https://github.com/chobie/php-sundown) (PHP)
+- [Sundown.net](https://github.com/txdv/sundown.net) (.NET)
+
+Help us
+-------
+
+`Sundown` is all about security. If you find a (potential) security vulnerability in the
+library, or a way to make it crash through malicious input, please report it to us,
+either directly via email or by opening an Issue on GitHub, and help make the web safer
+for everybody.
+
+Unicode character handling
+--------------------------
+
+Given that the Markdown spec makes no provision for Unicode character handling, `Sundown`
+takes a conservative approach towards deciding which extended characters trigger Markdown
+features:
+
+*	Punctuation characters outside of the U+007F codepoint are not handled as punctuation.
+	They are considered as normal, in-word characters for word-boundary checks.
+
+*	Whitespace characters outside of the U+007F codepoint are not considered as
+	whitespace. They are considered as normal, in-word characters for word-boundary checks.
+
+Install
+-------
