@@ -49,3 +49,25 @@ main(int argc, char **argv)
 	bufgrow(ib, READ_UNIT);
 	while ((ret = fread(ib->data + ib->size, 1, ib->asize - ib->size, in)) > 0) {
 		ib->size += ret;
+		bufgrow(ib, ib->size + READ_UNIT);
+	}
+
+	if (in != stdin)
+		fclose(in);
+
+	/* performing markdown parsing */
+	ob = bufnew(OUTPUT_UNIT);
+
+	sdhtml_smartypants(ob, ib->data, ib->size);
+
+	/* writing the result to stdout */
+	(void)fwrite(ob->data, 1, ob->size, stdout);
+
+	/* cleanup */
+	bufrelease(ib);
+	bufrelease(ob);
+
+	return 0;
+}
+
+/* vim: set filetype=c: */
