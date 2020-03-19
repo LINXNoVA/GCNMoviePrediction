@@ -24,4 +24,8 @@
 #include <string.h>
 
 #define READ_UNIT 1024
-#define OUTPUT_UN
+#define OUTPUT_UNIT 64
+
+/* main • main function, interfacing STDIO with the parser */
+int
+main(int ar
