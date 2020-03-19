@@ -16,4 +16,9 @@
 
 #include "markdown.h"
 #include "html.h"
-#inc
+#include "buffer.h"
+
+#include <errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+#inclu
