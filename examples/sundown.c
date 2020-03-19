@@ -21,4 +21,7 @@
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
-#inclu
+#include <string.h>
+
+#define READ_UNIT 1024
+#define OUTPUT_UN
