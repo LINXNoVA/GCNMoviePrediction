@@ -28,4 +28,10 @@
 
 /* main • main function, interfacing STDIO with the parser */
 int
-main(int ar
+main(int argc, char **argv)
+{
+	struct buf *ib, *ob;
+	int ret;
+	FILE *in = stdin;
+
+	struct
