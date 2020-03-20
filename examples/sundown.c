@@ -34,4 +34,6 @@ main(int argc, char **argv)
 	int ret;
 	FILE *in = stdin;
 
-	struct
+	struct sd_callbacks callbacks;
+	struct html_renderopt options;
+	struct sd_mark
