@@ -36,4 +36,6 @@ main(int argc, char **argv)
 
 	struct sd_callbacks callbacks;
 	struct html_renderopt options;
-	struct sd_mark
+	struct sd_markdown *markdown;
+
+	/* opening the file if given from the command li
