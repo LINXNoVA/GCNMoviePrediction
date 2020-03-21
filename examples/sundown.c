@@ -38,4 +38,8 @@ main(int argc, char **argv)
 	struct html_renderopt options;
 	struct sd_markdown *markdown;
 
-	/* opening the file if given from the command li
+	/* opening the file if given from the command line */
+	if (argc > 1) {
+		in = fopen(argv[1], "r");
+		if (!in) {
+			fprintf(stderr,"Unable t
