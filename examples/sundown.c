@@ -48,4 +48,6 @@ main(int argc, char **argv)
 	}
 
 	/* reading everything */
-	ib = bufnew(READ_UNI
+	ib = bufnew(READ_UNIT);
+	bufgrow(ib, READ_UNIT);
+	while ((ret = fread(ib->dat
