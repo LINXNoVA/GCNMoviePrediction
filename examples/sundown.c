@@ -50,4 +50,6 @@ main(int argc, char **argv)
 	/* reading everything */
 	ib = bufnew(READ_UNIT);
 	bufgrow(ib, READ_UNIT);
-	while ((ret = fread(ib->dat
+	while ((ret = fread(ib->data + ib->size, 1, ib->asize - ib->size, in)) > 0) {
+		ib->size += ret;
+		bufgrow
