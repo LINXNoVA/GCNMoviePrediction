@@ -43,4 +43,9 @@ main(int argc, char **argv)
 		in = fopen(argv[1], "r");
 		if (!in) {
 			fprintf(stderr,"Unable to open input file \"%s\": %s\n", argv[1], strerror(errno));
-		
+			return 1;
+		}
+	}
+
+	/* reading everything */
+	ib = bufnew(READ_UNI
