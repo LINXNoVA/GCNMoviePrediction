@@ -52,4 +52,10 @@ main(int argc, char **argv)
 	bufgrow(ib, READ_UNIT);
 	while ((ret = fread(ib->data + ib->size, 1, ib->asize - ib->size, in)) > 0) {
 		ib->size += ret;
-		bufgrow
+		bufgrow(ib, ib->size + READ_UNIT);
+	}
+
+	if (in != stdin)
+		fclose(in);
+
+	/*
