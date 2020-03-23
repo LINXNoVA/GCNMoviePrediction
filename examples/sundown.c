@@ -61,4 +61,5 @@ main(int argc, char **argv)
 	/* performing markdown parsing */
 	ob = bufnew(OUTPUT_UNIT);
 
-	sdhtml_renderer
+	sdhtml_renderer(&callbacks, &options, 0);
+	markdown = sd_markdown_new(0, 16, &callba
