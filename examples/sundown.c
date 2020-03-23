@@ -62,4 +62,7 @@ main(int argc, char **argv)
 	ob = bufnew(OUTPUT_UNIT);
 
 	sdhtml_renderer(&callbacks, &options, 0);
-	markdown = sd_markdown_new(0, 16, &callba
+	markdown = sd_markdown_new(0, 16, &callbacks, &options);
+
+	sd_markdown_render(ob, ib->data, ib->size, markdown);
+	sd_ma
