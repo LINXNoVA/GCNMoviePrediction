@@ -65,4 +65,7 @@ main(int argc, char **argv)
 	markdown = sd_markdown_new(0, 16, &callbacks, &options);
 
 	sd_markdown_render(ob, ib->data, ib->size, markdown);
-	sd_ma
+	sd_markdown_free(markdown);
+
+	/* writing the result to stdout */
+	ret = fwrite(ob->da
