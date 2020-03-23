@@ -58,4 +58,7 @@ main(int argc, char **argv)
 	if (in != stdin)
 		fclose(in);
 
-	/*
+	/* performing markdown parsing */
+	ob = bufnew(OUTPUT_UNIT);
+
+	sdhtml_renderer
