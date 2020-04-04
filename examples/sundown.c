@@ -68,4 +68,10 @@ main(int argc, char **argv)
 	sd_markdown_free(markdown);
 
 	/* writing the result to stdout */
-	ret = fwrite(ob->da
+	ret = fwrite(ob->data, 1, ob->size, stdout);
+
+	/* cleanup */
+	bufrelease(ib);
+	bufrelease(ob);
+
+	return (re
