@@ -9,4 +9,8 @@
 /**
  * According to the OWASP rules:
  *
- * 
+ * & --> &amp;
+ * < --> &lt;
+ * > --> &gt;
+ * " --> &quot;
+ * ' --> &#x27;     
