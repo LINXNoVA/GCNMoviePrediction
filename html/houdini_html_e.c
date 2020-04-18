@@ -13,4 +13,5 @@
  * < --> &lt;
  * > --> &gt;
  * " --> &quot;
- * ' --> &#x27;     
+ * ' --> &#x27;     &apos; is not recommended
+ * / --> &#x2F;     forward slash is included as it 
