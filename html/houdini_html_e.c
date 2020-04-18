@@ -14,4 +14,7 @@
  * > --> &gt;
  * " --> &quot;
  * ' --> &#x27;     &apos; is not recommended
- * / --> &#x2F;     forward slash is included as it 
+ * / --> &#x2F;     forward slash is included as it helps end an HTML entity
+ *
+ */
+static const char HTML_ESCAPE_TABLE[]
