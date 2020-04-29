@@ -41,4 +41,10 @@ static const char *HTML_ESCAPES[] = {
         "&quot;",
         "&amp;",
         "&#39;",
-      
+        "&#47;",
+        "&lt;",
+        "&gt;"
+};
+
+void
+houdini_escape_html0(struct buf *ob, cons
