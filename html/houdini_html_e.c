@@ -36,4 +36,9 @@ static const char HTML_ESCAPE_TABLE[] = {
 	0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 };
 
-static const char *HTML
+static const char *HTML_ESCAPES[] = {
+        "",
+        "&quot;",
+        "&amp;",
+        "&#39;",
+      
