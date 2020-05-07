@@ -50,3 +50,8 @@ void
 houdini_escape_html0(struct buf *ob, const uint8_t *src, size_t size, int secure)
 {
 	size_t i = 0, org, esc = 0;
+
+	bufgrow(ob, ESCAPE_GROW_FACTOR(size));
+
+	while (i < size) {
+		o
