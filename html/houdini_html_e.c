@@ -58,4 +58,9 @@ houdini_escape_html0(struct buf *ob, const uint8_t *src, size_t size, int secure
 		while (i < size && (esc = HTML_ESCAPE_TABLE[src[i]]) == 0)
 			i++;
 
-		if 
+		if (i > org)
+			bufput(ob, src + org, i - org);
+
+		/* escaping */
+		if (i >= size)
+	
