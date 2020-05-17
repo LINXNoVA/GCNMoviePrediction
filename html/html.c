@@ -143,3 +143,57 @@ rndr_blockcode(struct buf *ob, const struct buf *text, const struct buf *lang, v
 		}
 
 		BUFPUTSL(ob, "\">");
+	} else
+		BUFPUTSL(ob, "<pre><code>");
+
+	if (text)
+		escape_html(ob, text->data, text->size);
+
+	BUFPUTSL(ob, "</code></pre>\n");
+}
+
+static void
+rndr_blockquote(struct buf *ob, const struct buf *text, void *opaque)
+{
+	if (ob->size) bufputc(ob, '\n');
+	BUFPUTSL(ob, "<blockquote>\n");
+	if (text) bufput(ob, text->data, text->size);
+	BUFPUTSL(ob, "</blockquote>\n");
+}
+
+static int
+rndr_codespan(struct buf *ob, const struct buf *text, void *opaque)
+{
+	BUFPUTSL(ob, "<code>");
+	if (text) escape_html(ob, text->data, text->size);
+	BUFPUTSL(ob, "</code>");
+	return 1;
+}
+
+static int
+rndr_strikethrough(struct buf *ob, const struct buf *text, void *opaque)
+{
+	if (!text || !text->size)
+		return 0;
+
+	BUFPUTSL(ob, "<del>");
+	bufput(ob, text->data, text->size);
+	BUFPUTSL(ob, "</del>");
+	return 1;
+}
+
+static int
+rndr_double_emphasis(struct buf *ob, const struct buf *text, void *opaque)
+{
+	if (!text || !text->size)
+		return 0;
+
+	BUFPUTSL(ob, "<strong>");
+	bufput(ob, text->data, text->size);
+	BUFPUTSL(ob, "</strong>");
+
+	return 1;
+}
+
+static int
+rndr_emphasis(struct buf *ob, const struct buf *text, void *opaque)
