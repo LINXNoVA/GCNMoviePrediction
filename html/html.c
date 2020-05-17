@@ -59,3 +59,87 @@ sdhtml_is_tag(const uint8_t *tag_data, size_t tag_size, const char *tagname)
 		return closed ? HTML_TAG_CLOSE : HTML_TAG_OPEN;
 
 	return HTML_TAG_NONE;
+}
+
+static inline void escape_html(struct buf *ob, const uint8_t *source, size_t length)
+{
+	houdini_escape_html0(ob, source, length, 0);
+}
+
+static inline void escape_href(struct buf *ob, const uint8_t *source, size_t length)
+{
+	houdini_escape_href(ob, source, length);
+}
+
+/********************
+ * GENERIC RENDERER *
+ ********************/
+static int
+rndr_autolink(struct buf *ob, const struct buf *link, enum mkd_autolink type, void *opaque)
+{
+	struct html_renderopt *options = opaque;
+
+	if (!link || !link->size)
+		return 0;
+
+	if ((options->flags & HTML_SAFELINK) != 0 &&
+		!sd_autolink_issafe(link->data, link->size) &&
+		type != MKDA_EMAIL)
+		return 0;
+
+	BUFPUTSL(ob, "<a href=\"");
+	if (type == MKDA_EMAIL)
+		BUFPUTSL(ob, "mailto:");
+	escape_href(ob, link->data, link->size);
+
+	if (options->link_attributes) {
+		bufputc(ob, '\"');
+		options->link_attributes(ob, link, opaque);
+		bufputc(ob, '>');
+	} else {
+		BUFPUTSL(ob, "\">");
+	}
+
+	/*
+	 * Pretty printing: if we get an email address as
+	 * an actual URI, e.g. `mailto:foo@bar.com`, we don't
+	 * want to print the `mailto:` prefix
+	 */
+	if (bufprefix(link, "mailto:") == 0) {
+		escape_html(ob, link->data + 7, link->size - 7);
+	} else {
+		escape_html(ob, link->data, link->size);
+	}
+
+	BUFPUTSL(ob, "</a>");
+
+	return 1;
+}
+
+static void
+rndr_blockcode(struct buf *ob, const struct buf *text, const struct buf *lang, void *opaque)
+{
+	if (ob->size) bufputc(ob, '\n');
+
+	if (lang && lang->size) {
+		size_t i, cls;
+		BUFPUTSL(ob, "<pre><code class=\"");
+
+		for (i = 0, cls = 0; i < lang->size; ++i, ++cls) {
+			while (i < lang->size && isspace(lang->data[i]))
+				i++;
+
+			if (i < lang->size) {
+				size_t org = i;
+				while (i < lang->size && !isspace(lang->data[i]))
+					i++;
+
+				if (lang->data[org] == '.')
+					org++;
+
+				if (cls) bufputc(ob, ' ');
+				escape_html(ob, lang->data + org, i - org);
+			}
+		}
+
+		BUFPUTSL(ob, "\">");
