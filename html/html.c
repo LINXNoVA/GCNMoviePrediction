@@ -326,3 +326,82 @@ rndr_paragraph(struct buf *ob, const struct buf *text, void *opaque)
 	}
 	BUFPUTSL(ob, "</p>\n");
 }
+
+static void
+rndr_raw_block(struct buf *ob, const struct buf *text, void *opaque)
+{
+	size_t org, sz;
+	if (!text) return;
+	sz = text->size;
+	while (sz > 0 && text->data[sz - 1] == '\n') sz--;
+	org = 0;
+	while (org < sz && text->data[org] == '\n') org++;
+	if (org >= sz) return;
+	if (ob->size) bufputc(ob, '\n');
+	bufput(ob, text->data + org, sz - org);
+	bufputc(ob, '\n');
+}
+
+static int
+rndr_triple_emphasis(struct buf *ob, const struct buf *text, void *opaque)
+{
+	if (!text || !text->size) return 0;
+	BUFPUTSL(ob, "<strong><em>");
+	bufput(ob, text->data, text->size);
+	BUFPUTSL(ob, "</em></strong>");
+	return 1;
+}
+
+static void
+rndr_hrule(struct buf *ob, void *opaque)
+{
+	struct html_renderopt *options = opaque;
+	if (ob->size) bufputc(ob, '\n');
+	bufputs(ob, USE_XHTML(options) ? "<hr/>\n" : "<hr>\n");
+}
+
+static int
+rndr_image(struct buf *ob, const struct buf *link, const struct buf *title, const struct buf *alt, void *opaque)
+{
+	struct html_renderopt *options = opaque;
+	if (!link || !link->size) return 0;
+
+	BUFPUTSL(ob, "<img src=\"");
+	escape_href(ob, link->data, link->size);
+	BUFPUTSL(ob, "\" alt=\"");
+
+	if (alt && alt->size)
+		escape_html(ob, alt->data, alt->size);
+
+	if (title && title->size) {
+		BUFPUTSL(ob, "\" title=\"");
+		escape_html(ob, title->data, title->size); }
+
+	bufputs(ob, USE_XHTML(options) ? "\"/>" : "\">");
+	return 1;
+}
+
+static int
+rndr_raw_html(struct buf *ob, const struct buf *text, void *opaque)
+{
+	struct html_renderopt *options = opaque;
+
+	/* HTML_ESCAPE overrides SKIP_HTML, SKIP_STYLE, SKIP_LINKS and SKIP_IMAGES
+	* It doens't see if there are any valid tags, just escape all of them. */
+	if((options->flags & HTML_ESCAPE) != 0) {
+		escape_html(ob, text->data, text->size);
+		return 1;
+	}
+
+	if ((options->flags & HTML_SKIP_HTML) != 0)
+		return 1;
+
+	if ((options->flags & HTML_SKIP_STYLE) != 0 &&
+		sdhtml_is_tag(text->data, text->size, "style"))
+		return 1;
+
+	if ((options->flags & HTML_SKIP_LINKS) != 0 &&
+		sdhtml_is_tag(text->data, text->size, "a"))
+		return 1;
+
+	if ((options->flags & HTML_SKIP_IMAGES) != 0 &&
