@@ -260,3 +260,69 @@ rndr_link(struct buf *ob, const struct buf *link, const struct buf *title, const
 	BUFPUTSL(ob, "</a>");
 	return 1;
 }
+
+static void
+rndr_list(struct buf *ob, const struct buf *text, int flags, void *opaque)
+{
+	if (ob->size) bufputc(ob, '\n');
+	bufput(ob, flags & MKD_LIST_ORDERED ? "<ol>\n" : "<ul>\n", 5);
+	if (text) bufput(ob, text->data, text->size);
+	bufput(ob, flags & MKD_LIST_ORDERED ? "</ol>\n" : "</ul>\n", 6);
+}
+
+static void
+rndr_listitem(struct buf *ob, const struct buf *text, int flags, void *opaque)
+{
+	BUFPUTSL(ob, "<li>");
+	if (text) {
+		size_t size = text->size;
+		while (size && text->data[size - 1] == '\n')
+			size--;
+
+		bufput(ob, text->data, size);
+	}
+	BUFPUTSL(ob, "</li>\n");
+}
+
+static void
+rndr_paragraph(struct buf *ob, const struct buf *text, void *opaque)
+{
+	struct html_renderopt *options = opaque;
+	size_t i = 0;
+
+	if (ob->size) bufputc(ob, '\n');
+
+	if (!text || !text->size)
+		return;
+
+	while (i < text->size && isspace(text->data[i])) i++;
+
+	if (i == text->size)
+		return;
+
+	BUFPUTSL(ob, "<p>");
+	if (options->flags & HTML_HARD_WRAP) {
+		size_t org;
+		while (i < text->size) {
+			org = i;
+			while (i < text->size && text->data[i] != '\n')
+				i++;
+
+			if (i > org)
+				bufput(ob, text->data + org, i - org);
+
+			/*
+			 * do not insert a line break if this newline
+			 * is the last character on the paragraph
+			 */
+			if (i >= text->size - 1)
+				break;
+
+			rndr_linebreak(ob, opaque);
+			i++;
+		}
+	} else {
+		bufput(ob, &text->data[i], text->size - i);
+	}
+	BUFPUTSL(ob, "</p>\n");
+}
