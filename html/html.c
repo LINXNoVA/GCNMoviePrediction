@@ -405,3 +405,71 @@ rndr_raw_html(struct buf *ob, const struct buf *text, void *opaque)
 		return 1;
 
 	if ((options->flags & HTML_SKIP_IMAGES) != 0 &&
+		sdhtml_is_tag(text->data, text->size, "img"))
+		return 1;
+
+	bufput(ob, text->data, text->size);
+	return 1;
+}
+
+static void
+rndr_table(struct buf *ob, const struct buf *header, const struct buf *body, void *opaque)
+{
+	if (ob->size) bufputc(ob, '\n');
+	BUFPUTSL(ob, "<table><thead>\n");
+	if (header)
+		bufput(ob, header->data, header->size);
+	BUFPUTSL(ob, "</thead><tbody>\n");
+	if (body)
+		bufput(ob, body->data, body->size);
+	BUFPUTSL(ob, "</tbody></table>\n");
+}
+
+static void
+rndr_tablerow(struct buf *ob, const struct buf *text, void *opaque)
+{
+	BUFPUTSL(ob, "<tr>\n");
+	if (text)
+		bufput(ob, text->data, text->size);
+	BUFPUTSL(ob, "</tr>\n");
+}
+
+static void
+rndr_tablecell(struct buf *ob, const struct buf *text, int flags, void *opaque)
+{
+	if (flags & MKD_TABLE_HEADER) {
+		BUFPUTSL(ob, "<th");
+	} else {
+		BUFPUTSL(ob, "<td");
+	}
+
+	switch (flags & MKD_TABLE_ALIGNMASK) {
+	case MKD_TABLE_ALIGN_CENTER:
+		BUFPUTSL(ob, " align=\"center\">");
+		break;
+
+	case MKD_TABLE_ALIGN_L:
+		BUFPUTSL(ob, " align=\"left\">");
+		break;
+
+	case MKD_TABLE_ALIGN_R:
+		BUFPUTSL(ob, " align=\"right\">");
+		break;
+
+	default:
+		BUFPUTSL(ob, ">");
+	}
+
+	if (text)
+		bufput(ob, text->data, text->size);
+
+	if (flags & MKD_TABLE_HEADER) {
+		BUFPUTSL(ob, "</th>\n");
+	} else {
+		BUFPUTSL(ob, "</td>\n");
+	}
+}
+
+static int
+rndr_superscript(struct buf *ob, const struct buf *text, void *opaque)
+{
