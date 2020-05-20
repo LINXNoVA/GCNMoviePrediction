@@ -473,3 +473,103 @@ rndr_tablecell(struct buf *ob, const struct buf *text, int flags, void *opaque)
 static int
 rndr_superscript(struct buf *ob, const struct buf *text, void *opaque)
 {
+	if (!text || !text->size) return 0;
+	BUFPUTSL(ob, "<sup>");
+	bufput(ob, text->data, text->size);
+	BUFPUTSL(ob, "</sup>");
+	return 1;
+}
+
+static void
+rndr_normal_text(struct buf *ob, const struct buf *text, void *opaque)
+{
+	if (text)
+		escape_html(ob, text->data, text->size);
+}
+
+static void
+toc_header(struct buf *ob, const struct buf *text, int level, void *opaque)
+{
+	struct html_renderopt *options = opaque;
+
+	/* set the level offset if this is the first header
+	 * we're parsing for the document */
+	if (options->toc_data.current_level == 0) {
+		options->toc_data.level_offset = level - 1;
+	}
+	level -= options->toc_data.level_offset;
+
+	if (level > options->toc_data.current_level) {
+		while (level > options->toc_data.current_level) {
+			BUFPUTSL(ob, "<ul>\n<li>\n");
+			options->toc_data.current_level++;
+		}
+	} else if (level < options->toc_data.current_level) {
+		BUFPUTSL(ob, "</li>\n");
+		while (level < options->toc_data.current_level) {
+			BUFPUTSL(ob, "</ul>\n</li>\n");
+			options->toc_data.current_level--;
+		}
+		BUFPUTSL(ob,"<li>\n");
+	} else {
+		BUFPUTSL(ob,"</li>\n<li>\n");
+	}
+
+	bufprintf(ob, "<a href=\"#toc_%d\">", options->toc_data.header_count++);
+	if (text)
+		escape_html(ob, text->data, text->size);
+	BUFPUTSL(ob, "</a>\n");
+}
+
+static int
+toc_link(struct buf *ob, const struct buf *link, const struct buf *title, const struct buf *content, void *opaque)
+{
+	if (content && content->size)
+		bufput(ob, content->data, content->size);
+	return 1;
+}
+
+static void
+toc_finalize(struct buf *ob, void *opaque)
+{
+	struct html_renderopt *options = opaque;
+
+	while (options->toc_data.current_level > 0) {
+		BUFPUTSL(ob, "</li>\n</ul>\n");
+		options->toc_data.current_level--;
+	}
+}
+
+void
+sdhtml_toc_renderer(struct sd_callbacks *callbacks, struct html_renderopt *options)
+{
+	static const struct sd_callbacks cb_default = {
+		NULL,
+		NULL,
+		NULL,
+		toc_header,
+		NULL,
+		NULL,
+		NULL,
+		NULL,
+		NULL,
+		NULL,
+		NULL,
+
+		NULL,
+		rndr_codespan,
+		rndr_double_emphasis,
+		rndr_emphasis,
+		NULL,
+		NULL,
+		toc_link,
+		NULL,
+		rndr_triple_emphasis,
+		rndr_strikethrough,
+		rndr_superscript,
+
+		NULL,
+		NULL,
+
+		NULL,
+		toc_finalize,
