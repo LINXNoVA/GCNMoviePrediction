@@ -18,4 +18,9 @@
 #define UPSKIRT_HTML_H
 
 #include "markdown.h"
-#in
+#include "buffer.h"
+#include <stdlib.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
