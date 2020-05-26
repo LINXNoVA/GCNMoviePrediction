@@ -24,3 +24,9 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+struct html_renderopt {
+	struct {
+		int header_count;
+		int current_level;
+		int level
