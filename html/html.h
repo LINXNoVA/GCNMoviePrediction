@@ -29,4 +29,10 @@ struct html_renderopt {
 	struct {
 		int header_count;
 		int current_level;
-		int level
+		int level_offset;
+	} toc_data;
+
+	unsigned int flags;
+
+	/* extra callbacks */
+	void (*link
