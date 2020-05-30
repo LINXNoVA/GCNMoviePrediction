@@ -35,4 +35,4 @@ struct html_renderopt {
 	unsigned int flags;
 
 	/* extra callbacks */
-	void (*link
+	void (*link_attributes)(struct buf *ob, const struct buf *url, void *self)
