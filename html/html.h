@@ -40,4 +40,6 @@ struct html_renderopt {
 
 typedef enum {
 	HTML_SKIP_HTML = (1 << 0),
-	HTML_SKIP_STYLE =
+	HTML_SKIP_STYLE = (1 << 1),
+	HTML_SKIP_IMAGES = (1 << 2),
+	HTML_SKIP_LINKS = (1 << 3),
