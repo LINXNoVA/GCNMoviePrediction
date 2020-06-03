@@ -45,4 +45,7 @@ typedef enum {
 	HTML_SKIP_LINKS = (1 << 3),
 	HTML_EXPAND_TABS = (1 << 4),
 	HTML_SAFELINK = (1 << 5),
-	HTML_TOC =
+	HTML_TOC = (1 << 6),
+	HTML_HARD_WRAP = (1 << 7),
+	HTML_USE_XHTML = (1 << 8),
+	HTML_ESC
