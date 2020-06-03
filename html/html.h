@@ -43,3 +43,6 @@ typedef enum {
 	HTML_SKIP_STYLE = (1 << 1),
 	HTML_SKIP_IMAGES = (1 << 2),
 	HTML_SKIP_LINKS = (1 << 3),
+	HTML_EXPAND_TABS = (1 << 4),
+	HTML_SAFELINK = (1 << 5),
+	HTML_TOC =
