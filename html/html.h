@@ -53,4 +53,9 @@ typedef enum {
 
 typedef enum {
 	HTML_TAG_NONE = 0,
-	HTM
+	HTML_TAG_OPEN,
+	HTML_TAG_CLOSE,
+} html_tag;
+
+int
+sdhtml_is_tag(const uin
