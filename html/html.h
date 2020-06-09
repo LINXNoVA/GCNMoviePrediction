@@ -58,4 +58,7 @@ typedef enum {
 } html_tag;
 
 int
-sdhtml_is_tag(const uin
+sdhtml_is_tag(const uint8_t *tag_data, size_t tag_size, const char *tagname);
+
+extern void
+s
