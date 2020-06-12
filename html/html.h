@@ -64,4 +64,4 @@ extern void
 sdhtml_renderer(struct sd_callbacks *callbacks, struct html_renderopt *options_ptr, unsigned int render_flags);
 
 extern void
-sdhtml_toc_rend
+sdhtml_toc_renderer(struct sd_callbacks *callbacks, struct html_renderopt *options_
