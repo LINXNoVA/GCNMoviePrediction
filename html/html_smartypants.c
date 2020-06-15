@@ -159,3 +159,78 @@ smartypants_cb__parens(struct buf *ob, struct smartypants_data *smrt, uint8_t pr
 			BUFPUTSL(ob, "&trade;");
 			return 3;
 		}
+	}
+
+	bufputc(ob, text[0]);
+	return 0;
+}
+
+static size_t
+smartypants_cb__dash(struct buf *ob, struct smartypants_data *smrt, uint8_t previous_char, const uint8_t *text, size_t size)
+{
+	if (size >= 3 && text[1] == '-' && text[2] == '-') {
+		BUFPUTSL(ob, "&mdash;");
+		return 2;
+	}
+
+	if (size >= 2 && text[1] == '-') {
+		BUFPUTSL(ob, "&ndash;");
+		return 1;
+	}
+
+	bufputc(ob, text[0]);
+	return 0;
+}
+
+static size_t
+smartypants_cb__amp(struct buf *ob, struct smartypants_data *smrt, uint8_t previous_char, const uint8_t *text, size_t size)
+{
+	if (size >= 6 && memcmp(text, "&quot;", 6) == 0) {
+		if (smartypants_quotes(ob, previous_char, size >= 7 ? text[6] : 0, 'd', &smrt->in_dquote))
+			return 5;
+	}
+
+	if (size >= 4 && memcmp(text, "&#0;", 4) == 0)
+		return 3;
+
+	bufputc(ob, '&');
+	return 0;
+}
+
+static size_t
+smartypants_cb__period(struct buf *ob, struct smartypants_data *smrt, uint8_t previous_char, const uint8_t *text, size_t size)
+{
+	if (size >= 3 && text[1] == '.' && text[2] == '.') {
+		BUFPUTSL(ob, "&hellip;");
+		return 2;
+	}
+
+	if (size >= 5 && text[1] == ' ' && text[2] == '.' && text[3] == ' ' && text[4] == '.') {
+		BUFPUTSL(ob, "&hellip;");
+		return 4;
+	}
+
+	bufputc(ob, text[0]);
+	return 0;
+}
+
+static size_t
+smartypants_cb__backtick(struct buf *ob, struct smartypants_data *smrt, uint8_t previous_char, const uint8_t *text, size_t size)
+{
+	if (size >= 2 && text[1] == '`') {
+		if (smartypants_quotes(ob, previous_char, size >= 3 ? text[2] : 0, 'd', &smrt->in_dquote))
+			return 1;
+	}
+
+	return 0;
+}
+
+static size_t
+smartypants_cb__number(struct buf *ob, struct smartypants_data *smrt, uint8_t previous_char, const uint8_t *text, size_t size)
+{
+	if (word_boundary(previous_char) && size >= 3) {
+		if (text[0] == '1' && text[1] == '/' && text[2] == '2') {
+			if (size == 3 || word_boundary(text[3])) {
+				BUFPUTSL(ob, "&frac12;");
+				return 2;
+			}
