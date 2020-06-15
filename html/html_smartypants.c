@@ -100,3 +100,62 @@ smartypants_quotes(struct buf *ob, uint8_t previous_char, uint8_t next_char, uin
 	bufputs(ob, ent);
 	return 1;
 }
+
+static size_t
+smartypants_cb__squote(struct buf *ob, struct smartypants_data *smrt, uint8_t previous_char, const uint8_t *text, size_t size)
+{
+	if (size >= 2) {
+		uint8_t t1 = tolower(text[1]);
+
+		if (t1 == '\'') {
+			if (smartypants_quotes(ob, previous_char, size >= 3 ? text[2] : 0, 'd', &smrt->in_dquote))
+				return 1;
+		}
+
+		if ((t1 == 's' || t1 == 't' || t1 == 'm' || t1 == 'd') &&
+			(size == 3 || word_boundary(text[2]))) {
+			BUFPUTSL(ob, "&rsquo;");
+			return 0;
+		}
+
+		if (size >= 3) {
+			uint8_t t2 = tolower(text[2]);
+
+			if (((t1 == 'r' && t2 == 'e') ||
+				(t1 == 'l' && t2 == 'l') ||
+				(t1 == 'v' && t2 == 'e')) &&
+				(size == 4 || word_boundary(text[3]))) {
+				BUFPUTSL(ob, "&rsquo;");
+				return 0;
+			}
+		}
+	}
+
+	if (smartypants_quotes(ob, previous_char, size > 0 ? text[1] : 0, 's', &smrt->in_squote))
+		return 0;
+
+	bufputc(ob, text[0]);
+	return 0;
+}
+
+static size_t
+smartypants_cb__parens(struct buf *ob, struct smartypants_data *smrt, uint8_t previous_char, const uint8_t *text, size_t size)
+{
+	if (size >= 3) {
+		uint8_t t1 = tolower(text[1]);
+		uint8_t t2 = tolower(text[2]);
+
+		if (t1 == 'c' && t2 == ')') {
+			BUFPUTSL(ob, "&copy;");
+			return 2;
+		}
+
+		if (t1 == 'r' && t2 == ')') {
+			BUFPUTSL(ob, "&reg;");
+			return 2;
+		}
+
+		if (size >= 4 && t1 == 't' && t2 == 'm' && text[3] == ')') {
+			BUFPUTSL(ob, "&trade;");
+			return 3;
+		}
