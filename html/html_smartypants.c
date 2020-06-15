@@ -234,3 +234,70 @@ smartypants_cb__number(struct buf *ob, struct smartypants_data *smrt, uint8_t pr
 				BUFPUTSL(ob, "&frac12;");
 				return 2;
 			}
+		}
+
+		if (text[0] == '1' && text[1] == '/' && text[2] == '4') {
+			if (size == 3 || word_boundary(text[3]) ||
+				(size >= 5 && tolower(text[3]) == 't' && tolower(text[4]) == 'h')) {
+				BUFPUTSL(ob, "&frac14;");
+				return 2;
+			}
+		}
+
+		if (text[0] == '3' && text[1] == '/' && text[2] == '4') {
+			if (size == 3 || word_boundary(text[3]) ||
+				(size >= 6 && tolower(text[3]) == 't' && tolower(text[4]) == 'h' && tolower(text[5]) == 's')) {
+				BUFPUTSL(ob, "&frac34;");
+				return 2;
+			}
+		}
+	}
+
+	bufputc(ob, text[0]);
+	return 0;
+}
+
+static size_t
+smartypants_cb__dquote(struct buf *ob, struct smartypants_data *smrt, uint8_t previous_char, const uint8_t *text, size_t size)
+{
+	if (!smartypants_quotes(ob, previous_char, size > 0 ? text[1] : 0, 'd', &smrt->in_dquote))
+		BUFPUTSL(ob, "&quot;");
+
+	return 0;
+}
+
+static size_t
+smartypants_cb__ltag(struct buf *ob, struct smartypants_data *smrt, uint8_t previous_char, const uint8_t *text, size_t size)
+{
+	static const char *skip_tags[] = {
+	  "pre", "code", "var", "samp", "kbd", "math", "script", "style"
+	};
+	static const size_t skip_tags_count = 8;
+
+	size_t tag, i = 0;
+
+	while (i < size && text[i] != '>')
+		i++;
+
+	for (tag = 0; tag < skip_tags_count; ++tag) {
+		if (sdhtml_is_tag(text, size, skip_tags[tag]) == HTML_TAG_OPEN)
+			break;
+	}
+
+	if (tag < skip_tags_count) {
+		for (;;) {
+			while (i < size && text[i] != '<')
+				i++;
+
+			if (i == size)
+				break;
+
+			if (sdhtml_is_tag(text + i, size - i, skip_tags[tag]) == HTML_TAG_CLOSE)
+				break;
+
+			i++;
+		}
+
+		while (i < size && text[i] != '>')
+			i++;
+	}
