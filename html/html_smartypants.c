@@ -301,3 +301,74 @@ smartypants_cb__ltag(struct buf *ob, struct smartypants_data *smrt, uint8_t prev
 		while (i < size && text[i] != '>')
 			i++;
 	}
+
+	bufput(ob, text, i + 1);
+	return i;
+}
+
+static size_t
+smartypants_cb__escape(struct buf *ob, struct smartypants_data *smrt, uint8_t previous_char, const uint8_t *text, size_t size)
+{
+	if (size < 2)
+		return 0;
+
+	switch (text[1]) {
+	case '\\':
+	case '"':
+	case '\'':
+	case '.':
+	case '-':
+	case '`':
+		bufputc(ob, text[1]);
+		return 1;
+
+	default:
+		bufputc(ob, '\\');
+		return 0;
+	}
+}
+
+#if 0
+static struct {
+    uint8_t c0;
+    const uint8_t *pattern;
+    const uint8_t *entity;
+    int skip;
+} smartypants_subs[] = {
+    { '\'', "'s>",      "&rsquo;",  0 },
+    { '\'', "'t>",      "&rsquo;",  0 },
+    { '\'', "'re>",     "&rsquo;",  0 },
+    { '\'', "'ll>",     "&rsquo;",  0 },
+    { '\'', "'ve>",     "&rsquo;",  0 },
+    { '\'', "'m>",      "&rsquo;",  0 },
+    { '\'', "'d>",      "&rsquo;",  0 },
+    { '-',  "--",       "&mdash;",  1 },
+    { '-',  "<->",      "&ndash;",  0 },
+    { '.',  "...",      "&hellip;", 2 },
+    { '.',  ". . .",    "&hellip;", 4 },
+    { '(',  "(c)",      "&copy;",   2 },
+    { '(',  "(r)",      "&reg;",    2 },
+    { '(',  "(tm)",     "&trade;",  3 },
+    { '3',  "<3/4>",    "&frac34;", 2 },
+    { '3',  "<3/4ths>", "&frac34;", 2 },
+    { '1',  "<1/2>",    "&frac12;", 2 },
+    { '1',  "<1/4>",    "&frac14;", 2 },
+    { '1',  "<1/4th>",  "&frac14;", 2 },
+    { '&',  "&#0;",      0,       3 },
+};
+#endif
+
+void
+sdhtml_smartypants(struct buf *ob, const uint8_t *text, size_t size)
+{
+	size_t i;
+	struct smartypants_data smrt = {0, 0};
+
+	if (!text)
+		return;
+
+	bufgrow(ob, size);
+
+	for (i = 0; i < size; ++i) {
+		size_t org;
+		uint8_t action = 0;
