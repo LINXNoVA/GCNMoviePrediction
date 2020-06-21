@@ -372,3 +372,18 @@ sdhtml_smartypants(struct buf *ob, const uint8_t *text, size_t size)
 	for (i = 0; i < size; ++i) {
 		size_t org;
 		uint8_t action = 0;
+
+		org = i;
+		while (i < size && (action = smartypants_cb_chars[text[i]]) == 0)
+			i++;
+
+		if (i > org)
+			bufput(ob, text + org, i - org);
+
+		if (i < size) {
+			i += smartypants_cb_ptrs[(int)action]
+				(ob, &smrt, i ? text[i - 1] : 0, text + i, size - i);
+		}
+	}
+}
+
