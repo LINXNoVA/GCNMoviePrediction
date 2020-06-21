@@ -16,4 +16,10 @@ pre
 form
 math
 table
-figu
+figure
+iframe
+script
+style
+fieldset
+noscript
+blockquote
