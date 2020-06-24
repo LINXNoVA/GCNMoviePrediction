@@ -100,3 +100,70 @@ autolink_delim(uint8_t *data, size_t link_end, size_t max_rewind, size_t size)
 		/* Try to close the final punctuation sign in this same line;
 		 * if we managed to close it outside of the URL, that means that it's
 		 * not part of the URL. If it closes inside the URL, that means it
+		 * is part of the URL.
+		 *
+		 * Examples:
+		 *
+		 *	foo http://www.pokemon.com/Pikachu_(Electric) bar
+		 *		=> http://www.pokemon.com/Pikachu_(Electric)
+		 *
+		 *	foo (http://www.pokemon.com/Pikachu_(Electric)) bar
+		 *		=> http://www.pokemon.com/Pikachu_(Electric)
+		 *
+		 *	foo http://www.pokemon.com/Pikachu_(Electric)) bar
+		 *		=> http://www.pokemon.com/Pikachu_(Electric))
+		 *
+		 *	(foo http://www.pokemon.com/Pikachu_(Electric)) bar
+		 *		=> foo http://www.pokemon.com/Pikachu_(Electric)
+		 */
+
+		while (i < link_end) {
+			if (data[i] == copen)
+				opening++;
+			else if (data[i] == cclose)
+				closing++;
+
+			i++;
+		}
+
+		if (closing != opening)
+			link_end--;
+	}
+
+	return link_end;
+}
+
+static size_t
+check_domain(uint8_t *data, size_t size, int allow_short)
+{
+	size_t i, np = 0;
+
+	if (!isalnum(data[0]))
+		return 0;
+
+	for (i = 1; i < size - 1; ++i) {
+		if (data[i] == '.') np++;
+		else if (!isalnum(data[i]) && data[i] != '-') break;
+	}
+
+	if (allow_short) {
+		/* We don't need a valid domain in the strict sense (with
+		 * least one dot; so just make sure it's composed of valid
+		 * domain characters and return the length of the the valid
+		 * sequence. */
+		return i;
+	} else {
+		/* a valid domain needs to have at least a dot.
+		 * that's as far as we get */
+		return np ? i : 0;
+	}
+}
+
+size_t
+sd_autolink__www(
+	size_t *rewind_p,
+	struct buf *link,
+	uint8_t *data,
+	size_t max_rewind,
+	size_t size,
+	unsigned int flags)
