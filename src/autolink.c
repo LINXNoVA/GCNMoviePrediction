@@ -167,3 +167,71 @@ sd_autolink__www(
 	size_t max_rewind,
 	size_t size,
 	unsigned int flags)
+{
+	size_t link_end;
+
+	if (max_rewind > 0 && !ispunct(data[-1]) && !isspace(data[-1]))
+		return 0;
+
+	if (size < 4 || memcmp(data, "www.", strlen("www.")) != 0)
+		return 0;
+
+	link_end = check_domain(data, size, 0);
+
+	if (link_end == 0)
+		return 0;
+
+	while (link_end < size && !isspace(data[link_end]))
+		link_end++;
+
+	link_end = autolink_delim(data, link_end, max_rewind, size);
+
+	if (link_end == 0)
+		return 0;
+
+	bufput(link, data, link_end);
+	*rewind_p = 0;
+
+	return (int)link_end;
+}
+
+size_t
+sd_autolink__email(
+	size_t *rewind_p,
+	struct buf *link,
+	uint8_t *data,
+	size_t max_rewind,
+	size_t size,
+	unsigned int flags)
+{
+	size_t link_end, rewind;
+	int nb = 0, np = 0;
+
+	for (rewind = 0; rewind < max_rewind; ++rewind) {
+		uint8_t c = data[-rewind - 1];
+
+		if (isalnum(c))
+			continue;
+
+		if (strchr(".+-_", c) != NULL)
+			continue;
+
+		break;
+	}
+
+	if (rewind == 0)
+		return 0;
+
+	for (link_end = 0; link_end < size; ++link_end) {
+		uint8_t c = data[link_end];
+
+		if (isalnum(c))
+			continue;
+
+		if (c == '@')
+			nb++;
+		else if (c == '.' && link_end < size - 1)
+			np++;
+		else if (c != '-' && c != '_')
+			break;
+	}
