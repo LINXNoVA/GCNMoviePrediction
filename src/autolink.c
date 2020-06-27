@@ -235,3 +235,63 @@ sd_autolink__email(
 		else if (c != '-' && c != '_')
 			break;
 	}
+
+	if (link_end < 2 || nb != 1 || np == 0 ||
+		!isalpha(data[link_end - 1]))
+		return 0;
+
+	link_end = autolink_delim(data, link_end, max_rewind, size);
+
+	if (link_end == 0)
+		return 0;
+
+	bufput(link, data - rewind, link_end + rewind);
+	*rewind_p = rewind;
+
+	return link_end;
+}
+
+size_t
+sd_autolink__url(
+	size_t *rewind_p,
+	struct buf *link,
+	uint8_t *data,
+	size_t max_rewind,
+	size_t size,
+	unsigned int flags)
+{
+	size_t link_end, rewind = 0, domain_len;
+
+	if (size < 4 || data[1] != '/' || data[2] != '/')
+		return 0;
+
+	while (rewind < max_rewind && isalpha(data[-rewind - 1]))
+		rewind++;
+
+	if (!sd_autolink_issafe(data - rewind, size + rewind))
+		return 0;
+
+	link_end = strlen("://");
+
+	domain_len = check_domain(
+		data + link_end,
+		size - link_end,
+		flags & SD_AUTOLINK_SHORT_DOMAINS);
+
+	if (domain_len == 0)
+		return 0;
+
+	link_end += domain_len;
+	while (link_end < size && !isspace(data[link_end]))
+		link_end++;
+
+	link_end = autolink_delim(data, link_end, max_rewind, size);
+
+	if (link_end == 0)
+		return 0;
+
+	bufput(link, data - rewind, link_end + rewind);
+	*rewind_p = rewind;
+
+	return link_end;
+}
