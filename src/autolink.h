@@ -15,4 +15,10 @@
  */
 
 #ifndef UPSKIRT_AUTOLINK_H
-#define UP
+#define UPSKIRT_AUTOLINK_H
+
+#include "buffer.h"
+
+#ifdef __cplusplus
+extern "C" {
+#
