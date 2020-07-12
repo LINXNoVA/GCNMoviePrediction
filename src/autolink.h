@@ -21,4 +21,11 @@
 
 #ifdef __cplusplus
 extern "C" {
-#
+#endif
+
+enum {
+	SD_AUTOLINK_SHORT_DOMAINS = (1 << 0),
+};
+
+int
+sd_autolink_
