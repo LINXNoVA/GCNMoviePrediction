@@ -28,4 +28,7 @@ enum {
 };
 
 int
-sd_autolink_
+sd_autolink_issafe(const uint8_t *link, size_t link_len);
+
+size_t
+sd_autolink__www(size_t *
