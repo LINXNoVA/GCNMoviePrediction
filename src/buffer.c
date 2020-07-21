@@ -81,3 +81,85 @@ bufgrow(struct buf *buf, size_t neosz)
 /* bufnew: allocation of a new buffer */
 struct buf *
 bufnew(size_t unit)
+{
+	struct buf *ret;
+	ret = malloc(sizeof (struct buf));
+
+	if (ret) {
+		ret->data = 0;
+		ret->size = ret->asize = 0;
+		ret->unit = unit;
+	}
+	return ret;
+}
+
+/* bufnullterm: NULL-termination of the string array */
+const char *
+bufcstr(struct buf *buf)
+{
+	assert(buf && buf->unit);
+
+	if (buf->size < buf->asize && buf->data[buf->size] == 0)
+		return (char *)buf->data;
+
+	if (buf->size + 1 <= buf->asize || bufgrow(buf, buf->size + 1) == 0) {
+		buf->data[buf->size] = 0;
+		return (char *)buf->data;
+	}
+
+	return NULL;
+}
+
+/* bufprintf: formatted printing to a buffer */
+void
+bufprintf(struct buf *buf, const char *fmt, ...)
+{
+	va_list ap;
+	int n;
+
+	assert(buf && buf->unit);
+
+	if (buf->size >= buf->asize && bufgrow(buf, buf->size + 1) < 0)
+		return;
+	
+	va_start(ap, fmt);
+	n = _buf_vsnprintf((char *)buf->data + buf->size, buf->asize - buf->size, fmt, ap);
+	va_end(ap);
+
+	if (n < 0) {
+#ifdef _MSC_VER
+		va_start(ap, fmt);
+		n = _vscprintf(fmt, ap);
+		va_end(ap);
+#else
+		return;
+#endif
+	}
+
+	if ((size_t)n >= buf->asize - buf->size) {
+		if (bufgrow(buf, buf->size + n + 1) < 0)
+			return;
+
+		va_start(ap, fmt);
+		n = _buf_vsnprintf((char *)buf->data + buf->size, buf->asize - buf->size, fmt, ap);
+		va_end(ap);
+	}
+
+	if (n < 0)
+		return;
+
+	buf->size += n;
+}
+
+/* bufput: appends raw data to a buffer */
+void
+bufput(struct buf *buf, const void *data, size_t len)
+{
+	assert(buf && buf->unit);
+
+	if (buf->size + len > buf->asize && bufgrow(buf, buf->size + len) < 0)
+		return;
+
+	memcpy(buf->data + buf->size, data, len);
+	buf->size += len;
+}
