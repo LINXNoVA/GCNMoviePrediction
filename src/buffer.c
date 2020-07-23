@@ -163,3 +163,63 @@ bufput(struct buf *buf, const void *data, size_t len)
 	memcpy(buf->data + buf->size, data, len);
 	buf->size += len;
 }
+
+/* bufputs: appends a NUL-terminated string to a buffer */
+void
+bufputs(struct buf *buf, const char *str)
+{
+	bufput(buf, str, strlen(str));
+}
+
+
+/* bufputc: appends a single uint8_t to a buffer */
+void
+bufputc(struct buf *buf, int c)
+{
+	assert(buf && buf->unit);
+
+	if (buf->size + 1 > buf->asize && bufgrow(buf, buf->size + 1) < 0)
+		return;
+
+	buf->data[buf->size] = c;
+	buf->size += 1;
+}
+
+/* bufrelease: decrease the reference count and free the buffer if needed */
+void
+bufrelease(struct buf *buf)
+{
+	if (!buf)
+		return;
+
+	free(buf->data);
+	free(buf);
+}
+
+
+/* bufreset: frees internal data of the buffer */
+void
+bufreset(struct buf *buf)
+{
+	if (!buf)
+		return;
+
+	free(buf->data);
+	buf->data = NULL;
+	buf->size = buf->asize = 0;
+}
+
+/* bufslurp: removes a given number of bytes from the head of the array */
+void
+bufslurp(struct buf *buf, size_t len)
+{
+	assert(buf && buf->unit);
+
+	if (len >= buf->size) {
+		buf->size = 0;
+		return;
+	}
+
+	buf->size -= len;
+	memmove(buf->data, buf->data + len, buf->size);
+}
