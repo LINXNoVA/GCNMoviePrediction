@@ -29,4 +29,7 @@
 error "gperf generated tables don't work with this execution character set. Please report a bug to <bug-gnu-gperf@gnu.org>."
 #endif
 
-/* 
+/* maximum key range = 37, duplicates = 0 */
+
+#ifndef GPERF_DOWNCASE
+#define G
