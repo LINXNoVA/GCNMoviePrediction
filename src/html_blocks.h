@@ -35,4 +35,5 @@ error "gperf generated tables don't work with this execution character set. Plea
 #define GPERF_DOWNCASE 1
 static unsigned char gperf_downcase[256] =
   {
-      0, 
+      0,   1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  12,  13,  14,
+     15,  
