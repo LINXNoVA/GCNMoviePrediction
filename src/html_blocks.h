@@ -32,4 +32,7 @@ error "gperf generated tables don't work with this execution character set. Plea
 /* maximum key range = 37, duplicates = 0 */
 
 #ifndef GPERF_DOWNCASE
-#define G
+#define GPERF_DOWNCASE 1
+static unsigned char gperf_downcase[256] =
+  {
+      0, 
