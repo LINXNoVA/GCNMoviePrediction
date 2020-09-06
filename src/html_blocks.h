@@ -61,3 +61,7 @@ static unsigned char gperf_downcase[256] =
 static int
 gperf_case_strncmp (s1, s2, n)
      register const char *s1;
+     register const char *s2;
+     register unsigned int n;
+{
+  for (; n > 
