@@ -64,4 +64,6 @@ gperf_case_strncmp (s1, s2, n)
      register const char *s2;
      register unsigned int n;
 {
-  for (; n > 
+  for (; n > 0;)
+    {
+      unsigned char c1 = gperf_downcase[(unsigned cha
