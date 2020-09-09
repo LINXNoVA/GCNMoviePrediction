@@ -66,4 +66,5 @@ gperf_case_strncmp (s1, s2, n)
 {
   for (; n > 0;)
     {
-      unsigned char c1 = gperf_downcase[(unsigned cha
+      unsigned char c1 = gperf_downcase[(unsigned char)*s1++];
+      unsigned char c2 = gperf_downcase[(unsigned char)*s2++]
