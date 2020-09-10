@@ -71,4 +71,8 @@ gperf_case_strncmp (s1, s2, n)
       if (c1 != 0 && c1 == c2)
         {
           n--;
-          cont
+          continue;
+        }
+      return (int)c1 - (int)c2;
+    }
+  r
