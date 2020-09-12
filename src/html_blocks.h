@@ -83,4 +83,9 @@ gperf_case_strncmp (s1, s2, n)
 __inline
 #else
 #ifdef __cplusplus
-inli
+inline
+#endif
+#endif
+static unsigned int
+hash_block_tag (str, len)
+ 
