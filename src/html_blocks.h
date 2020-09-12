@@ -75,4 +75,12 @@ gperf_case_strncmp (s1, s2, n)
         }
       return (int)c1 - (int)c2;
     }
-  r
+  return 0;
+}
+#endif
+
+#ifdef __GNUC__
+__inline
+#else
+#ifdef __cplusplus
+inli
