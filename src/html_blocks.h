@@ -88,4 +88,7 @@ inline
 #endif
 static unsigned int
 hash_block_tag (str, len)
- 
+     register const char *str;
+     register unsigned int len;
+{
+  static const unsigne
