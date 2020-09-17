@@ -91,4 +91,6 @@ hash_block_tag (str, len)
      register const char *str;
      register unsigned int len;
 {
-  static const unsigne
+  static const unsigned char asso_values[] =
+    {
+      38, 38, 38, 38, 38, 38, 38, 38, 38, 38,
