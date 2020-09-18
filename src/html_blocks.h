@@ -94,3 +94,5 @@ hash_block_tag (str, len)
   static const unsigned char asso_values[] =
     {
       38, 38, 38, 38, 38, 38, 38, 38, 38, 38,
+      38, 38, 38, 38, 38, 38, 38, 38, 38, 38,
+      38, 38, 38, 38, 
