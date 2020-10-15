@@ -122,4 +122,7 @@ hash_block_tag (str, len)
     };
   register int hval = len;
 
-  switch
+  switch (hval)
+    {
+      default:
+        hval += asso_values[(unsigne
