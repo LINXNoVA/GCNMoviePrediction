@@ -125,4 +125,7 @@ hash_block_tag (str, len)
   switch (hval)
     {
       default:
-        hval += asso_values[(unsigne
+        hval += asso_values[(unsigned char)str[1]+1];
+      /*FALLTHROUGH*/
+      case 1:
+        h
