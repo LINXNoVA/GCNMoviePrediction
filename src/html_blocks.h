@@ -128,4 +128,7 @@ hash_block_tag (str, len)
         hval += asso_values[(unsigned char)str[1]+1];
       /*FALLTHROUGH*/
       case 1:
-        h
+        hval += asso_values[(unsigned char)str[0]];
+        break;
+    }
+  return hv
