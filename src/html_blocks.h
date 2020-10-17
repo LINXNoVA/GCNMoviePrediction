@@ -131,4 +131,10 @@ hash_block_tag (str, len)
         hval += asso_values[(unsigned char)str[0]];
         break;
     }
-  return hv
+  return hval;
+}
+
+#ifdef __GNUC__
+__inline
+#ifdef __GNUC_STDC_INLINE__
+__attribute__ (
