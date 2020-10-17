@@ -137,4 +137,9 @@ hash_block_tag (str, len)
 #ifdef __GNUC__
 __inline
 #ifdef __GNUC_STDC_INLINE__
-__attribute__ (
+__attribute__ ((__gnu_inline__))
+#endif
+#endif
+const char *
+find_block_tag (str, len)
+  
