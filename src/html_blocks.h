@@ -147,4 +147,6 @@ find_block_tag (str, len)
 {
   enum
     {
-      TOTAL_
+      TOTAL_KEYWORDS = 24,
+      MIN_WORD_LENGTH = 1,
+      MAX_WORD_LENGTH = 10
