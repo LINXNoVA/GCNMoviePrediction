@@ -142,4 +142,9 @@ __attribute__ ((__gnu_inline__))
 #endif
 const char *
 find_block_tag (str, len)
-  
+     register const char *str;
+     register unsigned int len;
+{
+  enum
+    {
+      TOTAL_
