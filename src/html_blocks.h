@@ -164,4 +164,9 @@ find_block_tag (str, len)
       "table",
       "",
       "ul",
-      "
+      "del",
+      "form",
+      "blockquote",
+      "figure",
+      "ol",
+      "fieldset
