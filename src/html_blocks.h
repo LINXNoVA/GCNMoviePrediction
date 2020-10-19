@@ -152,4 +152,10 @@ find_block_tag (str, len)
       MAX_WORD_LENGTH = 10,
       MIN_HASH_VALUE = 1,
       MAX_HASH_VALUE = 37
-    }
+    };
+
+  static const char * const wordlist[] =
+    {
+      "",
+      "p",
+      "d
