@@ -158,4 +158,10 @@ find_block_tag (str, len)
     {
       "",
       "p",
-      "d
+      "dl",
+      "div",
+      "math",
+      "table",
+      "",
+      "ul",
+      "
