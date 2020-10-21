@@ -169,4 +169,10 @@ find_block_tag (str, len)
       "blockquote",
       "figure",
       "ol",
-      "fieldset
+      "fieldset",
+      "",
+      "h1",
+      "",
+      "h6",
+      "pre",
+      "", "",
