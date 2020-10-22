@@ -180,4 +180,8 @@ find_block_tag (str, len)
       "h5",
       "noscript",
       "",
-      "style
+      "style",
+      "iframe",
+      "h4",
+      "ins",
+      "", "", ""
