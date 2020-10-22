@@ -176,3 +176,8 @@ find_block_tag (str, len)
       "h6",
       "pre",
       "", "",
+      "script",
+      "h5",
+      "noscript",
+      "",
+      "style
