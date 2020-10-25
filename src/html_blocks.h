@@ -184,4 +184,10 @@ find_block_tag (str, len)
       "iframe",
       "h4",
       "ins",
-      "", "", ""
+      "", "", "",
+      "h3",
+      "", "", "", "",
+      "h2"
+    };
+
+  if (len <= MAX
