@@ -190,4 +190,6 @@ find_block_tag (str, len)
       "h2"
     };
 
-  if (len <= MAX
+  if (len <= MAX_WORD_LENGTH && len >= MIN_WORD_LENGTH)
+    {
+      register int key = hash_block_
