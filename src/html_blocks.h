@@ -192,4 +192,8 @@ find_block_tag (str, len)
 
   if (len <= MAX_WORD_LENGTH && len >= MIN_WORD_LENGTH)
     {
-      register int key = hash_block_
+      register int key = hash_block_tag (str, len);
+
+      if (key <= MAX_HASH_VALUE && key >= 0)
+        {
+          
