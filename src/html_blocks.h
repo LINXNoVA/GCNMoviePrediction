@@ -196,4 +196,6 @@ find_block_tag (str, len)
 
       if (key <= MAX_HASH_VALUE && key >= 0)
         {
-          
+          register const char *s = wordlist[key];
+
+          if ((((unsigned char)*s
