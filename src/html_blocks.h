@@ -198,4 +198,4 @@ find_block_tag (str, len)
         {
           register const char *s = wordlist[key];
 
-          if ((((unsigned char)*s
+          if ((((unsigned char)*str ^ (unsigned char)*s) & ~32) == 0 && !gperf_case_strncmp (str, s, len)
