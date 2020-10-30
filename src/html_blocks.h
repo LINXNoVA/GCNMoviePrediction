@@ -202,4 +202,5 @@ find_block_tag (str, len)
             return s;
         }
     }
-  return 
+  return 0;
+}
