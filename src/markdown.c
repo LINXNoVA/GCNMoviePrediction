@@ -19,3 +19,10 @@
 
 #include "markdown.h"
 #include "stack.h"
+
+#include <assert.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdio.h>
+
+#if defined(_WIN32)
