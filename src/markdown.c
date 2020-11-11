@@ -34,4 +34,6 @@
 #define BUFFER_BLOCK 0
 #define BUFFER_SPAN 1
 
-#define MKD_LI_END 8	/* internal list fl
+#define MKD_LI_END 8	/* internal list flag */
+
+#define gperf_case_strncmp(s1, s2, n) strncasecmp
