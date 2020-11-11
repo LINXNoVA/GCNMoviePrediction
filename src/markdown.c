@@ -29,4 +29,9 @@
 #define strncasecmp	_strnicmp
 #endif
 
-#define REF_TABLE_S
+#define REF_TABLE_SIZE 8
+
+#define BUFFER_BLOCK 0
+#define BUFFER_SPAN 1
+
+#define MKD_LI_END 8	/* internal list fl
