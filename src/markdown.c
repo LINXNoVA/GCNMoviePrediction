@@ -36,4 +36,7 @@
 
 #define MKD_LI_END 8	/* internal list flag */
 
-#define gperf_case_strncmp(s1, s2, n) strncasecmp
+#define gperf_case_strncmp(s1, s2, n) strncasecmp(s1, s2, n)
+#define GPERF_DOWNCASE 1
+#define GPERF_CASE_STRNCMP 1
+#include "htm
