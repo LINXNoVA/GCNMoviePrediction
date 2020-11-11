@@ -26,3 +26,7 @@
 #include <stdio.h>
 
 #if defined(_WIN32)
+#define strncasecmp	_strnicmp
+#endif
+
+#define REF_TABLE_S
