@@ -45,4 +45,8 @@
  * LOCAL TYPES *
  ***************/
 
-/* li
+/* link_ref: reference to a link */
+struct link_ref {
+	unsigned int id;
+
+	
