@@ -49,4 +49,10 @@
 struct link_ref {
 	unsigned int id;
 
-	
+	struct buf *link;
+	struct buf *title;
+
+	struct link_ref *next;
+};
+
+/* c
