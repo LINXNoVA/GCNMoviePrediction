@@ -55,4 +55,5 @@ struct link_ref {
 	struct link_ref *next;
 };
 
-/* c
+/* char_trigger: function pointer to render active chars */
+/*   return
