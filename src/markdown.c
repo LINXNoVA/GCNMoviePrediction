@@ -56,4 +56,5 @@ struct link_ref {
 };
 
 /* char_trigger: function pointer to render active chars */
-/*   return
+/*   returns the number of chars taken care of */
+/*   data is the pointer of t
