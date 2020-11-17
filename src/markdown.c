@@ -58,4 +58,7 @@ struct link_ref {
 /* char_trigger: function pointer to render active chars */
 /*   returns the number of chars taken care of */
 /*   data is the pointer of the beginning of the span */
-/*   offset is the number of valid chars
+/*   offset is the number of valid chars before data */
+struct sd_markdown;
+typedef size_t
+(*char_trigger)(struct bu
