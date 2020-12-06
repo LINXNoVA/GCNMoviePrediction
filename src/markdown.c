@@ -67,4 +67,5 @@ static size_t char_emphasis(struct buf *ob, struct sd_markdown *rndr, uint8_t *d
 static size_t char_linebreak(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset, size_t size);
 static size_t char_codespan(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset, size_t size);
 static size_t char_escape(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset, size_t size);
-static size_t char_entity(struct buf *ob, struct sd_markdown *rn
+static size_t char_entity(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset, size_t size);
+static size_t char_la
