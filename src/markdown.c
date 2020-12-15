@@ -78,4 +78,8 @@ static size_t char_superscript(struct buf *ob, struct sd_markdown *rndr, uint8_t
 enum markdown_char_t {
 	MD_CHAR_NONE = 0,
 	MD_CHAR_EMPHASIS,
-	MD_CHAR_CODES
+	MD_CHAR_CODESPAN,
+	MD_CHAR_LINEBREAK,
+	MD_CHAR_LINK,
+	MD_CHAR_LANGLE,
+	MD_CHA
