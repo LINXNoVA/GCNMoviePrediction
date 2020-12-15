@@ -75,4 +75,7 @@ static size_t char_autolink_www(struct buf *ob, struct sd_markdown *rndr, uint8_
 static size_t char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset, size_t size);
 static size_t char_superscript(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset, size_t size);
 
-enum markdown_ch
+enum markdown_char_t {
+	MD_CHAR_NONE = 0,
+	MD_CHAR_EMPHASIS,
+	MD_CHAR_CODES
