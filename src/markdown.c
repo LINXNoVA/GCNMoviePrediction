@@ -90,4 +90,7 @@ enum markdown_char_t {
 	MD_CHAR_SUPERSCRIPT,
 };
 
-s
+static char_trigger markdown_char_ptrs[] = {
+	NULL,
+	&char_emphasis,
+	&char_cod
