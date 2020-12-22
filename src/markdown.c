@@ -100,4 +100,9 @@ static char_trigger markdown_char_ptrs[] = {
 	&char_escape,
 	&char_entity,
 	&char_autolink_url,
-	&char_autoli
+	&char_autolink_email,
+	&char_autolink_www,
+	&char_superscript,
+};
+
+/* render • structure containi
