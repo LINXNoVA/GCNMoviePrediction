@@ -105,4 +105,6 @@ static char_trigger markdown_char_ptrs[] = {
 	&char_superscript,
 };
 
-/* render • structure containi
+/* render • structure containing one particular render */
+struct sd_markdown {
+	struct s
