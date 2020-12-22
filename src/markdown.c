@@ -93,4 +93,8 @@ enum markdown_char_t {
 static char_trigger markdown_char_ptrs[] = {
 	NULL,
 	&char_emphasis,
-	&char_cod
+	&char_codespan,
+	&char_linebreak,
+	&char_link,
+	&char_langle_tag,
+	&char_
