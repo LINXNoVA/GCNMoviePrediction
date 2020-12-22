@@ -97,4 +97,7 @@ static char_trigger markdown_char_ptrs[] = {
 	&char_linebreak,
 	&char_link,
 	&char_langle_tag,
-	&char_
+	&char_escape,
+	&char_entity,
+	&char_autolink_url,
+	&char_autoli
