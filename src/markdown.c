@@ -107,4 +107,7 @@ static char_trigger markdown_char_ptrs[] = {
 
 /* render • structure containing one particular render */
 struct sd_markdown {
-	struct s
+	struct sd_callbacks	cb;
+	void *opaque;
+
+	struct link_ref *refs[REF_TABLE_
