@@ -119,3 +119,7 @@ struct sd_markdown {
 };
 
 /***************************
+ * HELPER FUNCTIONS *
+ ***************************/
+
+static inline struct buf
