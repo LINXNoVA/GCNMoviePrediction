@@ -110,4 +110,7 @@ struct sd_markdown {
 	struct sd_callbacks	cb;
 	void *opaque;
 
-	struct link_ref *refs[REF_TABLE_
+	struct link_ref *refs[REF_TABLE_SIZE];
+	uint8_t active_char[256];
+	struct stack work_bufs[2];
+	unsigned int e
