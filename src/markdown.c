@@ -113,4 +113,9 @@ struct sd_markdown {
 	struct link_ref *refs[REF_TABLE_SIZE];
 	uint8_t active_char[256];
 	struct stack work_bufs[2];
-	unsigned int e
+	unsigned int ext_flags;
+	size_t max_nesting;
+	int in_link_body;
+};
+
+/***************************
