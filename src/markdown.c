@@ -122,4 +122,7 @@ struct sd_markdown {
  * HELPER FUNCTIONS *
  ***************************/
 
-static inline struct buf
+static inline struct buf *
+rndr_newbuf(struct sd_markdown *rndr, int type)
+{
+	static const size_t buf_size[2] = 
