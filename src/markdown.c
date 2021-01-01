@@ -125,4 +125,6 @@ struct sd_markdown {
 static inline struct buf *
 rndr_newbuf(struct sd_markdown *rndr, int type)
 {
-	static const size_t buf_size[2] = 
+	static const size_t buf_size[2] = {256, 64};
+	struct buf *work = NULL;
+	struct stack *pool = &rndr->work_buf
