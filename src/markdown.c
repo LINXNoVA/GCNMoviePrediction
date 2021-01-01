@@ -127,4 +127,7 @@ rndr_newbuf(struct sd_markdown *rndr, int type)
 {
 	static const size_t buf_size[2] = {256, 64};
 	struct buf *work = NULL;
-	struct stack *pool = &rndr->work_buf
+	struct stack *pool = &rndr->work_bufs[type];
+
+	if (pool->size < pool->asize &&
+		pool->item[pool->size] != NULL) {
