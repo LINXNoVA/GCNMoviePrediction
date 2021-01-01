@@ -131,3 +131,7 @@ rndr_newbuf(struct sd_markdown *rndr, int type)
 
 	if (pool->size < pool->asize &&
 		pool->item[pool->size] != NULL) {
+		work = pool->item[pool->size++];
+		work->size = 0;
+	} else {
+		work 
