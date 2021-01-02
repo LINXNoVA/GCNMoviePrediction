@@ -134,4 +134,8 @@ rndr_newbuf(struct sd_markdown *rndr, int type)
 		work = pool->item[pool->size++];
 		work->size = 0;
 	} else {
-		work 
+		work = bufnew(buf_size[type]);
+		stack_push(pool, work);
+	}
+
+	return wor
