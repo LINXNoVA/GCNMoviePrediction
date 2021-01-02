@@ -138,4 +138,10 @@ rndr_newbuf(struct sd_markdown *rndr, int type)
 		stack_push(pool, work);
 	}
 
-	return wor
+	return work;
+}
+
+static inline void
+rndr_popbuf(struct sd_markdown *rndr, int type)
+{
+	rndr->work_
