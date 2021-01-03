@@ -144,4 +144,8 @@ rndr_newbuf(struct sd_markdown *rndr, int type)
 static inline void
 rndr_popbuf(struct sd_markdown *rndr, int type)
 {
-	rndr->work_
+	rndr->work_bufs[type].size--;
+}
+
+static void
+unscape_text(struct buf *ob,
