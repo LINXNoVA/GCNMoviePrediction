@@ -160,4 +160,11 @@ unscape_text(struct buf *ob, struct buf *src)
 			bufput(ob, src->data + org, i - org);
 
 		if (i + 1 >= src->size)
-			brea
+			break;
+
+		bufputc(ob, src->data[i + 1]);
+		i += 2;
+	}
+}
+
+static unsigned 
