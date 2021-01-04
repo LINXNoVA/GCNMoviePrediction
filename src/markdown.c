@@ -167,4 +167,8 @@ unscape_text(struct buf *ob, struct buf *src)
 	}
 }
 
-static unsigned 
+static unsigned int
+hash_link_ref(const uint8_t *link_ref, size_t length)
+{
+	size_t i;
+	u
