@@ -148,4 +148,8 @@ rndr_popbuf(struct sd_markdown *rndr, int type)
 }
 
 static void
-unscape_text(struct buf *ob,
+unscape_text(struct buf *ob, struct buf *src)
+{
+	size_t i = 0, org;
+	while (i < src->size) {
+		org 
