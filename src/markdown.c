@@ -157,4 +157,7 @@ unscape_text(struct buf *ob, struct buf *src)
 			i++;
 
 		if (i > org)
-			bufp
+			bufput(ob, src->data + org, i - org);
+
+		if (i + 1 >= src->size)
+			brea
