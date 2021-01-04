@@ -171,4 +171,7 @@ static unsigned int
 hash_link_ref(const uint8_t *link_ref, size_t length)
 {
 	size_t i;
-	u
+	unsigned int hash = 0;
+
+	for (i = 0; i < length; ++i)
+		hash 
