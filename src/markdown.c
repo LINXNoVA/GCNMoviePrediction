@@ -152,4 +152,9 @@ unscape_text(struct buf *ob, struct buf *src)
 {
 	size_t i = 0, org;
 	while (i < src->size) {
-		org 
+		org = i;
+		while (i < src->size && src->data[i] != '\\')
+			i++;
+
+		if (i > org)
+			bufp
