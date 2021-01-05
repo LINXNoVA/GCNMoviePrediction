@@ -181,4 +181,7 @@ hash_link_ref(const uint8_t *link_ref, size_t length)
 
 static struct link_ref *
 add_link_ref(
-	struct link_ref **
+	struct link_ref **references,
+	const uint8_t *name, size_t name_size)
+{
+	struct link
