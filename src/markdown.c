@@ -178,3 +178,7 @@ hash_link_ref(const uint8_t *link_ref, size_t length)
 
 	return hash;
 }
+
+static struct link_ref *
+add_link_ref(
+	struct link_ref **
