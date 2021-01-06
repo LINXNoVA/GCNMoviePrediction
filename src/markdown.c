@@ -188,3 +188,6 @@ add_link_ref(
 
 	if (!ref)
 		return NULL;
+
+	ref->id = hash_link_ref(name, name_size);
+	ref->next = references[ref->id % REF
