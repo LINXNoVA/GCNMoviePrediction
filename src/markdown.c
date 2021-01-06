@@ -184,4 +184,7 @@ add_link_ref(
 	struct link_ref **references,
 	const uint8_t *name, size_t name_size)
 {
-	struct link
+	struct link_ref *ref = calloc(1, sizeof(struct link_ref));
+
+	if (!ref)
+		return NULL;
