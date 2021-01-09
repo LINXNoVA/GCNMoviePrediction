@@ -195,3 +195,6 @@ add_link_ref(
 	references[ref->id % REF_TABLE_SIZE] = ref;
 	return ref;
 }
+
+static struct link_ref *
+find_link_ref(struct link_ref **references, uin
