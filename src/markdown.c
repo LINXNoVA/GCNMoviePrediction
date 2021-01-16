@@ -216,3 +216,8 @@ find_link_ref(struct link_ref **references, uint8_t *name, size_t length)
 
 static void
 free_link_refs(struct link_ref **references)
+{
+	size_t i;
+
+	for (i = 0; i < REF_TABLE_SIZE; ++i) {
+		struct
