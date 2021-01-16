@@ -211,4 +211,8 @@ find_link_ref(struct link_ref **references, uint8_t *name, size_t length)
 		ref = ref->next;
 	}
 
-	return
+	return NULL;
+}
+
+static void
+free_link_refs(struct link_ref **references)
