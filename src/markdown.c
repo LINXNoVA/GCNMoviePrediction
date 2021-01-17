@@ -224,3 +224,7 @@ free_link_refs(struct link_ref **references)
 		struct link_ref *next;
 
 		while (r) {
+			next = r->next;
+			bufrelease(r->link);
+			bufrelease(r->title);
+			free(
