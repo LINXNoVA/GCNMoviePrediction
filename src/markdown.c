@@ -220,4 +220,7 @@ free_link_refs(struct link_ref **references)
 	size_t i;
 
 	for (i = 0; i < REF_TABLE_SIZE; ++i) {
-		struct
+		struct link_ref *r = references[i];
+		struct link_ref *next;
+
+		while (r) {
