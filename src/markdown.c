@@ -234,4 +234,7 @@ free_link_refs(struct link_ref **references)
 }
 
 /*
- * Check whether a char is a Markd
+ * Check whether a char is a Markdown space.
+
+ * Right now we only consider spaces the actual
+ * space and a new
