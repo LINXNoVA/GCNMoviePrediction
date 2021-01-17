@@ -240,4 +240,5 @@ free_link_refs(struct link_ref **references)
  * space and a newline: tabs and carriage returns
  * are filtered out during the preprocessing phase.
  *
- 
+ * If we wanted to actually be UTF-8 compliant, we
+ * should instead e
