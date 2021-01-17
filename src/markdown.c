@@ -242,4 +242,9 @@ free_link_refs(struct link_ref **references)
  *
  * If we wanted to actually be UTF-8 compliant, we
  * should instead extract an Unicode codepoint from
- * this character and check for space propert
+ * this character and check for space properties.
+ */
+static inline int
+_isspace(int c)
+{
+	return c == ' 
