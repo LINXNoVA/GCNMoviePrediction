@@ -247,4 +247,8 @@ free_link_refs(struct link_ref **references)
 static inline int
 _isspace(int c)
 {
-	return c == ' 
+	return c == ' ' || c == '\n';
+}
+
+/****************************
+ * INLINE PA
