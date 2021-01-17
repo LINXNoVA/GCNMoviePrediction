@@ -241,4 +241,5 @@ free_link_refs(struct link_ref **references)
  * are filtered out during the preprocessing phase.
  *
  * If we wanted to actually be UTF-8 compliant, we
- * should instead e
+ * should instead extract an Unicode codepoint from
+ * this character and check for space propert
