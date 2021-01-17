@@ -237,4 +237,7 @@ free_link_refs(struct link_ref **references)
  * Check whether a char is a Markdown space.
 
  * Right now we only consider spaces the actual
- * space and a new
+ * space and a newline: tabs and carriage returns
+ * are filtered out during the preprocessing phase.
+ *
+ 
