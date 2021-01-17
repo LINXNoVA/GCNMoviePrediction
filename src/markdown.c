@@ -227,4 +227,11 @@ free_link_refs(struct link_ref **references)
 			next = r->next;
 			bufrelease(r->link);
 			bufrelease(r->title);
-			free(
+			free(r);
+			r = next;
+		}
+	}
+}
+
+/*
+ * Check whether a char is a Markd
