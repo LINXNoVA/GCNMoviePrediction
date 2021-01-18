@@ -251,4 +251,7 @@ _isspace(int c)
 }
 
 /****************************
- * INLINE PA
+ * INLINE PARSING FUNCTIONS *
+ ****************************/
+
+/* is_mail_autolink • l
