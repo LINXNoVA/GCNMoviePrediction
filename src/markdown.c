@@ -254,4 +254,5 @@ _isspace(int c)
  * INLINE PARSING FUNCTIONS *
  ****************************/
 
-/* is_mail_autolink • l
+/* is_mail_autolink • looks for the address part of a mail autolink and '>' */
+/* this is 
