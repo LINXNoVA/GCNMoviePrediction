@@ -255,4 +255,5 @@ _isspace(int c)
  ****************************/
 
 /* is_mail_autolink • looks for the address part of a mail autolink and '>' */
-/* this is 
+/* this is less strict than the original markdown e-mail address matching */
+stati
