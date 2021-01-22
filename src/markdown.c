@@ -288,4 +288,8 @@ is_mail_autolink(uint8_t *data, size_t size)
 
 /* tag_length • returns the length of the given tag, or 0 is it's not valid */
 static size_t
-tag_length(uint8_t *data, 
+tag_length(uint8_t *data, size_t size, enum mkd_autolink *autolink)
+{
+	size_t i, j;
+
+	/* a valid tag 
