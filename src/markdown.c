@@ -271,4 +271,9 @@ is_mail_autolink(uint8_t *data, size_t size)
 				nb++;
 
 			case '-':
-	
+			case '.':
+			case '_':
+				break;
+
+			case '>':
+				return (nb ==
