@@ -276,4 +276,14 @@ is_mail_autolink(uint8_t *data, size_t size)
 				break;
 
 			case '>':
-				return (nb ==
+				return (nb == 1) ? i + 1 : 0;
+
+			default:
+				return 0;
+		}
+	}
+
+	return 0;
+}
+
+/* tag_length • retu
