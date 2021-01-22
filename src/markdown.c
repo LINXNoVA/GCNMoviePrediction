@@ -265,3 +265,10 @@ is_mail_autolink(uint8_t *data, size_t size)
 	for (i = 0; i < size; ++i) {
 		if (isalnum(data[i]))
 			continue;
+
+		switch (data[i]) {
+			case '@':
+				nb++;
+
+			case '-':
+	
