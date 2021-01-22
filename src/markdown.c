@@ -292,4 +292,7 @@ tag_length(uint8_t *data, size_t size, enum mkd_autolink *autolink)
 {
 	size_t i, j;
 
-	/* a valid tag 
+	/* a valid tag can't be shorter than 3 chars */
+	if (size < 3) return 0;
+
+	/* begins with a '<' opti
