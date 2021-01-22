@@ -286,4 +286,6 @@ is_mail_autolink(uint8_t *data, size_t size)
 	return 0;
 }
 
-/* tag_length • retu
+/* tag_length • returns the length of the given tag, or 0 is it's not valid */
+static size_t
+tag_length(uint8_t *data, 
