@@ -256,4 +256,7 @@ _isspace(int c)
 
 /* is_mail_autolink • looks for the address part of a mail autolink and '>' */
 /* this is less strict than the original markdown e-mail address matching */
-stati
+static size_t
+is_mail_autolink(uint8_t *data, size_t size)
+{
+	size_t i = 
