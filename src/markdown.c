@@ -261,4 +261,7 @@ is_mail_autolink(uint8_t *data, size_t size)
 {
 	size_t i = 0, nb = 0;
 
-	/* address is assumed to be: [-@._a-zA-Z0-9]+ with exactly 
+	/* address is assumed to be: [-@._a-zA-Z0-9]+ with exactly one '@' */
+	for (i = 0; i < size; ++i) {
+		if (isalnum(data[i]))
+			continue;
