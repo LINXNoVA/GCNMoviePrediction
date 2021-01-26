@@ -300,4 +300,9 @@ tag_length(uint8_t *data, size_t size, enum mkd_autolink *autolink)
 	i = (data[1] == '/') ? 2 : 1;
 
 	if (!isalnum(data[i]))
-	
+		return 0;
+
+	/* scheme test */
+	*autolink = MKDA_NOT_AUTOLINK;
+
+	/* try to find the 
