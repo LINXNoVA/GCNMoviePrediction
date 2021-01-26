@@ -296,4 +296,8 @@ tag_length(uint8_t *data, size_t size, enum mkd_autolink *autolink)
 	if (size < 3) return 0;
 
 	/* begins with a '<' optionally followed by '/', followed by letter or number */
-	if (dat
+	if (data[0] != '<') return 0;
+	i = (data[1] == '/') ? 2 : 1;
+
+	if (!isalnum(data[i]))
+	
