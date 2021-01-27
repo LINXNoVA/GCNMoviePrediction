@@ -305,4 +305,5 @@ tag_length(uint8_t *data, size_t size, enum mkd_autolink *autolink)
 	/* scheme test */
 	*autolink = MKDA_NOT_AUTOLINK;
 
-	/* try to find the 
+	/* try to find the beginning of an URI */
+	while (i < size && (isalnum(data[
