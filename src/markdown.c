@@ -309,4 +309,5 @@ tag_length(uint8_t *data, size_t size, enum mkd_autolink *autolink)
 	while (i < size && (isalnum(data[i]) || data[i] == '.' || data[i] == '+' || data[i] == '-'))
 		i++;
 
-	if
+	if (i > 1 && data[i] == '@') {
+		if ((j = is_mail_autolink(data + i, size - i)) != 0
