@@ -310,4 +310,10 @@ tag_length(uint8_t *data, size_t size, enum mkd_autolink *autolink)
 		i++;
 
 	if (i > 1 && data[i] == '@') {
-		if ((j = is_mail_autolink(data + i, size - i)) != 0
+		if ((j = is_mail_autolink(data + i, size - i)) != 0) {
+			*autolink = MKDA_EMAIL;
+			return i + j;
+		}
+	}
+
+	if (
