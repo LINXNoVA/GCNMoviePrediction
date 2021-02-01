@@ -323,4 +323,7 @@ tag_length(uint8_t *data, size_t size, enum mkd_autolink *autolink)
 
 	/* completing autolink test: no whitespace or ' or " */
 	if (i >= size)
-		
+		*autolink = MKDA_NOT_AUTOLINK;
+
+	else if (*autolink) {
+		j = 
