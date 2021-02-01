@@ -316,4 +316,9 @@ tag_length(uint8_t *data, size_t size, enum mkd_autolink *autolink)
 		}
 	}
 
-	if (
+	if (i > 2 && data[i] == ':') {
+		*autolink = MKDA_NORMAL;
+		i++;
+	}
+
+	/* 
