@@ -330,4 +330,5 @@ tag_length(uint8_t *data, size_t size, enum mkd_autolink *autolink)
 
 		while (i < size) {
 			if (data[i] == '\\') i += 2;
-			els
+			else if (data[i] == '>' || data[i] == '\'' ||
+					data[i] == '"' || data[
