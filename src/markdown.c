@@ -336,4 +336,6 @@ tag_length(uint8_t *data, size_t size, enum mkd_autolink *autolink)
 			else i++;
 		}
 
-		if (i >= 
+		if (i >= size) return 0;
+		if (i > j && data[i] == '>') return i + 1;
+		/* one
