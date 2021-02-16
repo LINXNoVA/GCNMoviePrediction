@@ -343,4 +343,6 @@ tag_length(uint8_t *data, size_t size, enum mkd_autolink *autolink)
 	}
 
 	/* looking for sometinhg looking like a tag end */
-	while (i
+	while (i < size && data[i] != '>') i++;
+	if (i >= size) return 0;
+	return 
