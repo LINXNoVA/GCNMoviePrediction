@@ -339,4 +339,8 @@ tag_length(uint8_t *data, size_t size, enum mkd_autolink *autolink)
 		if (i >= size) return 0;
 		if (i > j && data[i] == '>') return i + 1;
 		/* one of the forbidden chars has been found */
-		*autolink =
+		*autolink = MKDA_NOT_AUTOLINK;
+	}
+
+	/* looking for sometinhg looking like a tag end */
+	while (i
