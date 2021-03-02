@@ -353,4 +353,7 @@ static void
 parse_inline(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size)
 {
 	size_t i = 0, end = 0;
-	uint8_t 
+	uint8_t action = 0;
+	struct buf work = { 0, 0, 0, 0 };
+
+	if (rndr->work_bufs
