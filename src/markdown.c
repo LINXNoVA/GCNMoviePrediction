@@ -356,4 +356,5 @@ parse_inline(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t siz
 	uint8_t action = 0;
 	struct buf work = { 0, 0, 0, 0 };
 
-	if (rndr->work_bufs
+	if (rndr->work_bufs[BUFFER_SPAN].size +
+		rndr->work_bufs[BUFFER_BLOCK].size > rndr->max_nest
