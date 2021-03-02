@@ -350,4 +350,7 @@ tag_length(uint8_t *data, size_t size, enum mkd_autolink *autolink)
 
 /* parse_inline • parses inline markdown elements */
 static void
-parse_inline(struct buf *ob, struct sd_markdown *rndr, uint8_t *da
+parse_inline(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size)
+{
+	size_t i = 0, end = 0;
+	uint8_t 
