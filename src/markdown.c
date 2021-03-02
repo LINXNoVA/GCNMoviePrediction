@@ -357,4 +357,8 @@ parse_inline(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t siz
 	struct buf work = { 0, 0, 0, 0 };
 
 	if (rndr->work_bufs[BUFFER_SPAN].size +
-		rndr->work_bufs[BUFFER_BLOCK].size > rndr->max_nest
+		rndr->work_bufs[BUFFER_BLOCK].size > rndr->max_nesting)
+		return;
+
+	while (i < size) {
+		/* copying inactive chars into the output *
