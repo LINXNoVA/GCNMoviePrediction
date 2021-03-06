@@ -361,4 +361,6 @@ parse_inline(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t siz
 		return;
 
 	while (i < size) {
-		/* copying inactive chars into the output *
+		/* copying inactive chars into the output */
+		while (end < size && (action = rndr->active_char[data[end]]) == 0) {
+		
