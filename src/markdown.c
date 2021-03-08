@@ -371,4 +371,10 @@ parse_inline(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t siz
 			work.size = end - i;
 			rndr->cb.normal_text(ob, &work, rndr->opaque);
 		}
+		else
+			bufput(ob, data + i, end - i);
+
+		if (end >= size) break;
+		i = end;
+
 	
