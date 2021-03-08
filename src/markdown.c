@@ -368,4 +368,7 @@ parse_inline(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t siz
 
 		if (rndr->cb.normal_text) {
 			work.data = data + i;
-		
+			work.size = end - i;
+			rndr->cb.normal_text(ob, &work, rndr->opaque);
+		}
+	
