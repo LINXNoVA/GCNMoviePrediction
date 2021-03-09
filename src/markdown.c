@@ -378,4 +378,6 @@ parse_inline(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t siz
 		i = end;
 
 		end = markdown_char_ptrs[(int)action](ob, rndr, data + i, i, size - i);
-		if 
+		if (!end) /* no action from the callback */
+			end = i + 1;
+		el
