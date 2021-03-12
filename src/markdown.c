@@ -401,4 +401,8 @@ find_emph_char(uint8_t *data, size_t size, uint8_t c)
 			return 0;
 
 		if (data[i] == c)
-			return 
+			return i;
+
+		/* not counting escaped chars */
+		if (i && data[i - 1] == '\\') {
+			i++; 
