@@ -389,4 +389,8 @@ parse_inline(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t siz
 
 /* find_emph_char • looks for the next emph uint8_t, skipping other constructs */
 static size_t
-find_emph_char
+find_emph_char(uint8_t *data, size_t size, uint8_t c)
+{
+	size_t i = 1;
+
+	whil
