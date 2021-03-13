@@ -412,4 +412,6 @@ find_emph_char(uint8_t *data, size_t size, uint8_t c)
 			size_t span_nb = 0, bt;
 			size_t tmp_i = 0;
 
-			/* counting the number of opening bac
+			/* counting the number of opening backticks */
+			while (i < size && data[i] == '`') {
+				i++
