@@ -414,4 +414,9 @@ find_emph_char(uint8_t *data, size_t size, uint8_t c)
 
 			/* counting the number of opening backticks */
 			while (i < size && data[i] == '`') {
-				i++
+				i++; span_nb++;
+			}
+
+			if (i >= size) return 0;
+
+			/* finding the matching closing 
