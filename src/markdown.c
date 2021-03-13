@@ -405,4 +405,9 @@ find_emph_char(uint8_t *data, size_t size, uint8_t c)
 
 		/* not counting escaped chars */
 		if (i && data[i - 1] == '\\') {
-			i++; 
+			i++; continue;
+		}
+
+		if (data[i] == '`') {
+			size_t span_nb = 0, bt;
+			size_t t
