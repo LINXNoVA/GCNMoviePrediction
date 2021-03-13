@@ -410,4 +410,6 @@ find_emph_char(uint8_t *data, size_t size, uint8_t c)
 
 		if (data[i] == '`') {
 			size_t span_nb = 0, bt;
-			size_t t
+			size_t tmp_i = 0;
+
+			/* counting the number of opening bac
