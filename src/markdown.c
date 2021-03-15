@@ -421,4 +421,7 @@ find_emph_char(uint8_t *data, size_t size, uint8_t c)
 
 			/* finding the matching closing sequence */
 			bt = 0;
-			while (i < size && bt < span_nb)
+			while (i < size && bt < span_nb) {
+				if (!tmp_i && data[i] == c) tmp_i = i;
+				if (data[i] == '`') bt++;
+	
