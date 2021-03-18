@@ -442,4 +442,10 @@ find_emph_char(uint8_t *data, size_t size, uint8_t c)
 			}
 
 			i++;
-			while (i < size && (data[i] == ' ' |
+			while (i < size && (data[i] == ' ' || data[i] == '\n'))
+				i++;
+
+			if (i >= size)
+				return tmp_i;
+
+			
