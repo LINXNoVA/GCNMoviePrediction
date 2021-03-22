@@ -470,3 +470,13 @@ find_emph_char(uint8_t *data, size_t size, uint8_t c)
 
 			if (i >= size)
 				return tmp_i;
+
+			i++;
+		}
+	}
+
+	return 0;
+}
+
+/* parse_emph1 • parsing single emphase */
+/* closed by a
