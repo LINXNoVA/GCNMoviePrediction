@@ -489,4 +489,7 @@ parse_emph1(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 
 	if (!rndr->cb.emphasis) return 0;
 
-	/* skipping one symbol if coming from 
+	/* skipping one symbol if coming from emph3 */
+	if (size > 1 && data[0] == c && data[1] == c) i = 1;
+
+	while (i < 
