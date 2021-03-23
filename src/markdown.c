@@ -486,3 +486,7 @@ parse_emph1(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 	size_t i = 0, len;
 	struct buf *work = 0;
 	int r;
+
+	if (!rndr->cb.emphasis) return 0;
+
+	/* skipping one symbol if coming from 
