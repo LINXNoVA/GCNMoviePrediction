@@ -480,4 +480,5 @@ find_emph_char(uint8_t *data, size_t size, uint8_t c)
 
 /* parse_emph1 • parsing single emphase */
 /* closed by a symbol not preceded by whitespace and not followed by symbol */
-static size_
+static size_t
+parse_emph1(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t siz
