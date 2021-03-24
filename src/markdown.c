@@ -492,4 +492,7 @@ parse_emph1(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 	/* skipping one symbol if coming from emph3 */
 	if (size > 1 && data[0] == c && data[1] == c) i = 1;
 
-	while (i < 
+	while (i < size) {
+		len = find_emph_char(data + i, size - i, c);
+		if (!len) return 0;
+		i += le
