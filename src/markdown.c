@@ -495,4 +495,7 @@ parse_emph1(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 	while (i < size) {
 		len = find_emph_char(data + i, size - i, c);
 		if (!len) return 0;
-		i += le
+		i += len;
+		if (i >= size) return 0;
+
+		if (data[i] == c && !_iss
