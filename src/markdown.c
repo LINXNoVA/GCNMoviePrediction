@@ -503,4 +503,7 @@ parse_emph1(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 			if (rndr->ext_flags & MKDEXT_NO_INTRA_EMPHASIS) {
 				if (i + 1 < size && isalnum(data[i + 1]))
 					continue;
-			
+			}
+
+			work = rndr_newbuf(rndr, BUFFER_SPAN);
+			parse_inline(work, rndr, data
