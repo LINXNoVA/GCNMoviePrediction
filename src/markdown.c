@@ -508,4 +508,12 @@ parse_emph1(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 			work = rndr_newbuf(rndr, BUFFER_SPAN);
 			parse_inline(work, rndr, data, i);
 			r = rndr->cb.emphasis(ob, work, rndr->opaque);
-			rndr_p
+			rndr_popbuf(rndr, BUFFER_SPAN);
+			return r ? i + 1 : 0;
+		}
+	}
+
+	return 0;
+}
+
+/* p
