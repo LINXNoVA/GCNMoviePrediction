@@ -525,4 +525,6 @@ parse_emph2(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 	struct buf *work = 0;
 	int r;
 
-	re
+	render_method = (c == '~') ? rndr->cb.strikethrough : rndr->cb.double_emphasis;
+
+	
