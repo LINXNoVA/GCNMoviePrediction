@@ -535,4 +535,6 @@ parse_emph2(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 		if (!len) return 0;
 		i += len;
 
-		if (i + 1 < size && data[i] == c && data[i + 1] == c && i && !_isspace(data[i - 1])) 
+		if (i + 1 < size && data[i] == c && data[i + 1] == c && i && !_isspace(data[i - 1])) {
+			work = rndr_newbuf(rndr, BUFFER_SPAN);
+			parse_inline(work, rndr, d
