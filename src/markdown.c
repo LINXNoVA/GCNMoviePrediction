@@ -538,4 +538,8 @@ parse_emph2(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 		if (i + 1 < size && data[i] == c && data[i + 1] == c && i && !_isspace(data[i - 1])) {
 			work = rndr_newbuf(rndr, BUFFER_SPAN);
 			parse_inline(work, rndr, data, i);
-			r = render_method(ob, work, rndr->opaqu
+			r = render_method(ob, work, rndr->opaque);
+			rndr_popbuf(rndr, BUFFER_SPAN);
+			return r ? i + 2 : 0;
+		}
+		i++;
