@@ -543,3 +543,9 @@ parse_emph2(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 			return r ? i + 2 : 0;
 		}
 		i++;
+	}
+	return 0;
+}
+
+/* parse_emph3 • parsing single emphase */
+/* finds 
