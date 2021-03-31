@@ -556,4 +556,8 @@ parse_emph3(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 	int r;
 
 	while (i < size) {
-		len = find_emph_
+		len = find_emph_char(data + i, size - i, c);
+		if (!len) return 0;
+		i += len;
+
+		/* sk
