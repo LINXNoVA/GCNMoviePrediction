@@ -549,4 +549,5 @@ parse_emph2(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 
 /* parse_emph3 • parsing single emphase */
 /* finds the first closing tag, and delegates to the other emph */
-static siz
+static size_t
+parse_emph3(struct buf *ob, struct sd_markdown *rndr, uint8_t *dat
