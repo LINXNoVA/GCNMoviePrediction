@@ -560,4 +560,5 @@ parse_emph3(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 		if (!len) return 0;
 		i += len;
 
-		/* sk
+		/* skip whitespace preceded symbols */
+		if (data[i] != c || _isspace(da
