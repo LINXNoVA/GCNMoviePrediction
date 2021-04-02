@@ -564,4 +564,5 @@ parse_emph3(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 		if (data[i] != c || _isspace(data[i - 1]))
 			continue;
 
-		if (i + 2 < size && data[i + 1] == c
+		if (i + 2 < size && data[i + 1] == c && data[i + 2] == c && rndr->cb.triple_emphasis) {
+			/* triple
