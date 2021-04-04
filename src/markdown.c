@@ -566,4 +566,7 @@ parse_emph3(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 
 		if (i + 2 < size && data[i + 1] == c && data[i + 2] == c && rndr->cb.triple_emphasis) {
 			/* triple symbol found */
-			struct buf *work = rndr_newbuf(rndr, BU
+			struct buf *work = rndr_newbuf(rndr, BUFFER_SPAN);
+
+			parse_inline(work, rndr, data, i);
+			r = rndr->cb.triple_em
