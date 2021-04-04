@@ -569,4 +569,6 @@ parse_emph3(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 			struct buf *work = rndr_newbuf(rndr, BUFFER_SPAN);
 
 			parse_inline(work, rndr, data, i);
-			r = rndr->cb.triple_em
+			r = rndr->cb.triple_emphasis(ob, work, rndr->opaque);
+			rndr_popbuf(rndr, BUFFER_SPAN);
+			re
