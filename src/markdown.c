@@ -571,4 +571,7 @@ parse_emph3(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 			parse_inline(work, rndr, data, i);
 			r = rndr->cb.triple_emphasis(ob, work, rndr->opaque);
 			rndr_popbuf(rndr, BUFFER_SPAN);
-			re
+			return r ? i + 3 : 0;
+
+		} else if (i + 1 < size && data[i + 1] == c) {
+			/* dou
