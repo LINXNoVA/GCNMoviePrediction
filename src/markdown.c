@@ -574,4 +574,5 @@ parse_emph3(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 			return r ? i + 3 : 0;
 
 		} else if (i + 1 < size && data[i + 1] == c) {
-			/* dou
+			/* double symbol found, handing over to emph1 */
+			len = parse_
