@@ -580,4 +580,5 @@ parse_emph3(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 			else return len - 2;
 
 		} else {
-			/* single symbol found, hand
+			/* single symbol found, handing over to emph2 */
+			len = parse_emph2(ob, rndr, data - 1,
