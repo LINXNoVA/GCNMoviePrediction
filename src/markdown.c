@@ -589,4 +589,6 @@ parse_emph3(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 	return 0;
 }
 
-/* char_emphasis • single and double emphasis
+/* char_emphasis • single and double emphasis parsing */
+static size_t
+char_emphasis(struct buf *ob, struct sd_markdown *rndr
