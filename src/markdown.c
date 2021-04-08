@@ -581,4 +581,8 @@ parse_emph3(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 
 		} else {
 			/* single symbol found, handing over to emph2 */
-			len = parse_emph2(ob, rndr, data - 1,
+			len = parse_emph2(ob, rndr, data - 1, size + 1, c);
+			if (!len) return 0;
+			else return len - 1;
+		}
+	}
