@@ -593,4 +593,8 @@ parse_emph3(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 static size_t
 char_emphasis(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset, size_t size)
 {
-	uint8_t c = data
+	uint8_t c = data[0];
+	size_t ret;
+
+	if (rndr->ext_flags & MKDEXT_NO_INTRA_EMPHASIS) {
+	
