@@ -604,4 +604,7 @@ char_emphasis(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 	if (size > 2 && data[1] != c) {
 		/* whitespace cannot follow an opening emphasis;
 		 * strikethrough only takes two characters '~~' */
-		if (c == '~' || _isspace(data[1]) || (re
+		if (c == '~' || _isspace(data[1]) || (ret = parse_emph1(ob, rndr, data + 1, size - 1, c)) == 0)
+			return 0;
+
+		return re
