@@ -601,4 +601,6 @@ char_emphasis(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 			return 0;
 	}
 
-	if (size > 2 && 
+	if (size > 2 && data[1] != c) {
+		/* whitespace cannot follow an opening emphasis;
+		 * strikethrough only
