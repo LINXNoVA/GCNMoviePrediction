@@ -611,4 +611,10 @@ char_emphasis(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 	}
 
 	if (size > 3 && data[1] == c && data[2] != c) {
-		if (_isspace(data[2]) || (ret = parse_emph2(ob, rndr, data + 2, size -
+		if (_isspace(data[2]) || (ret = parse_emph2(ob, rndr, data + 2, size - 2, c)) == 0)
+			return 0;
+
+		return ret + 2;
+	}
+
+	if (size > 4 && data[1] == c 
