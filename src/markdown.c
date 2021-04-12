@@ -607,4 +607,8 @@ char_emphasis(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 		if (c == '~' || _isspace(data[1]) || (ret = parse_emph1(ob, rndr, data + 1, size - 1, c)) == 0)
 			return 0;
 
-		return re
+		return ret + 1;
+	}
+
+	if (size > 3 && data[1] == c && data[2] != c) {
+		if
