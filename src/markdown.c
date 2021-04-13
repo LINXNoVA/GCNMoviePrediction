@@ -617,4 +617,5 @@ char_emphasis(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 		return ret + 2;
 	}
 
-	if (size > 4 && data[1] == c 
+	if (size > 4 && data[1] == c && data[2] == c && data[3] != c) {
+		if (c == '~' || _isspace(data[3]) || (ret = p
