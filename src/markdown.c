@@ -628,4 +628,6 @@ char_emphasis(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 }
 
 
-/* char_linebreak • '\n' preceded by two spaces (
+/* char_linebreak • '\n' preceded by two spaces (assuming linebreak != 0) */
+static size_t
+char_linebreak(struct buf *ob, st
