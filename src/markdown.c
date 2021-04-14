@@ -621,4 +621,11 @@ char_emphasis(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 		if (c == '~' || _isspace(data[3]) || (ret = parse_emph3(ob, rndr, data + 3, size - 3, c)) == 0)
 			return 0;
 
-		return ret
+		return ret + 3;
+	}
+
+	return 0;
+}
+
+
+/* char_linebreak • '\n' preceded by two spaces (
