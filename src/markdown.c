@@ -632,4 +632,7 @@ char_emphasis(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 static size_t
 char_linebreak(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset, size_t size)
 {
-	i
+	if (offset < 2 || data[-1] != ' ' || data[-2] != ' ')
+		return 0;
+
+	/* removing 
