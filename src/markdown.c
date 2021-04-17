@@ -636,4 +636,7 @@ char_linebreak(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t o
 		return 0;
 
 	/* removing the last space from ob and rendering */
-	while (ob->size && ob->d
+	while (ob->size && ob->data[ob->size - 1] == ' ')
+		ob->size--;
+
+	return rndr->cb.linebreak(ob,
