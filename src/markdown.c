@@ -635,4 +635,5 @@ char_linebreak(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t o
 	if (offset < 2 || data[-1] != ' ' || data[-2] != ' ')
 		return 0;
 
-	/* removing 
+	/* removing the last space from ob and rendering */
+	while (ob->size && ob->d
