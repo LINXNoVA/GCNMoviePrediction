@@ -647,4 +647,6 @@ char_linebreak(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t o
 static size_t
 char_codespan(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset, size_t size)
 {
-	size_t end, nb = 0, i, f_begin,
+	size_t end, nb = 0, i, f_begin, f_end;
+
+	/* counting the number of backticks in the delimiter */
