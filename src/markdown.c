@@ -639,4 +639,8 @@ char_linebreak(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t o
 	while (ob->size && ob->data[ob->size - 1] == ' ')
 		ob->size--;
 
-	return rndr->cb.linebreak(ob,
+	return rndr->cb.linebreak(ob, rndr->opaque) ? 1 : 0;
+}
+
+
+/* char_codespan • '`' parsing a code span (assuming
