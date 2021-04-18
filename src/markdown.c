@@ -643,4 +643,6 @@ char_linebreak(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t o
 }
 
 
-/* char_codespan • '`' parsing a code span (assuming
+/* char_codespan • '`' parsing a code span (assuming codespan != 0) */
+static size_t
+char_codespan(struct buf *ob, struct sd_markdown *rndr, 
