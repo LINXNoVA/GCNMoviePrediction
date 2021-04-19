@@ -650,3 +650,7 @@ char_codespan(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 	size_t end, nb = 0, i, f_begin, f_end;
 
 	/* counting the number of backticks in the delimiter */
+	while (nb < size && data[nb] == '`')
+		nb++;
+
+	/* finding the next delim
