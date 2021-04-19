@@ -657,4 +657,8 @@ char_codespan(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 	i = 0;
 	for (end = nb; end < size && i < nb; end++) {
 		if (data[end] == '`') i++;
-		else i = 
+		else i = 0;
+	}
+
+	if (i < nb && end >= size)
+		return 0; /* no matching delimiter 
