@@ -669,4 +669,7 @@ char_codespan(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 		f_begin++;
 
 	f_end = end - nb;
-	while (f_end > n
+	while (f_end > nb && data[f_end-1] == ' ')
+		f_end--;
+
+	/* real code
