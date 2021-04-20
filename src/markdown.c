@@ -661,4 +661,8 @@ char_codespan(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 	}
 
 	if (i < nb && end >= size)
-		return 0; /* no matching delimiter 
+		return 0; /* no matching delimiter */
+
+	/* trimming outside whitespaces */
+	f_begin = nb;
+	while (f_begin 
