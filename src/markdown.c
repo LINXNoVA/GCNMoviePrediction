@@ -665,4 +665,8 @@ char_codespan(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 
 	/* trimming outside whitespaces */
 	f_begin = nb;
-	while (f_begin 
+	while (f_begin < end && data[f_begin] == ' ')
+		f_begin++;
+
+	f_end = end - nb;
+	while (f_end > n
