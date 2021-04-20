@@ -672,4 +672,6 @@ char_codespan(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 	while (f_end > nb && data[f_end-1] == ' ')
 		f_end--;
 
-	/* real code
+	/* real code span */
+	if (f_begin < f_end) {
+		struct buf work = { data + f_begin, 
