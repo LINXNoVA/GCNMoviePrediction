@@ -676,3 +676,6 @@ char_codespan(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 	if (f_begin < f_end) {
 		struct buf work = { data + f_begin, f_end - f_begin, 0, 0 };
 		if (!rndr->cb.codespan(ob, &work, rndr->opaque))
+			end = 0;
+	} else {
+		if (!rndr->cb.codespan(ob, 0, rndr->opaque)
