@@ -678,4 +678,12 @@ char_codespan(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 		if (!rndr->cb.codespan(ob, &work, rndr->opaque))
 			end = 0;
 	} else {
-		if (!rndr->cb.codespan(ob, 0, rndr->opaque)
+		if (!rndr->cb.codespan(ob, 0, rndr->opaque))
+			end = 0;
+	}
+
+	return end;
+}
+
+
+/* char_escape • '\\' backslash esca
