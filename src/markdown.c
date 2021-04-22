@@ -686,4 +686,6 @@ char_codespan(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
 }
 
 
-/* char_escape • '\\' backslash esca
+/* char_escape • '\\' backslash escape */
+static size_t
+char_escape(struct buf *ob, struct sd_markdown *rndr, 
