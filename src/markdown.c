@@ -711,4 +711,5 @@ char_escape(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offs
 }
 
 /* char_entity • '&' escaped when it doesn't belong to an entity */
-/* valid enti
+/* valid entities are assumed to be anything matching &#?[A-Za-z0-9]+; */
+static si
