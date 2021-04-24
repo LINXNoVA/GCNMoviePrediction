@@ -710,4 +710,5 @@ char_escape(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offs
 	return 2;
 }
 
-/* 
+/* char_entity • '&' escaped when it doesn't belong to an entity */
+/* valid enti
