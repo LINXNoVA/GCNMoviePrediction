@@ -721,4 +721,8 @@ char_entity(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offs
 	if (end < size && data[end] == '#')
 		end++;
 
-	while (end < size && is
+	while (end < size && isalnum(data[end]))
+		end++;
+
+	if (end < size && data[end] == ';')
+	
