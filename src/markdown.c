@@ -717,3 +717,8 @@ char_entity(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offs
 {
 	size_t end = 1;
 	struct buf work = { 0, 0, 0, 0 };
+
+	if (end < size && data[end] == '#')
+		end++;
+
+	while (end < size && is
