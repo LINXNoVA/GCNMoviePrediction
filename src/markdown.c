@@ -725,4 +725,8 @@ char_entity(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offs
 		end++;
 
 	if (end < size && data[end] == ';')
-	
+		end++; /* real entity */
+	else
+		return 0; /* lone '&' */
+
+	if (rndr->cb.ent
