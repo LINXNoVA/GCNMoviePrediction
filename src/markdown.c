@@ -729,4 +729,7 @@ char_entity(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offs
 	else
 		return 0; /* lone '&' */
 
-	if (rndr->cb.ent
+	if (rndr->cb.entity) {
+		work.data = data;
+		work.size = end;
+		rndr->cb.entity(ob, &work, rndr->o
