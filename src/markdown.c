@@ -743,4 +743,5 @@ char_entity(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offs
 static size_t
 char_langle_tag(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset, size_t size)
 {
-	enum mkd_au
+	enum mkd_autolink altype = MKDA_NOT_AUTOLINK;
+	size_t end = tag_length(data, size, &a
