@@ -739,4 +739,6 @@ char_entity(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offs
 	return end;
 }
 
-/* char_langle_
+/* char_langle_tag • '<' when tags or autolinks are allowed */
+static size_t
+char_langle_tag(struct buf *o
