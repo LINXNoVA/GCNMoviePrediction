@@ -732,4 +732,11 @@ char_entity(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offs
 	if (rndr->cb.entity) {
 		work.data = data;
 		work.size = end;
-		rndr->cb.entity(ob, &work, rndr->o
+		rndr->cb.entity(ob, &work, rndr->opaque);
+	}
+	else bufput(ob, data, end);
+
+	return end;
+}
+
+/* char_langle_
