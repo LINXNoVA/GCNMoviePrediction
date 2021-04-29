@@ -749,4 +749,5 @@ char_langle_tag(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	int ret = 0;
 
 	if (end > 2) {
-		if (rndr
+		if (rndr->cb.autolink && altype != MKDA_NOT_AUTOLINK) {
+			struct buf *u_link
