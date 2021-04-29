@@ -750,4 +750,6 @@ char_langle_tag(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 
 	if (end > 2) {
 		if (rndr->cb.autolink && altype != MKDA_NOT_AUTOLINK) {
-			struct buf *u_link
+			struct buf *u_link = rndr_newbuf(rndr, BUFFER_SPAN);
+			work.data = data + 1;
+			work.size 
