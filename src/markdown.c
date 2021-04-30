@@ -754,4 +754,7 @@ char_langle_tag(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 			work.data = data + 1;
 			work.size = end - 2;
 			unscape_text(u_link, &work);
-			ret = rndr->cb.autolink(ob, u_link, 
+			ret = rndr->cb.autolink(ob, u_link, altype, rndr->opaque);
+			rndr_popbuf(rndr, BUFFER_SPAN);
+		}
+		else if (rndr-
