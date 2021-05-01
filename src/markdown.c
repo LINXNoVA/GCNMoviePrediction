@@ -766,4 +766,4 @@ char_langle_tag(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 }
 
 static size_t
-char_autolink_www(st
+char_autolink_www(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset, size
