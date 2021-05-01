@@ -757,4 +757,5 @@ char_langle_tag(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 			ret = rndr->cb.autolink(ob, u_link, altype, rndr->opaque);
 			rndr_popbuf(rndr, BUFFER_SPAN);
 		}
-		else if (rndr-
+		else if (rndr->cb.raw_html_tag)
+			ret = rndr->cb.raw_html_tag(ob, &work, rndr->opaque);
