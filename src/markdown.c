@@ -759,3 +759,11 @@ char_langle_tag(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		}
 		else if (rndr->cb.raw_html_tag)
 			ret = rndr->cb.raw_html_tag(ob, &work, rndr->opaque);
+	}
+
+	if (!ret) return 0;
+	else return end;
+}
+
+static size_t
+char_autolink_www(st
