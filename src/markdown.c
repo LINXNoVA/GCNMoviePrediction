@@ -771,4 +771,7 @@ char_autolink_www(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_
 	struct buf *link, *link_url, *link_text;
 	size_t link_len, rewind;
 
-	if (!rndr->c
+	if (!rndr->cb.link || rndr->in_link_body)
+		return 0;
+
+	link = rndr_newbuf(rndr, B
