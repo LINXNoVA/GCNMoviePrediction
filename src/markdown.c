@@ -781,4 +781,6 @@ char_autolink_www(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_
 		BUFPUTSL(link_url, "http://");
 		bufput(link_url, link->data, link->size);
 
-		ob->siz
+		ob->size -= rewind;
+		if (rndr->cb.normal_text) {
+			link_text = rndr_newbuf(rnd
