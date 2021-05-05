@@ -788,4 +788,9 @@ char_autolink_www(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_
 			rndr->cb.link(ob, link_url, NULL, link_text, rndr->opaque);
 			rndr_popbuf(rndr, BUFFER_SPAN);
 		} else {
-			rndr->cb.link(ob, link_url, NULL, link, r
+			rndr->cb.link(ob, link_url, NULL, link, rndr->opaque);
+		}
+		rndr_popbuf(rndr, BUFFER_SPAN);
+	}
+
+	rndr_popbuf(rnd
