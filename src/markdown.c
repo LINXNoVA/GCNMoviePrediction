@@ -793,4 +793,9 @@ char_autolink_www(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_
 		rndr_popbuf(rndr, BUFFER_SPAN);
 	}
 
-	rndr_popbuf(rnd
+	rndr_popbuf(rndr, BUFFER_SPAN);
+	return link_len;
+}
+
+static size_t
+char_autolink_email(str
