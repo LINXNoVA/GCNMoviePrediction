@@ -786,4 +786,6 @@ char_autolink_www(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_
 			link_text = rndr_newbuf(rndr, BUFFER_SPAN);
 			rndr->cb.normal_text(link_text, link, rndr->opaque);
 			rndr->cb.link(ob, link_url, NULL, link_text, rndr->opaque);
-			rnd
+			rndr_popbuf(rndr, BUFFER_SPAN);
+		} else {
+			rndr->cb.link(ob, link_url, NULL, link, r
