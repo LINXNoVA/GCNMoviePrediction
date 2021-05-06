@@ -803,4 +803,7 @@ char_autolink_email(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, siz
 	struct buf *link;
 	size_t link_len, rewind;
 
-	if (!rndr->cb.autolink 
+	if (!rndr->cb.autolink || rndr->in_link_body)
+		return 0;
+
+	link = rndr_newbuf(rndr, BUFFER_SPAN
