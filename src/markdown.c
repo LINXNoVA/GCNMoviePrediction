@@ -817,4 +817,5 @@ char_autolink_email(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, siz
 	return link_len;
 }
 
-static
+static size_t
+char_autolink_url(struct buf *ob, struct sd_markdown *rndr, uint8_
