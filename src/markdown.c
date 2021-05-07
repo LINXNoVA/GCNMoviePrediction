@@ -808,4 +808,6 @@ char_autolink_email(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, siz
 
 	link = rndr_newbuf(rndr, BUFFER_SPAN);
 
-	if ((link_len = sd_autolink__email(&rewind, link, data, offset, si
+	if ((link_len = sd_autolink__email(&rewind, link, data, offset, size, 0)) > 0) {
+		ob->size -= rewind;
+		rndr->cb.autolink(ob, link, MKDA_EMAI
