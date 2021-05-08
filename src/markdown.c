@@ -825,3 +825,7 @@ char_autolink_url(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_
 
 	if (!rndr->cb.autolink || rndr->in_link_body)
 		return 0;
+
+	link = rndr_newbuf(rndr, BUFFER_SPAN);
+
+	if ((link_len = sd_autolink__url(&rewind, 
