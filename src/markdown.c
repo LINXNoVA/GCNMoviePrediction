@@ -821,4 +821,7 @@ static size_t
 char_autolink_url(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset, size_t size)
 {
 	struct buf *link;
-	size_t link_len, rewi
+	size_t link_len, rewind;
+
+	if (!rndr->cb.autolink || rndr->in_link_body)
+		return 0;
