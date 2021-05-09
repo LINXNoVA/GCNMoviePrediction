@@ -833,4 +833,8 @@ char_autolink_url(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_
 		rndr->cb.autolink(ob, link, MKDA_NORMAL, rndr->opaque);
 	}
 
-	rndr_popbuf(rndr, 
+	rndr_popbuf(rndr, BUFFER_SPAN);
+	return link_len;
+}
+
+/* char_link • '[': parsing a link o
