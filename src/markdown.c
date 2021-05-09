@@ -837,4 +837,6 @@ char_autolink_url(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_
 	return link_len;
 }
 
-/* char_link • '[': parsing a link o
+/* char_link • '[': parsing a link or an image */
+static size_t
+char_link(struct buf *ob, struct s
