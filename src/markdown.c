@@ -841,4 +841,5 @@ char_autolink_url(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_
 static size_t
 char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset, size_t size)
 {
-	int is_img
+	int is_img = (offset && data[-1] == '!'), level;
+	size_t i = 1, txt_e, link_b = 0,
