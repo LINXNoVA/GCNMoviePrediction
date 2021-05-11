@@ -847,4 +847,5 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 	struct buf *link = 0;
 	struct buf *title = 0;
 	struct buf *u_link = 0;
-	size_t org_work_size =
+	size_t org_work_size = rndr->work_bufs[BUFFER_SPAN].size;
+	int text_has_nl = 0, ret =
