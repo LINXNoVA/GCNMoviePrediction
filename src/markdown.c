@@ -851,4 +851,5 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 	int text_has_nl = 0, ret = 0;
 	int in_title = 0, qtype = 0;
 
-	/* checking whether the correct
+	/* checking whether the correct renderer exists */
+	if ((is_img && !rndr->cb.image) || (!is_img && !rndr->cb.
