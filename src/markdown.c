@@ -852,4 +852,8 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 	int in_title = 0, qtype = 0;
 
 	/* checking whether the correct renderer exists */
-	if ((is_img && !rndr->cb.image) || (!is_img && !rndr->cb.
+	if ((is_img && !rndr->cb.image) || (!is_img && !rndr->cb.link))
+		goto cleanup;
+
+	/* looking for the matching closing bracket */
+	for 
