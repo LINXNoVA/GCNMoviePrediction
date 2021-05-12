@@ -856,4 +856,6 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		goto cleanup;
 
 	/* looking for the matching closing bracket */
-	for 
+	for (level = 1; i < size; i++) {
+		if (data[i] == '\n')
+			text_has_n
