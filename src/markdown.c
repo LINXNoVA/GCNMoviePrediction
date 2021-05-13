@@ -868,4 +868,15 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 
 		else if (data[i] == ']') {
 			level--;
-			if (level <= 0
+			if (level <= 0)
+				break;
+		}
+	}
+
+	if (i >= size)
+		goto cleanup;
+
+	txt_e = i;
+	i++;
+
+	/* skip any a
