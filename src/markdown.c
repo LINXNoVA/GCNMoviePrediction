@@ -863,4 +863,9 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		else if (data[i - 1] == '\\')
 			continue;
 
-		else if (data[i] == '[
+		else if (data[i] == '[')
+			level++;
+
+		else if (data[i] == ']') {
+			level--;
+			if (level <= 0
