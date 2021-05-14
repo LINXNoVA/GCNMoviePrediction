@@ -879,4 +879,5 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 	txt_e = i;
 	i++;
 
-	/* skip any a
+	/* skip any amount of whitespace or newline */
+	/* (this is much more laxist than original markdown syntax)
