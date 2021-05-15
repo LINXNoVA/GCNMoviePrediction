@@ -886,4 +886,10 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 
 	/* inline style link */
 	if (i < size && data[i] == '(') {
-		/* skipping initial 
+		/* skipping initial whitespace */
+		i++;
+
+		while (i < size && _isspace(data[i]))
+			i++;
+
+		link_b
