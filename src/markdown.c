@@ -892,4 +892,8 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		while (i < size && _isspace(data[i]))
 			i++;
 
-		link_b
+		link_b = i;
+
+		/* looking for link end: ' " ) */
+		while (i < size) {
+			if (data
