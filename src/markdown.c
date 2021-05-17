@@ -900,3 +900,9 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 			else if (data[i] == ')') break;
 			else if (i >= 1 && _isspace(data[i-1]) && (data[i] == '\'' || data[i] == '"')) break;
 			else i++;
+		}
+
+		if (i >= size) goto cleanup;
+		link_e = i;
+
+		/
