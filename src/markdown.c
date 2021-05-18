@@ -905,4 +905,5 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		if (i >= size) goto cleanup;
 		link_e = i;
 
-		/
+		/* looking for title end if present */
+		if (data[i] == '\'' || data[i]
