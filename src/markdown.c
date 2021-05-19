@@ -910,4 +910,8 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 			qtype = data[i];
 			in_title = 1;
 			i++;
-			title
+			title_b = i;
+
+			while (i < size) {
+				if (data[i] == '\\') i += 2;
+				else if (data[i] == 
