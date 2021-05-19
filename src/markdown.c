@@ -906,4 +906,8 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		link_e = i;
 
 		/* looking for title end if present */
-		if (data[i] == '\'' || data[i]
+		if (data[i] == '\'' || data[i] == '"') {
+			qtype = data[i];
+			in_title = 1;
+			i++;
+			title
