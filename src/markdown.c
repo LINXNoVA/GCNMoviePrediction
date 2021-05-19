@@ -916,3 +916,9 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 				if (data[i] == '\\') i += 2;
 				else if (data[i] == qtype) {in_title = 0; i++;}
 				else if ((data[i] == ')') && !in_title) break;
+				else i++;
+			}
+
+			if (i >= size) goto cleanup;
+
+			/* skipping whitespace
