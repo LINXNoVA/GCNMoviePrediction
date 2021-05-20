@@ -921,4 +921,6 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 
 			if (i >= size) goto cleanup;
 
-			/* skipping whitespace
+			/* skipping whitespaces after title */
+			title_e = i - 1;
+			while (title_e > title_b && _isspace(d
