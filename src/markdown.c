@@ -933,4 +933,5 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 			}
 		}
 
-		/* remove whitespace at the end 
+		/* remove whitespace at the end of the link */
+		while (link_e > link_b && _isspac
