@@ -923,4 +923,7 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 
 			/* skipping whitespaces after title */
 			title_e = i - 1;
-			while (title_e > title_b && _isspace(d
+			while (title_e > title_b && _isspace(data[title_e]))
+				title_e--;
+
+			/* checking for closing quote presence
