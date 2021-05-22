@@ -937,4 +937,6 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		while (link_e > link_b && _isspace(data[link_e - 1]))
 			link_e--;
 
-		/* remove optional angle bracke
+		/* remove optional angle brackets around the link */
+		if (data[link_b] == '<') link_b++;
+		if (data[
