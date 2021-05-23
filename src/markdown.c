@@ -942,4 +942,6 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		if (data[link_e - 1] == '>') link_e--;
 
 		/* building escaped link and title */
-		if (l
+		if (link_e > link_b) {
+			link = rndr_newbuf(rndr, BUFFER_SPAN);
+			bufput(link, data +
