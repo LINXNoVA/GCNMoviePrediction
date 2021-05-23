@@ -939,4 +939,7 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 
 		/* remove optional angle brackets around the link */
 		if (data[link_b] == '<') link_b++;
-		if (data[
+		if (data[link_e - 1] == '>') link_e--;
+
+		/* building escaped link and title */
+		if (l
