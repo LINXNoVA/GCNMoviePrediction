@@ -948,4 +948,5 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		}
 
 		if (title_e > title_b) {
-			
+			title = rndr_newbuf(rndr, BUFFER_SPAN);
+			bufput(title, data + title_b, titl
