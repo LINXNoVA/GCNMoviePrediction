@@ -958,4 +958,9 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 	/* reference style link */
 	else if (i < size && data[i] == '[') {
 		struct buf id = { 0, 0, 0, 0 };
-	
+		struct link_ref *lr;
+
+		/* looking for the id */
+		i++;
+		link_b = i;
+		while (i < siz
