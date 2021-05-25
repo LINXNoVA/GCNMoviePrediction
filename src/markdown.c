@@ -963,4 +963,6 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		/* looking for the id */
 		i++;
 		link_b = i;
-		while (i < siz
+		while (i < size && data[i] != ']') i++;
+		if (i >= size) goto cleanup;
+		l
