@@ -965,4 +965,8 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		link_b = i;
 		while (i < size && data[i] != ']') i++;
 		if (i >= size) goto cleanup;
-		l
+		link_e = i;
+
+		/* finding the link_ref */
+		if (link_b == link_e) {
+	
