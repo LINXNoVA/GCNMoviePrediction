@@ -977,4 +977,10 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 					if (data[j] != '\n')
 						bufputc(b, data[j]);
 					else if (data[j - 1] != ' ')
-						bufputc(b, 
+						bufputc(b, ' ');
+				}
+
+				id.data = b->data;
+				id.size = b->size;
+			} else {
+		
