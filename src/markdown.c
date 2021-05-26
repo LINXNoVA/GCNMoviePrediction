@@ -987,4 +987,8 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 				id.size = txt_e - 1;
 			}
 		} else {
-			id.data = dat
+			id.data = data + link_b;
+			id.size = link_e - link_b;
+		}
+
+		lr = find_link_ref(r
