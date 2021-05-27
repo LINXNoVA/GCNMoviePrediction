@@ -1003,4 +1003,7 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 
 	/* shortcut reference style link */
 	else {
-		struct buf 
+		struct buf id = { 0, 0, 0, 0 };
+		struct link_ref *lr;
+
+		/* crafting the id
