@@ -1013,4 +1013,9 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 
 			for (j = 1; j < txt_e; j++) {
 				if (data[j] != '\n')
-					bufputc(b, 
+					bufputc(b, data[j]);
+				else if (data[j - 1] != ' ')
+					bufputc(b, ' ');
+			}
+
+			id.data = 
