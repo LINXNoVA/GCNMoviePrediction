@@ -1018,4 +1018,8 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 					bufputc(b, ' ');
 			}
 
-			id.data = 
+			id.data = b->data;
+			id.size = b->size;
+		} else {
+			id.data = data + 1;
+			id.
