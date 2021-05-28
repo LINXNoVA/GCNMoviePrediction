@@ -1006,4 +1006,7 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		struct buf id = { 0, 0, 0, 0 };
 		struct link_ref *lr;
 
-		/* crafting the id
+		/* crafting the id */
+		if (text_has_nl) {
+			struct buf *b = rndr_newbuf(rndr, BUFFER_SPAN);
+			siz
