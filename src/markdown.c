@@ -1030,4 +1030,6 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		if (!lr)
 			goto cleanup;
 
-		/* keeping link and t
+		/* keeping link and title from link_ref */
+		link = lr->link;
+		title = lr->title;
