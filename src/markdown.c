@@ -1026,4 +1026,8 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		}
 
 		/* finding the link_ref */
-		lr = find_link_ref(rndr->re
+		lr = find_link_ref(rndr->refs, id.data, id.size);
+		if (!lr)
+			goto cleanup;
+
+		/* keeping link and t
