@@ -1033,3 +1033,9 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		/* keeping link and title from link_ref */
 		link = lr->link;
 		title = lr->title;
+
+		/* rewinding the whitespace */
+		i = txt_e + 1;
+	}
+
+	/* building content: img
