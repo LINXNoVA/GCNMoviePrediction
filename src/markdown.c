@@ -1022,4 +1022,8 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 			id.size = b->size;
 		} else {
 			id.data = data + 1;
-			id.
+			id.size = txt_e - 1;
+		}
+
+		/* finding the link_ref */
+		lr = find_link_ref(rndr->re
