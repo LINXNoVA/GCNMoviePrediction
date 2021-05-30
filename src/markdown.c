@@ -1038,4 +1038,6 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		i = txt_e + 1;
 	}
 
-	/* building content: img
+	/* building content: img alt is escaped, link content is parsed */
+	if (txt_e > 1) {
+		content =
