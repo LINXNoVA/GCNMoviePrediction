@@ -1042,4 +1042,6 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 	if (txt_e > 1) {
 		content = rndr_newbuf(rndr, BUFFER_SPAN);
 		if (is_img) {
-			bufput(content, da
+			bufput(content, data + 1, txt_e - 1);
+		} else {
+			/* disable autolinking whe
