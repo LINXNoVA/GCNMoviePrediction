@@ -1040,4 +1040,6 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 
 	/* building content: img alt is escaped, link content is parsed */
 	if (txt_e > 1) {
-		content =
+		content = rndr_newbuf(rndr, BUFFER_SPAN);
+		if (is_img) {
+			bufput(content, da
