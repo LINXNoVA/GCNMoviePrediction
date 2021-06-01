@@ -1048,4 +1048,10 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 			 * content of a link */
 			rndr->in_link_body = 1;
 			parse_inline(content, rndr, data + 1, txt_e - 1);
-			rndr->in_link_bod
+			rndr->in_link_body = 0;
+		}
+	}
+
+	if (link) {
+		u_link = rndr_newbuf(rndr, BUFFER_SPAN);
+		un
