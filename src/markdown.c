@@ -1046,4 +1046,6 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		} else {
 			/* disable autolinking when parsing inline the
 			 * content of a link */
-			rndr->in_link_
+			rndr->in_link_body = 1;
+			parse_inline(content, rndr, data + 1, txt_e - 1);
+			rndr->in_link_bod
