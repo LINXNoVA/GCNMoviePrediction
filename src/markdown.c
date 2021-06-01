@@ -1044,4 +1044,6 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		if (is_img) {
 			bufput(content, data + 1, txt_e - 1);
 		} else {
-			/* disable autolinking whe
+			/* disable autolinking when parsing inline the
+			 * content of a link */
+			rndr->in_link_
