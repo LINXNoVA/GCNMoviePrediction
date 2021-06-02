@@ -1057,4 +1057,7 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		unscape_text(u_link, link);
 	}
 
-	/* calling the relevant rendering function
+	/* calling the relevant rendering function */
+	if (is_img) {
+		if (ob->size && ob->data[ob->size - 1] == '!')
+			ob->s
