@@ -1062,4 +1062,6 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 		if (ob->size && ob->data[ob->size - 1] == '!')
 			ob->size -= 1;
 
-		ret = rndr->cb.image(ob, u_link, title, content, rn
+		ret = rndr->cb.image(ob, u_link, title, content, rndr->opaque);
+	} else {
+		ret = rndr->cb.link(ob, u_link, title, content, rndr->o
