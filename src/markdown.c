@@ -1060,4 +1060,6 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 	/* calling the relevant rendering function */
 	if (is_img) {
 		if (ob->size && ob->data[ob->size - 1] == '!')
-			ob->s
+			ob->size -= 1;
+
+		ret = rndr->cb.image(ob, u_link, title, content, rn
