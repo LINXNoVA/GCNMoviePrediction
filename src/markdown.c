@@ -1064,4 +1064,9 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 
 		ret = rndr->cb.image(ob, u_link, title, content, rndr->opaque);
 	} else {
-		ret = rndr->cb.link(ob, u_link, title, content, rndr->o
+		ret = rndr->cb.link(ob, u_link, title, content, rndr->opaque);
+	}
+
+	/* cleanup */
+cleanup:
+	rndr->work_bufs[BUFFER_SPAN].si
