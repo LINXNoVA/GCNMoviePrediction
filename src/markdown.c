@@ -1069,4 +1069,9 @@ char_link(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t offset
 
 	/* cleanup */
 cleanup:
-	rndr->work_bufs[BUFFER_SPAN].si
+	rndr->work_bufs[BUFFER_SPAN].size = (int)org_work_size;
+	return ret ? i : 0;
+}
+
+static size_t
+char_supersc
