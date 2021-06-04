@@ -1079,4 +1079,10 @@ char_superscript(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 	size_t sup_start, sup_len;
 	struct buf *sup;
 
-	i
+	if (!rndr->cb.superscript)
+		return 0;
+
+	if (size < 2)
+		return 0;
+
+	if (data[1] == '(
