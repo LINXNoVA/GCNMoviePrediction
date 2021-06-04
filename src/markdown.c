@@ -1074,4 +1074,4 @@ cleanup:
 }
 
 static size_t
-char_supersc
+char_superscript(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t of
