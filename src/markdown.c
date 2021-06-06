@@ -1097,4 +1097,8 @@ char_superscript(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 		sup_start = sup_len = 1;
 
 		while (sup_len < size && !_isspace(data[sup_len]))
-			sup_len
+			sup_len++;
+	}
+
+	if (sup_len - sup_start == 0)
+		return (sup_start == 2) ? 
