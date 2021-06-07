@@ -1104,4 +1104,6 @@ char_superscript(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 		return (sup_start == 2) ? 3 : 0;
 
 	sup = rndr_newbuf(rndr, BUFFER_SPAN);
-	parse_inline(sup, rndr, data + 
+	parse_inline(sup, rndr, data + sup_start, sup_len - sup_start);
+	rndr->cb.superscript(ob, sup, rndr->opaque);
+	rnd
