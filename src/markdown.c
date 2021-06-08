@@ -1110,3 +1110,7 @@ char_superscript(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 
 	return (sup_start == 2) ? sup_len + 1 : sup_len;
 }
+
+/*********************************
+ * BLOCK-LEVEL PARSING FUNCTIONS *
+ *******
