@@ -1119,3 +1119,8 @@ char_superscript(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 static size_t
 is_empty(uint8_t *data, size_t size)
 {
+	size_t i;
+
+	for (i = 0; i < size && data[i] != '\n'; i++)
+		if (data[i] != ' ')
+	
