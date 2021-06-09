@@ -1113,4 +1113,6 @@ char_superscript(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 
 /*********************************
  * BLOCK-LEVEL PARSING FUNCTIONS *
- *******
+ *********************************/
+
+/* is_empty • returns the line length when it is empty, 0 ot
