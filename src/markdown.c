@@ -1133,3 +1133,8 @@ static int
 is_hrule(uint8_t *data, size_t size)
 {
 	size_t i = 0, n = 0;
+	uint8_t c;
+
+	/* skipping initial spaces */
+	if (size < 3) return 0;
+	if
