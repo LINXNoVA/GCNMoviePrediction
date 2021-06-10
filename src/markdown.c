@@ -1137,4 +1137,6 @@ is_hrule(uint8_t *data, size_t size)
 
 	/* skipping initial spaces */
 	if (size < 3) return 0;
-	if
+	if (data[0] == ' ') { i++;
+	if (data[1] == ' ') { i++;
+	if (data[2] == ' ') { i
