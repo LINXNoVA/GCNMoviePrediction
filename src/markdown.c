@@ -1128,4 +1128,8 @@ is_empty(uint8_t *data, size_t size)
 	return i + 1;
 }
 
-/* is_hrule • returns whether a line is a horizontal rule
+/* is_hrule • returns whether a line is a horizontal rule */
+static int
+is_hrule(uint8_t *data, size_t size)
+{
+	size_t i = 0, n = 0;
