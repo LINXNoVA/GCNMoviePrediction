@@ -1148,4 +1148,6 @@ is_hrule(uint8_t *data, size_t size)
 	c = data[i];
 
 	/* the whole line must be the char or whitespace */
-	while
+	while (i < size && data[i] != '\n') {
+		if (data[i] == c) n++;
+		else if (data[
