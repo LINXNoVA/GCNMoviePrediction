@@ -1145,4 +1145,7 @@ is_hrule(uint8_t *data, size_t size)
 	if (i + 2 >= size
 	|| (data[i] != '*' && data[i] != '-' && data[i] != '_'))
 		return 0;
-	c =
+	c = data[i];
+
+	/* the whole line must be the char or whitespace */
+	while
