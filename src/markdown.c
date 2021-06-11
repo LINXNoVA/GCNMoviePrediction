@@ -1143,4 +1143,6 @@ is_hrule(uint8_t *data, size_t size)
 
 	/* looking at the hrule uint8_t */
 	if (i + 2 >= size
-	
+	|| (data[i] != '*' && data[i] != '-' && data[i] != '_'))
+		return 0;
+	c =
