@@ -1162,4 +1162,7 @@ is_hrule(uint8_t *data, size_t size)
 /* check if a line begins with a code fence; return the
  * width of the code fence */
 static size_t
-prefix_c
+prefix_codefence(uint8_t *data, size_t size)
+{
+	size_t i = 0, n = 0;
+	uint8_t c;
