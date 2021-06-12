@@ -1150,4 +1150,13 @@ is_hrule(uint8_t *data, size_t size)
 	/* the whole line must be the char or whitespace */
 	while (i < size && data[i] != '\n') {
 		if (data[i] == c) n++;
-		else if (data[
+		else if (data[i] != ' ')
+			return 0;
+
+		i++;
+	}
+
+	return n >= 3;
+}
+
+/* check if a line begins 
