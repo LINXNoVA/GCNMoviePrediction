@@ -1159,4 +1159,7 @@ is_hrule(uint8_t *data, size_t size)
 	return n >= 3;
 }
 
-/* check if a line begins 
+/* check if a line begins with a code fence; return the
+ * width of the code fence */
+static size_t
+prefix_c
