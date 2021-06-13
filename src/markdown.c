@@ -1171,4 +1171,7 @@ prefix_codefence(uint8_t *data, size_t size)
 	if (size < 3) return 0;
 	if (data[0] == ' ') { i++;
 	if (data[1] == ' ') { i++;
-	if (data[2] == ' ') { i++
+	if (data[2] == ' ') { i++; } } }
+
+	/* looking at the hrule uint8_t */
+	if (i + 2 >= size || !(
