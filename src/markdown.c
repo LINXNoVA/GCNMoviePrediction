@@ -1174,4 +1174,9 @@ prefix_codefence(uint8_t *data, size_t size)
 	if (data[2] == ' ') { i++; } } }
 
 	/* looking at the hrule uint8_t */
-	if (i + 2 >= size || !(
+	if (i + 2 >= size || !(data[i] == '~' || data[i] == '`'))
+		return 0;
+
+	c = data[i];
+
+	
