@@ -1181,4 +1181,13 @@ prefix_codefence(uint8_t *data, size_t size)
 
 	/* the whole line must be the uint8_t or whitespace */
 	while (i < size && data[i] == c) {
-		n++; 
+		n++; i++;
+	}
+
+	if (n < 3)
+		return 0;
+
+	return i;
+}
+
+/* check if
