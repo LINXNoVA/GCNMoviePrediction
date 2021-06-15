@@ -1190,4 +1190,6 @@ prefix_codefence(uint8_t *data, size_t size)
 	return i;
 }
 
-/* check if
+/* check if a line is a code fence; return its size if it is */
+static size_t
+is_codefence(
