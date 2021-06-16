@@ -1197,4 +1197,9 @@ is_codefence(uint8_t *data, size_t size, struct buf *syntax)
 	size_t i = 0, syn_len = 0;
 	uint8_t *syn_start;
 
-	i = prefix_codefence(data, 
+	i = prefix_codefence(data, size);
+	if (i == 0)
+		return 0;
+
+	while (i < size && data[i] == ' ')
+		i
