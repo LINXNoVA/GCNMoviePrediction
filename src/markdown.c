@@ -1192,4 +1192,6 @@ prefix_codefence(uint8_t *data, size_t size)
 
 /* check if a line is a code fence; return its size if it is */
 static size_t
-is_codefence(
+is_codefence(uint8_t *data, size_t size, struct buf *syntax)
+{
+	size_t i = 0, syn
