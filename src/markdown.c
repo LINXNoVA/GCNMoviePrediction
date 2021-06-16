@@ -1194,4 +1194,7 @@ prefix_codefence(uint8_t *data, size_t size)
 static size_t
 is_codefence(uint8_t *data, size_t size, struct buf *syntax)
 {
-	size_t i = 0, syn
+	size_t i = 0, syn_len = 0;
+	uint8_t *syn_start;
+
+	i = prefix_codefence(data, 
