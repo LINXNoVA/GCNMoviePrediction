@@ -1209,4 +1209,11 @@ is_codefence(uint8_t *data, size_t size, struct buf *syntax)
 	if (i < size && data[i] == '{') {
 		i++; syn_start++;
 
-		while (i < size && data[i] != '}' && data[i] != '\n'
+		while (i < size && data[i] != '}' && data[i] != '\n') {
+			syn_len++; i++;
+		}
+
+		if (i == size || data[i] != '}')
+			return 0;
+
+		/* stri
