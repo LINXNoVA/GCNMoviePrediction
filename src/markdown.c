@@ -1202,4 +1202,9 @@ is_codefence(uint8_t *data, size_t size, struct buf *syntax)
 		return 0;
 
 	while (i < size && data[i] == ' ')
-		i
+		i++;
+
+	syn_start = data + i;
+
+	if (i < size && data[i] == '{') {
+		i++; syn_sta
