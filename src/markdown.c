@@ -1229,4 +1229,9 @@ is_codefence(uint8_t *data, size_t size, struct buf *syntax)
 	} else {
 		while (i < size && !_isspace(data[i])) {
 			syn_len++; i++;
-	
+		}
+	}
+
+	if (syntax) {
+		syntax->data = syn_start;
+		syntax->size = syn
