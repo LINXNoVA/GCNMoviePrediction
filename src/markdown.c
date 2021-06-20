@@ -1239,4 +1239,12 @@ is_codefence(uint8_t *data, size_t size, struct buf *syntax)
 
 	while (i < size && data[i] != '\n') {
 		if (!_isspace(data[i]))
-		
+			return 0;
+
+		i++;
+	}
+
+	return i + 1;
+}
+
+/* is_atxheader • returns whe
