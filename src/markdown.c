@@ -1247,4 +1247,6 @@ is_codefence(uint8_t *data, size_t size, struct buf *syntax)
 	return i + 1;
 }
 
-/* is_atxheader • returns whe
+/* is_atxheader • returns whether the line is a hash-prefixed header */
+static int
+is_atxheader(
