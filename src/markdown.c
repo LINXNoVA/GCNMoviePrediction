@@ -1249,4 +1249,7 @@ is_codefence(uint8_t *data, size_t size, struct buf *syntax)
 
 /* is_atxheader • returns whether the line is a hash-prefixed header */
 static int
-is_atxheader(
+is_atxheader(struct sd_markdown *rndr, uint8_t *data, size_t size)
+{
+	if (data[0] != '#')
+		return
