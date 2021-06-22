@@ -1259,3 +1259,12 @@ is_atxheader(struct sd_markdown *rndr, uint8_t *data, size_t size)
 
 		while (level < size && level < 6 && data[level] == '#')
 			level++;
+
+		if (level < size && data[level] != ' ')
+			return 0;
+	}
+
+	return 1;
+}
+
+/* is_header
