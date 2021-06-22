@@ -1252,4 +1252,7 @@ static int
 is_atxheader(struct sd_markdown *rndr, uint8_t *data, size_t size)
 {
 	if (data[0] != '#')
-		return
+		return 0;
+
+	if (rndr->ext_flags & MKDEXT_SPACE_HEADERS) {
+		size_t level = 
