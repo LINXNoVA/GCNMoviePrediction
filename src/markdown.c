@@ -1267,4 +1267,4 @@ is_atxheader(struct sd_markdown *rndr, uint8_t *data, size_t size)
 	return 1;
 }
 
-/* is_header
+/* is_headerline • returns whether the line is a setext-style hdr underl
