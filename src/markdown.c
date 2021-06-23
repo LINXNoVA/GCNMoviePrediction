@@ -1269,4 +1269,9 @@ is_atxheader(struct sd_markdown *rndr, uint8_t *data, size_t size)
 
 /* is_headerline • returns whether the line is a setext-style hdr underline */
 static int
-is_headerline(uint8_t *data, size_t siz
+is_headerline(uint8_t *data, size_t size)
+{
+	size_t i = 0;
+
+	/* test of level 1 header */
+	if (data[i] == '=
