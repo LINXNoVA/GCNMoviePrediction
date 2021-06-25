@@ -1281,4 +1281,5 @@ is_headerline(uint8_t *data, size_t size)
 
 	/* test of level 2 header */
 	if (data[i] == '-') {
-		for
+		for (i = 1; i < size && data[i] == '-'; i++);
+		while (i < size && data[i
