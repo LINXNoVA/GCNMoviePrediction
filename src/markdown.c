@@ -1303,4 +1303,8 @@ is_next_headerline(uint8_t *data, size_t size)
 }
 
 /* prefix_quote • returns blockquote prefix length */
-stati
+static size_t
+prefix_quote(uint8_t *data, size_t size)
+{
+	size_t i = 0;
+	if (i < size && dat
