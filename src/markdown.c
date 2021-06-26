@@ -1291,4 +1291,12 @@ is_headerline(uint8_t *data, size_t size)
 static int
 is_next_headerline(uint8_t *data, size_t size)
 {
-	size_t i =
+	size_t i = 0;
+
+	while (i < size && data[i] != '\n')
+		i++;
+
+	if (++i >= size)
+		return 0;
+
+	return is
