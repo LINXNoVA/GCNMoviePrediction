@@ -1285,4 +1285,10 @@ is_headerline(uint8_t *data, size_t size)
 		while (i < size && data[i] == ' ') i++;
 		return (i >= size || data[i] == '\n') ? 2 : 0; }
 
-	re
+	return 0;
+}
+
+static int
+is_next_headerline(uint8_t *data, size_t size)
+{
+	size_t i =
