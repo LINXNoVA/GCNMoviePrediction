@@ -1299,4 +1299,8 @@ is_next_headerline(uint8_t *data, size_t size)
 	if (++i >= size)
 		return 0;
 
-	return is
+	return is_headerline(data + i, size - i);
+}
+
+/* prefix_quote • returns blockquote prefix length */
+stati
