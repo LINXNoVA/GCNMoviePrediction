@@ -1321,4 +1321,6 @@ prefix_quote(uint8_t *data, size_t size)
 	return 0;
 }
 
-/* prefix
+/* prefix_code • returns prefix length for block code*/
+static size_t
+prefix_c
