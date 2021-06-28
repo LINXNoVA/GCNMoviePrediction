@@ -1323,4 +1323,6 @@ prefix_quote(uint8_t *data, size_t size)
 
 /* prefix_code • returns prefix length for block code*/
 static size_t
-prefix_c
+prefix_code(uint8_t *data, size_t size)
+{
+	if (size > 3 && data[0] == '
