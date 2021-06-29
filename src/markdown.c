@@ -1335,4 +1335,7 @@ prefix_code(uint8_t *data, size_t size)
 static size_t
 prefix_oli(uint8_t *data, size_t size)
 {
-	size_t i
+	size_t i = 0;
+
+	if (i < size && data[i] == ' ') i++;
+	if (i < size && data[i] 
