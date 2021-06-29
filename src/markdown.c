@@ -1331,4 +1331,8 @@ prefix_code(uint8_t *data, size_t size)
 	return 0;
 }
 
-/* prefix_oli • returns ordered list item prefi
+/* prefix_oli • returns ordered list item prefix */
+static size_t
+prefix_oli(uint8_t *data, size_t size)
+{
+	size_t i
