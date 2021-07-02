@@ -1357,4 +1357,9 @@ prefix_oli(uint8_t *data, size_t size)
 }
 
 /* prefix_uli • returns ordered list item prefix */
-stat
+static size_t
+prefix_uli(uint8_t *data, size_t size)
+{
+	size_t i = 0;
+
+	if (i <
