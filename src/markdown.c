@@ -1351,4 +1351,10 @@ prefix_oli(uint8_t *data, size_t size)
 		return 0;
 
 	if (is_next_headerline(data + i, size - i))
-		r
+		return 0;
+
+	return i + 2;
+}
+
+/* prefix_uli • returns ordered list item prefix */
+stat
