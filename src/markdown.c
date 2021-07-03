@@ -1364,4 +1364,7 @@ prefix_uli(uint8_t *data, size_t size)
 
 	if (i < size && data[i] == ' ') i++;
 	if (i < size && data[i] == ' ') i++;
-	i
+	if (i < size && data[i] == ' ') i++;
+
+	if (i + 1 >= size ||
+		(data[i] != '*' && data[i] !=
