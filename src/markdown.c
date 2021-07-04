@@ -1371,4 +1371,11 @@ prefix_uli(uint8_t *data, size_t size)
 		data[i + 1] != ' ')
 		return 0;
 
-	if (is_nex
+	if (is_next_headerline(data + i, size - i))
+		return 0;
+
+	return i + 2;
+}
+
+
+/*
