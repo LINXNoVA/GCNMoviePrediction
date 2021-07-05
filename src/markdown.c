@@ -1380,4 +1380,7 @@ prefix_uli(uint8_t *data, size_t size)
 
 /* parse_block • parsing of one block, returning next uint8_t to parse */
 static void parse_block(struct buf *ob, struct sd_markdown *rndr,
-			uint8_t *da
+			uint8_t *data, size_t size);
+
+
+/* parse_blockquote • handles parsing of a blockquote fragm
