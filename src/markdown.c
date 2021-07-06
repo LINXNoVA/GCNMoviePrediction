@@ -1391,4 +1391,7 @@ parse_blockquote(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 	uint8_t *work_data = 0;
 	struct buf *out = 0;
 
-	out = rndr_newbuf(rnd
+	out = rndr_newbuf(rndr, BUFFER_BLOCK);
+	beg = 0;
+	while (beg < size) {
+		for (end = beg + 1; end < s
