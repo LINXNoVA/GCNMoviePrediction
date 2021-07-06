@@ -1387,4 +1387,8 @@ static void parse_block(struct buf *ob, struct sd_markdown *rndr,
 static size_t
 parse_blockquote(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size)
 {
-	size_t beg, end = 0, pre, work
+	size_t beg, end = 0, pre, work_size = 0;
+	uint8_t *work_data = 0;
+	struct buf *out = 0;
+
+	out = rndr_newbuf(rnd
