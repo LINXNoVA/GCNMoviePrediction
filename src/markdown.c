@@ -1394,4 +1394,6 @@ parse_blockquote(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 	out = rndr_newbuf(rndr, BUFFER_BLOCK);
 	beg = 0;
 	while (beg < size) {
-		for (end = beg + 1; end < s
+		for (end = beg + 1; end < size && data[end - 1] != '\n'; end++);
+
+		pre = prefix_quote(data + beg, e
