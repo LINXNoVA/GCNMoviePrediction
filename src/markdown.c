@@ -1385,4 +1385,6 @@ static void parse_block(struct buf *ob, struct sd_markdown *rndr,
 
 /* parse_blockquote • handles parsing of a blockquote fragment */
 static size_t
-parse_blockquote(struct buf *ob, struct sd_markdown 
+parse_blockquote(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size)
+{
+	size_t beg, end = 0, pre, work
