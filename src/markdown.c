@@ -1401,4 +1401,5 @@ parse_blockquote(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 		if (pre)
 			beg += pre; /* skipping prefix */
 
-		/* empty line
+		/* empty line followed by non-quote line */
+		else if (is_empty(data + 
