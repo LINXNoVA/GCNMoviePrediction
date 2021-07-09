@@ -1405,4 +1405,7 @@ parse_blockquote(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 		else if (is_empty(data + beg, end - beg) &&
 				(end >= size || (prefix_quote(data + end, size - end) == 0 &&
 				!is_empty(data + end, size - end))))
-			brea
+			break;
+
+		if (beg < end) { /* copy into the in-place working buffer */
+			/* b
