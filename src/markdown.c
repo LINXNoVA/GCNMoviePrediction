@@ -1413,4 +1413,9 @@ parse_blockquote(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 				work_data = data + beg;
 			else if (data + beg != work_data + work_size)
 				memmove(work_data + work_size, data + beg, end - beg);
-			work_size += e
+			work_size += end - beg;
+		}
+		beg = end;
+	}
+
+	parse_block(out, rndr, work_data, work_size)
