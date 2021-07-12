@@ -1418,4 +1418,6 @@ parse_blockquote(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 		beg = end;
 	}
 
-	parse_block(out, rndr, work_data, work_size)
+	parse_block(out, rndr, work_data, work_size);
+	if (rndr->cb.blockquote)
+		rndr->cb.blockquote(ob, out, rndr->opaque)
