@@ -1429,3 +1429,5 @@ static size_t
 parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size, int do_render);
 
 /* parse_blockquote • handles parsing of a regular paragraph */
+static size_t
+parse_paragraph(struct buf *ob, struct sd_markdown
