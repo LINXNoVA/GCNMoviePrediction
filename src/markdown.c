@@ -1430,4 +1430,7 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 
 /* parse_blockquote • handles parsing of a regular paragraph */
 static size_t
-parse_paragraph(struct buf *ob, struct sd_markdown
+parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size)
+{
+	size_t i = 0, end = 0;
+	int level = 0
