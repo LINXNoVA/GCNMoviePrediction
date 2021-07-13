@@ -1433,4 +1433,8 @@ static size_t
 parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size)
 {
 	size_t i = 0, end = 0;
-	int level = 0
+	int level = 0;
+	struct buf work = { data, 0, 0, 0 };
+
+	while (i < size) {
+		for (end = i + 1; end
