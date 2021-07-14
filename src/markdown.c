@@ -1439,4 +1439,7 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	while (i < size) {
 		for (end = i + 1; end < size && data[end - 1] != '\n'; end++) /* empty */;
 
-		if (is_empty(dat
+		if (is_empty(data + i, size - i))
+			break;
+
+		if ((level = is_headerline(data + i, size - i)) !=
