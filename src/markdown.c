@@ -1437,4 +1437,6 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	struct buf work = { data, 0, 0, 0 };
 
 	while (i < size) {
-		for (end = i + 1; end
+		for (end = i + 1; end < size && data[end - 1] != '\n'; end++) /* empty */;
+
+		if (is_empty(dat
