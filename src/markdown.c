@@ -1442,4 +1442,8 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		if (is_empty(data + i, size - i))
 			break;
 
-		if ((level = is_headerline(data + i, size - i)) !=
+		if ((level = is_headerline(data + i, size - i)) != 0)
+			break;
+
+		if (is_atxheader(rndr, data + i, size - i) ||
+			is_hrule(dat
