@@ -1446,4 +1446,8 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 			break;
 
 		if (is_atxheader(rndr, data + i, size - i) ||
-			is_hrule(dat
+			is_hrule(data + i, size - i) ||
+			prefix_quote(data + i, size - i)) {
+			end = i;
+			break;
+		
