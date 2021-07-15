@@ -1450,4 +1450,8 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 			prefix_quote(data + i, size - i)) {
 			end = i;
 			break;
-		
+		}
+
+		/*
+		 * Early termination of a paragraph with the same logic
+		 * as M
