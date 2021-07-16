@@ -1454,4 +1454,5 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 
 		/*
 		 * Early termination of a paragraph with the same logic
-		 * as M
+		 * as Markdown 1.0.0. If this logic is applied, the
+		 * Markdown 1.0.3 t
