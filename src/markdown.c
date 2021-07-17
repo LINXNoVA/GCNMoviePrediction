@@ -1457,4 +1457,5 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		 * as Markdown 1.0.0. If this logic is applied, the
 		 * Markdown 1.0.3 test suite won't pass cleanly
 		 *
-		 * :: If the first characte
+		 * :: If the first character in a new line is not a letter,
+		 * let's check to 
