@@ -1458,4 +1458,7 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		 * Markdown 1.0.3 test suite won't pass cleanly
 		 *
 		 * :: If the first character in a new line is not a letter,
-		 * let's check to 
+		 * let's check to see if there's some kind of block starting
+		 * here
+		 */
+		if ((rndr->ext_flags & MKDE
