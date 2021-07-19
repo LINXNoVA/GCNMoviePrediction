@@ -1468,4 +1468,5 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 				break;
 			}
 
-			/*
+			/* see if an html block starts here */
+			if (data[i] == '<' && rndr->cb.blockhtml
