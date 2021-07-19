@@ -1462,4 +1462,10 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		 * here
 		 */
 		if ((rndr->ext_flags & MKDEXT_LAX_SPACING) && !isalnum(data[i])) {
-			if (prefix_oli(data + i, size 
+			if (prefix_oli(data + i, size - i) ||
+				prefix_uli(data + i, size - i)) {
+				end = i;
+				break;
+			}
+
+			/*
