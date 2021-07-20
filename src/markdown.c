@@ -1472,4 +1472,8 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 			if (data[i] == '<' && rndr->cb.blockhtml &&
 				parse_htmlblock(ob, rndr, data + i, size - i, 0)) {
 				end = i;
-				break
+				break;
+			}
+
+			/* see if a code fence starts here */
+			if ((rndr->ext_flags & MK
