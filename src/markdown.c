@@ -1476,4 +1476,5 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 			}
 
 			/* see if a code fence starts here */
-			if ((rndr->ext_flags & MK
+			if ((rndr->ext_flags & MKDEXT_FENCED_CODE) != 0 &&
+				is_codefence(data + i, size - i, NULL) != 0) {
