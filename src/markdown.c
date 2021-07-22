@@ -1489,3 +1489,7 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	work.size = i;
 	while (work.size && data[work.size - 1] == '\n')
 		work.size--;
+
+	if (!level) {
+		struct buf *tmp = rndr_newbuf(rndr, BUFFER_BLOCK);
+		parse_i
