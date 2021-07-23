@@ -1493,4 +1493,6 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	if (!level) {
 		struct buf *tmp = rndr_newbuf(rndr, BUFFER_BLOCK);
 		parse_inline(tmp, rndr, work.data, work.size);
-		if (rndr->cb.paragra
+		if (rndr->cb.paragraph)
+			rndr->cb.paragraph(ob, tmp, rndr->opaque);
+		rndr_popbuf(rndr, BUFFER
