@@ -1500,4 +1500,8 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		struct buf *header_work;
 
 		if (work.size) {
-			size
+			size_t beg;
+			i = work.size;
+			work.size -= 1;
+
+			while (work.size &&
