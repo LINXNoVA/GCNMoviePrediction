@@ -1504,4 +1504,8 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 			i = work.size;
 			work.size -= 1;
 
-			while (work.size &&
+			while (work.size && data[work.size] != '\n')
+				work.size -= 1;
+
+			beg = work.size + 1;
+	
