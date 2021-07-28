@@ -1518,4 +1518,8 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 				if (rndr->cb.paragraph)
 					rndr->cb.paragraph(ob, tmp, rndr->opaque);
 
-				rndr_popbuf(rndr, BUFF
+				rndr_popbuf(rndr, BUFFER_BLOCK);
+				work.data += beg;
+				work.size = i - beg;
+			}
+			else wor
