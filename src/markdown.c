@@ -1522,4 +1522,8 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 				work.data += beg;
 				work.size = i - beg;
 			}
-			else wor
+			else work.size = i;
+		}
+
+		header_work = rndr_newbuf(rndr, BUFFER_SPAN);
+		p
