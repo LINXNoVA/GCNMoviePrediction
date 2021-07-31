@@ -1526,4 +1526,6 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		}
 
 		header_work = rndr_newbuf(rndr, BUFFER_SPAN);
-		p
+		parse_inline(header_work, rndr, work.data, work.size);
+
+		if (rndr->cb.header
