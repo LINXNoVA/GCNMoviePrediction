@@ -1531,4 +1531,10 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		if (rndr->cb.header)
 			rndr->cb.header(ob, header_work, (int)level, rndr->opaque);
 
-		rndr_
+		rndr_popbuf(rndr, BUFFER_SPAN);
+	}
+
+	return end;
+}
+
+/* parse_fencedcode • handles 
