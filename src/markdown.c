@@ -1537,4 +1537,6 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	return end;
 }
 
-/* parse_fencedcode • handles 
+/* parse_fencedcode • handles parsing of a block-level code fragment */
+static size_t
+parse_fencedcode(struct 
