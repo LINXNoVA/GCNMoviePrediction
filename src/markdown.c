@@ -1541,4 +1541,6 @@ parse_paragraph(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 static size_t
 parse_fencedcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size)
 {
-	
+	size_t beg, end;
+	struct buf *work = 0;
+	struct buf lang = { 0, 0, 0, 0 };
