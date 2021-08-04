@@ -1548,4 +1548,7 @@ parse_fencedcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 	beg = is_codefence(data, size, &lang);
 	if (beg == 0) return 0;
 
-	work 
+	work = rndr_newbuf(rndr, BUFFER_BLOCK);
+
+	while (beg < size) {
+		size_t fen
