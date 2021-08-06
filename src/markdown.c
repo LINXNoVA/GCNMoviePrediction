@@ -1551,4 +1551,7 @@ parse_fencedcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 	work = rndr_newbuf(rndr, BUFFER_BLOCK);
 
 	while (beg < size) {
-		size_t fen
+		size_t fence_end;
+		struct buf fence_trail = { 0, 0, 0, 0 };
+
+		fence_
