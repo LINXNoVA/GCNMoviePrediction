@@ -1555,4 +1555,9 @@ parse_fencedcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 		struct buf fence_trail = { 0, 0, 0, 0 };
 
 		fence_end = is_codefence(data + beg, size - beg, &fence_trail);
-		if (fence_end !=
+		if (fence_end != 0 && fence_trail.size == 0) {
+			beg += fence_end;
+			break;
+		}
+
+		for (end = beg + 
