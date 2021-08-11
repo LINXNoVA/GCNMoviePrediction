@@ -1563,4 +1563,6 @@ parse_fencedcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 		for (end = beg + 1; end < size && data[end - 1] != '\n'; end++);
 
 		if (beg < end) {
-			/* verbat
+			/* verbatim copy to the working buffer,
+				escaping entities */
+			if (is_empty(data
