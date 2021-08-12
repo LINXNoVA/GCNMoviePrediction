@@ -1567,4 +1567,9 @@ parse_fencedcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 				escaping entities */
 			if (is_empty(data + beg, end - beg))
 				bufputc(work, '\n');
-			else bufput(work, data 
+			else bufput(work, data + beg, end - beg);
+		}
+		beg = end;
+	}
+
+	if (work->size && work->data[work->size
