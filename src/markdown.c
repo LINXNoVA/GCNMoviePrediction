@@ -1572,4 +1572,8 @@ parse_fencedcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 		beg = end;
 	}
 
-	if (work->size && work->data[work->size
+	if (work->size && work->data[work->size - 1] != '\n')
+		bufputc(work, '\n');
+
+	if (rndr->cb.blockcode)
+		rndr->c
