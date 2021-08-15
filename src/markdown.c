@@ -1578,4 +1578,9 @@ parse_fencedcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 	if (rndr->cb.blockcode)
 		rndr->cb.blockcode(ob, work, lang.size ? &lang : NULL, rndr->opaque);
 
-	rndr_po
+	rndr_popbuf(rndr, BUFFER_BLOCK);
+	return beg;
+}
+
+static size_t
+parse_blo
