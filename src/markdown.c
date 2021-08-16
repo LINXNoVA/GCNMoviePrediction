@@ -1585,4 +1585,7 @@ parse_fencedcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 static size_t
 parse_blockcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size)
 {
-	size_
+	size_t beg, end, pre;
+	struct buf *work = 0;
+
+	work = rndr_newbuf(rndr, BUFFER_BLOCK);
