@@ -1583,4 +1583,6 @@ parse_fencedcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t
 }
 
 static size_t
-parse_blo
+parse_blockcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size)
+{
+	size_
