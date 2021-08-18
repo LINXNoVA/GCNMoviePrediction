@@ -1589,3 +1589,7 @@ parse_blockcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	struct buf *work = 0;
 
 	work = rndr_newbuf(rndr, BUFFER_BLOCK);
+
+	beg = 0;
+	while (beg < size) {
+		for (end = beg + 1; end < size && data
