@@ -1595,4 +1595,6 @@ parse_blockcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		for (end = beg + 1; end < size && data[end - 1] != '\n'; end++) {};
 		pre = prefix_code(data + beg, end - beg);
 
-		
+		if (pre)
+			beg += pre; /* skipping prefix */
+		else if (!is_empty(data + beg,
