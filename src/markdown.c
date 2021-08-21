@@ -1599,4 +1599,7 @@ parse_blockcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 			beg += pre; /* skipping prefix */
 		else if (!is_empty(data + beg, end - beg))
 			/* non-empty non-prefixed line breaks the pre */
-		
+			break;
+
+		if (beg < end) {
+			/* verbatim copy to the working buffe
