@@ -1604,4 +1604,6 @@ parse_blockcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		if (beg < end) {
 			/* verbatim copy to the working buffer,
 				escaping entities */
-			if (is_empty(data + beg, end - beg
+			if (is_empty(data + beg, end - beg))
+				bufputc(work, '\n');
+			else bufput(work, data + beg, end - beg
