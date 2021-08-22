@@ -1606,4 +1606,9 @@ parse_blockcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 				escaping entities */
 			if (is_empty(data + beg, end - beg))
 				bufputc(work, '\n');
-			else bufput(work, data + beg, end - beg
+			else bufput(work, data + beg, end - beg);
+		}
+		beg = end;
+	}
+
+	while (work->size && work->data[work->size - 1
