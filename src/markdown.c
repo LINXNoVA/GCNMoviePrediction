@@ -1611,4 +1611,10 @@ parse_blockcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		beg = end;
 	}
 
-	while (work->size && work->data[work->size - 1
+	while (work->size && work->data[work->size - 1] == '\n')
+		work->size -= 1;
+
+	bufputc(work, '\n');
+
+	if (rndr->cb.blockcode)
+		rn
