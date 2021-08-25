@@ -1617,4 +1617,6 @@ parse_blockcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	bufputc(work, '\n');
 
 	if (rndr->cb.blockcode)
-		rn
+		rndr->cb.blockcode(ob, work, NULL, rndr->opaque);
+
+	rndr_popbuf(rndr, BU
