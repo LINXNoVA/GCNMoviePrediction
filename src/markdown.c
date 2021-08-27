@@ -1619,4 +1619,8 @@ parse_blockcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	if (rndr->cb.blockcode)
 		rndr->cb.blockcode(ob, work, NULL, rndr->opaque);
 
-	rndr_popbuf(rndr, BU
+	rndr_popbuf(rndr, BUFFER_BLOCK);
+	return beg;
+}
+
+/* parse_listitem • parsing of a single
