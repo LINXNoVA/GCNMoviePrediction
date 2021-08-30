@@ -1626,4 +1626,6 @@ parse_blockcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 /* parse_listitem • parsing of a single list item */
 /*	assuming initial prefix is already removed */
 static size_t
-parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *dat
+parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size, int *flags)
+{
+	struct buf *work = 0, *inter =
