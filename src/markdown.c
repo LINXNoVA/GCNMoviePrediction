@@ -1628,4 +1628,6 @@ parse_blockcode(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 static size_t
 parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size, int *flags)
 {
-	struct buf *work = 0, *inter =
+	struct buf *work = 0, *inter = 0;
+	size_t beg = 0, end, pre, sublist = 0, orgpre = 0, i;
+	int in_empt
