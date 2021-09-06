@@ -1633,4 +1633,8 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 	int in_empty = 0, has_inside_empty = 0, in_fence = 0;
 
 	/* keeping track of the first indentation prefix */
-	while (orgpre < 3 && orgpre < size && data[orgp
+	while (orgpre < 3 && orgpre < size && data[orgpre] == ' ')
+		orgpre++;
+
+	beg = prefix_uli(data, size);
+	if (!be
