@@ -1632,4 +1632,5 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 	size_t beg = 0, end, pre, sublist = 0, orgpre = 0, i;
 	int in_empty = 0, has_inside_empty = 0, in_fence = 0;
 
-	/* keeping track of the first ind
+	/* keeping track of the first indentation prefix */
+	while (orgpre < 3 && orgpre < size && data[orgp
