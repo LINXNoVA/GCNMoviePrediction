@@ -1641,4 +1641,8 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 		beg = prefix_oli(data, size);
 
 	if (!beg)
-		return 0
+		return 0;
+
+	/* skipping to the beginning of the following line */
+	end = beg;
+	while (end < 
