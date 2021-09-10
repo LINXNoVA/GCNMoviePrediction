@@ -1645,4 +1645,7 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 
 	/* skipping to the beginning of the following line */
 	end = beg;
-	while (end < 
+	while (end < size && data[end - 1] != '\n')
+		end++;
+
+	/* getting working buff
