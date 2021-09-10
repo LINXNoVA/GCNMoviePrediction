@@ -1648,4 +1648,6 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 	while (end < size && data[end - 1] != '\n')
 		end++;
 
-	/* getting working buff
+	/* getting working buffers */
+	work = rndr_newbuf(rndr, BUFFER_SPAN);
+	inter = rndr_newbuf(rndr, 
