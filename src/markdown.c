@@ -1657,4 +1657,9 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 	beg = end;
 
 	/* process the following lines */
-	while (be
+	while (beg < size) {
+		size_t has_next_uli = 0, has_next_oli = 0;
+
+		end++;
+
+		whil
