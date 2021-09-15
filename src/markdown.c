@@ -1665,4 +1665,6 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 		while (end < size && data[end - 1] != '\n')
 			end++;
 
-		/* process an empty line
+		/* process an empty line */
+		if (is_empty(data + beg, end - beg)) {
+			in_empty = 1
