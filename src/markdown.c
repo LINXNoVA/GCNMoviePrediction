@@ -1667,4 +1667,9 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 
 		/* process an empty line */
 		if (is_empty(data + beg, end - beg)) {
-			in_empty = 1
+			in_empty = 1;
+			beg = end;
+			continue;
+		}
+
+		/* calculating the indentati
