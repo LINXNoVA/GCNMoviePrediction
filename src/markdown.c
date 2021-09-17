@@ -1672,4 +1672,6 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 			continue;
 		}
 
-		/* calculating the indentati
+		/* calculating the indentation */
+		i = 0;
+		while (i < 4 && beg + i < end && data[beg + i] == '
