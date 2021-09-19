@@ -1680,4 +1680,5 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 		pre = i;
 
 		if (rndr->ext_flags & MKDEXT_FENCED_CODE) {
-			if (
+			if (is_codefence(data + beg + i, end - beg - i, NULL) != 0)
+				in_fence = !i
