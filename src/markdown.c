@@ -1687,4 +1687,5 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 		/* Only check for new list items if we are **not** inside
 		 * a fenced code block */
 		if (!in_fence) {
-			has_next_uli = prefix_uli(data + beg + i
+			has_next_uli = prefix_uli(data + beg + i, end - beg - i);
+			has_next_oli = prefix_oli(data + beg + i, end - beg 
