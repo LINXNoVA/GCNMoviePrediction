@@ -1692,4 +1692,6 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 		}
 
 		/* checking for ul/ol switch */
-		if (in_emp
+		if (in_empty && (
+			((*flags & MKD_LIST_ORDERED) && has_next_uli) ||
+			(!(*fl
