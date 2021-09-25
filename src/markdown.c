@@ -1696,4 +1696,7 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 			((*flags & MKD_LIST_ORDERED) && has_next_uli) ||
 			(!(*flags & MKD_LIST_ORDERED) && has_next_oli))){
 			*flags |= MKD_LI_END;
-			break; /*
+			break; /* the following item must have same list type */
+		}
+
+		/* checking f
