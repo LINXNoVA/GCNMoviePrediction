@@ -1700,4 +1700,8 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 		}
 
 		/* checking for a new item */
-		if ((has_next_uli && !is_hrule(data + beg + i, end - beg - i))
+		if ((has_next_uli && !is_hrule(data + beg + i, end - beg - i)) || has_next_oli) {
+			if (in_empty)
+				has_inside_empty = 1;
+
+			if (pre =
