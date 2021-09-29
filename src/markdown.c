@@ -1699,4 +1699,5 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 			break; /* the following item must have same list type */
 		}
 
-		/* checking f
+		/* checking for a new item */
+		if ((has_next_uli && !is_hrule(data + beg + i, end - beg - i))
