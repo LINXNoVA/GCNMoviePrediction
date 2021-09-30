@@ -1704,4 +1704,5 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 			if (in_empty)
 				has_inside_empty = 1;
 
-			if (pre =
+			if (pre == orgpre) /* the following item must have */
+				break;             /* the s
