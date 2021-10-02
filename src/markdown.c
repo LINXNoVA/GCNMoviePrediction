@@ -1705,4 +1705,9 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 				has_inside_empty = 1;
 
 			if (pre == orgpre) /* the following item must have */
-				break;             /* the s
+				break;             /* the same indentation */
+
+			if (!sublist)
+				sublist = work->size;
+		}
+		/* joining 
