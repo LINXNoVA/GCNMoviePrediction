@@ -1713,4 +1713,9 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 		/* joining only indented stuff after empty lines;
 		 * note that now we only require 1 space of indentation
 		 * to continue a list */
-		else if (in_empty &&
+		else if (in_empty && pre == 0) {
+			*flags |= MKD_LI_END;
+			break;
+		}
+		else if (in_empty) {
+			buf
