@@ -1711,4 +1711,6 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 				sublist = work->size;
 		}
 		/* joining only indented stuff after empty lines;
-		 * note that now we only require 1 sp
+		 * note that now we only require 1 space of indentation
+		 * to continue a list */
+		else if (in_empty &&
