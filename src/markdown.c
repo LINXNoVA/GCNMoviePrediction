@@ -1718,4 +1718,10 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 			break;
 		}
 		else if (in_empty) {
-			buf
+			bufputc(work, '\n');
+			has_inside_empty = 1;
+		}
+
+		in_empty = 0;
+
+		/* adding the l
