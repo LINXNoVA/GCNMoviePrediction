@@ -1724,4 +1724,5 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 
 		in_empty = 0;
 
-		/* adding the l
+		/* adding the line without prefix into the working buffer */
+		bufput(work, data + beg 
