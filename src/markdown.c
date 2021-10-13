@@ -1736,3 +1736,5 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 	if (*flags & MKD_LI_BLOCK) {
 		/* intermediate render of block li */
 		if (sublist && sublist < work->size) {
+			parse_block(inter, rndr, work->data, sublist);
+			parse_block(in
