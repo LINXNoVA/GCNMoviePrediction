@@ -1743,4 +1743,6 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 			parse_block(inter, rndr, work->data, work->size);
 	} else {
 		/* intermediate render of inline li */
-		if (sublist && sublist < work->s
+		if (sublist && sublist < work->size) {
+			parse_inline(inter, rndr, work->data, sublist);
+			par
