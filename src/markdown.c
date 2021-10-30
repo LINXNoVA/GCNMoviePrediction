@@ -1747,4 +1747,8 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 			parse_inline(inter, rndr, work->data, sublist);
 			parse_block(inter, rndr, work->data + sublist, work->size - sublist);
 		}
-		els
+		else
+			parse_inline(inter, rndr, work->data, work->size);
+	}
+
+	/* render o
