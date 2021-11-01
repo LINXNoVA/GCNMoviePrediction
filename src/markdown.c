@@ -1751,4 +1751,6 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 			parse_inline(inter, rndr, work->data, work->size);
 	}
 
-	/* render o
+	/* render of li itself */
+	if (rndr->cb.listitem)
+		rndr->cb.listitem(ob, inter, *flags, 
