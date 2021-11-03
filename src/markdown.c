@@ -1753,4 +1753,7 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 
 	/* render of li itself */
 	if (rndr->cb.listitem)
-		rndr->cb.listitem(ob, inter, *flags, 
+		rndr->cb.listitem(ob, inter, *flags, rndr->opaque);
+
+	rndr_popbuf(rndr, BUFFER_SPAN);
+	rndr_popbuf(rnd
