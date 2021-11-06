@@ -1761,4 +1761,6 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 }
 
 
-/* parse_list • parsing
+/* parse_list • parsing ordered or unordered list block */
+static size_t
+parse_list(struct buf *ob, struc
