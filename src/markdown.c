@@ -1765,4 +1765,9 @@ parse_listitem(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t s
 static size_t
 parse_list(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size, int flags)
 {
-	struct b
+	struct buf *work = 0;
+	size_t i = 0, j;
+
+	work = rndr_newbuf(rndr, BUFFER_BLOCK);
+
+	while 
