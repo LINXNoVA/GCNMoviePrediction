@@ -1779,4 +1779,9 @@ parse_list(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size,
 	}
 
 	if (rndr->cb.list)
-		rndr->cb.list(ob, work, flags, rndr->opaque)
+		rndr->cb.list(ob, work, flags, rndr->opaque);
+	rndr_popbuf(rndr, BUFFER_BLOCK);
+	return i;
+}
+
+/* parse_atxheader 
