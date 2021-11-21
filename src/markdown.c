@@ -1777,3 +1777,6 @@ parse_list(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size,
 		if (!j || (flags & MKD_LI_END))
 			break;
 	}
+
+	if (rndr->cb.list)
+		rndr->cb.list(ob, work, flags, rndr->opaque)
