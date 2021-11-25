@@ -1784,4 +1784,6 @@ parse_list(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size,
 	return i;
 }
 
-/* parse_atxheader 
+/* parse_atxheader • parsing of atx-style headers */
+static size_t
+parse_atxheader(struct buf *o
