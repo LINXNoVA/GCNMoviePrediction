@@ -1788,4 +1788,7 @@ parse_list(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size,
 static size_t
 parse_atxheader(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size)
 {
-	size_t
+	size_t level = 0;
+	size_t i, end, skip;
+
+	while (level < size && le
