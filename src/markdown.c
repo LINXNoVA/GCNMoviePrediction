@@ -1806,4 +1806,6 @@ parse_atxheader(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		end--;
 
 	if (end > i) {
-		struct b
+		struct buf *work = rndr_newbuf(rndr, BUFFER_SPAN);
+
+		parse_inline(work, r
