@@ -1791,4 +1791,7 @@ parse_atxheader(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	size_t level = 0;
 	size_t i, end, skip;
 
-	while (level < size && le
+	while (level < size && level < 6 && data[level] == '#')
+		level++;
+
+	for (i = level; i < size && data[i] ==
