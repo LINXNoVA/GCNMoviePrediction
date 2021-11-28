@@ -1802,4 +1802,8 @@ parse_atxheader(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	while (end && data[end - 1] == '#')
 		end--;
 
-	while (end
+	while (end && data[end - 1] == ' ')
+		end--;
+
+	if (end > i) {
+		struct b
