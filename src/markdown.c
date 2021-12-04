@@ -1813,4 +1813,11 @@ parse_atxheader(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		if (rndr->cb.header)
 			rndr->cb.header(ob, work, (int)level, rndr->opaque);
 
-		rndr_popbuf(rndr, BUFFER_SPAN)
+		rndr_popbuf(rndr, BUFFER_SPAN);
+	}
+
+	return skip;
+}
+
+
+/* htmlblock_end • checking end of HTML block : </tag>[ \t]*\n[ 
