@@ -1811,4 +1811,6 @@ parse_atxheader(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		parse_inline(work, rndr, data + i, end - i);
 
 		if (rndr->cb.header)
-			rndr->cb.header(o
+			rndr->cb.header(ob, work, (int)level, rndr->opaque);
+
+		rndr_popbuf(rndr, BUFFER_SPAN)
