@@ -1826,4 +1826,10 @@ static size_t
 htmlblock_end_tag(
 	const char *tag,
 	size_t tag_len,
-	struct sd_markd
+	struct sd_markdown *rndr,
+	uint8_t *data,
+	size_t size)
+{
+	size_t i, w;
+
+	/* checki
