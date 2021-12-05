@@ -1823,4 +1823,7 @@ parse_atxheader(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 /* htmlblock_end • checking end of HTML block : </tag>[ \t]*\n[ \t*]\n */
 /*	returns the length on match, 0 otherwise */
 static size_t
-htm
+htmlblock_end_tag(
+	const char *tag,
+	size_t tag_len,
+	struct sd_markd
