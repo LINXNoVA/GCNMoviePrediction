@@ -1832,4 +1832,6 @@ htmlblock_end_tag(
 {
 	size_t i, w;
 
-	/* checki
+	/* checking if tag is a match */
+	if (tag_len + 3 >= size ||
+		strncasecmp((char *)d
