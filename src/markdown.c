@@ -1836,4 +1836,9 @@ htmlblock_end_tag(
 	if (tag_len + 3 >= size ||
 		strncasecmp((char *)data + 2, tag, tag_len) != 0 ||
 		data[tag_len + 2] != '>')
-		r
+		return 0;
+
+	/* checking white lines */
+	i = tag_len + 3;
+	w = 0;
+	if (i < size &
