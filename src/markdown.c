@@ -1834,4 +1834,6 @@ htmlblock_end_tag(
 
 	/* checking if tag is a match */
 	if (tag_len + 3 >= size ||
-		strncasecmp((char *)d
+		strncasecmp((char *)data + 2, tag, tag_len) != 0 ||
+		data[tag_len + 2] != '>')
+		r
