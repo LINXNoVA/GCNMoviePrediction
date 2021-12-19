@@ -1842,4 +1842,9 @@ htmlblock_end_tag(
 	i = tag_len + 3;
 	w = 0;
 	if (i < size && (w = is_empty(data + i, size - i)) == 0)
-		return 0; /* non-blank af
+		return 0; /* non-blank after tag */
+	i += w;
+	w = 0;
+
+	if (i < size)
+		w = is_empty(data + 
