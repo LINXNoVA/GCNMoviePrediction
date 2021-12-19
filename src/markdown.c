@@ -1847,4 +1847,10 @@ htmlblock_end_tag(
 	w = 0;
 
 	if (i < size)
-		w = is_empty(data + 
+		w = is_empty(data + i, size - i);
+
+	return i + w;
+}
+
+static size_t
+htmlblock_end(const char *curtag,
