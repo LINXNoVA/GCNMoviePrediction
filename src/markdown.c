@@ -1859,4 +1859,8 @@ htmlblock_end(const char *curtag,
 	size_t size,
 	int start_of_line)
 {
-	s
+	size_t tag_size = strlen(curtag);
+	size_t i = 1, end_tag;
+	int block_lines = 0;
+
+	while (i 
