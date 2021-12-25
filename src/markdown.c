@@ -1854,3 +1854,9 @@ htmlblock_end_tag(
 
 static size_t
 htmlblock_end(const char *curtag,
+	struct sd_markdown *rndr,
+	uint8_t *data,
+	size_t size,
+	int start_of_line)
+{
+	s
