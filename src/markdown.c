@@ -1863,4 +1863,6 @@ htmlblock_end(const char *curtag,
 	size_t i = 1, end_tag;
 	int block_lines = 0;
 
-	while (i 
+	while (i < size) {
+		i++;
+		while (i < size && !(data[i - 1] == '<' && data[i] == '/
