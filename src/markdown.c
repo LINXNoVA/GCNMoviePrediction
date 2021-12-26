@@ -1872,4 +1872,5 @@ htmlblock_end(const char *curtag,
 			i++;
 		}
 
-		/* If 
+		/* If we are only looking for unindented tags, skip the tag
+		 * if 
