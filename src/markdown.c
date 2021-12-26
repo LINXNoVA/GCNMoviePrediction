@@ -1865,4 +1865,11 @@ htmlblock_end(const char *curtag,
 
 	while (i < size) {
 		i++;
-		while (i < size && !(data[i - 1] == '<' && data[i] == '/
+		while (i < size && !(data[i - 1] == '<' && data[i] == '/')) {
+			if (data[i] == '\n')
+				block_lines++;
+
+			i++;
+		}
+
+		/* If 
