@@ -1873,4 +1873,6 @@ htmlblock_end(const char *curtag,
 		}
 
 		/* If we are only looking for unindented tags, skip the tag
-		 * if 
+		 * if it doesn't follow a newline.
+		 *
+		 * The only exception to this is if the tag is 
