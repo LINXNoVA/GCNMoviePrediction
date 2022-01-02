@@ -1875,4 +1875,5 @@ htmlblock_end(const char *curtag,
 		/* If we are only looking for unindented tags, skip the tag
 		 * if it doesn't follow a newline.
 		 *
-		 * The only exception to this is if the tag is 
+		 * The only exception to this is if the tag is still on the
+		 * initial line; in that case it still counts as a closing
