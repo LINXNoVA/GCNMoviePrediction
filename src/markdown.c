@@ -1877,3 +1877,6 @@ htmlblock_end(const char *curtag,
 		 *
 		 * The only exception to this is if the tag is still on the
 		 * initial line; in that case it still counts as a closing
+		 * tag
+		 */
+		if (start_of_line && block_lines > 0 && data[
