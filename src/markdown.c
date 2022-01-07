@@ -1885,4 +1885,4 @@ htmlblock_end(const char *curtag,
 		if (i + 2 + tag_size >= size)
 			break;
 
-	
+		end_tag = htmlblock_end_tag(curtag, tag_size, rndr, data + i - 1, size - i 
