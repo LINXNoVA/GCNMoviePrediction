@@ -1879,4 +1879,10 @@ htmlblock_end(const char *curtag,
 		 * initial line; in that case it still counts as a closing
 		 * tag
 		 */
-		if (start_of_line && block_lines > 0 && data[
+		if (start_of_line && block_lines > 0 && data[i - 2] != '\n')
+			continue;
+
+		if (i + 2 + tag_size >= size)
+			break;
+
+	
