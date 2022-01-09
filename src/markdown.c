@@ -1893,3 +1893,7 @@ htmlblock_end(const char *curtag,
 	return 0;
 }
 
+
+/* parse_htmlblock • parsing of inline HTML block */
+static size_t
+parse
