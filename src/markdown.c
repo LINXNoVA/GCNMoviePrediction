@@ -1900,4 +1900,7 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 {
 	size_t i, j = 0, tag_end;
 	const char *curtag = NULL;
-	struct buf wo
+	struct buf work = { data, 0, 0, 0 };
+
+	/* identification of the opening tag */
+	if (
