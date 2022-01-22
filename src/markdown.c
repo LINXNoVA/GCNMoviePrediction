@@ -1903,4 +1903,8 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	struct buf work = { data, 0, 0, 0 };
 
 	/* identification of the opening tag */
-	if (
+	if (size < 2 || data[0] != '<')
+		return 0;
+
+	i = 1;
+	while (i < size && data[i]
