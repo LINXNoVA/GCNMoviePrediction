@@ -1907,4 +1907,8 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		return 0;
 
 	i = 1;
-	while (i < size && data[i]
+	while (i < size && data[i] != '>' && data[i] != ' ')
+		i++;
+
+	if (i < size)
+		curtag = find_block_ta
