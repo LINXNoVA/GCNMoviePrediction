@@ -1914,4 +1914,7 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		curtag = find_block_tag((char *)data + 1, (int)i - 1);
 
 	/* handling of special cases */
-	if
+	if (!curtag) {
+
+		/* HTML comment, laxist form */
+		if (size > 5 && data[1]
