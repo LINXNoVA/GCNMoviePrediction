@@ -1917,4 +1917,7 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	if (!curtag) {
 
 		/* HTML comment, laxist form */
-		if (size > 5 && data[1]
+		if (size > 5 && data[1] == '!' && data[2] == '-' && data[3] == '-') {
+			i = 5;
+
+			while (i < size && !
