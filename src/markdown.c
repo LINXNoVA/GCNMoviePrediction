@@ -1920,4 +1920,5 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		if (size > 5 && data[1] == '!' && data[2] == '-' && data[3] == '-') {
 			i = 5;
 
-			while (i < size && !
+			while (i < size && !(data[i - 2] == '-' && data[i - 1] == '-' && data[i] == '>'))
+			
