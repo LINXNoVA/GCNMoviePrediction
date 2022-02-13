@@ -1937,4 +1937,6 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 		}
 
 		/* HR, which is the only self-closing block tag considered */
-		if (size
+		if (size > 4 && (data[1] == 'h' || data[1] == 'H') && (data[2] == 'r' || data[2] == 'R')) {
+			i = 3;
+			wh
