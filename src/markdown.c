@@ -1921,4 +1921,11 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 			i = 5;
 
 			while (i < size && !(data[i - 2] == '-' && data[i - 1] == '-' && data[i] == '>'))
-			
+				i++;
+
+			i++;
+
+			if (i < size)
+				j = is_empty(data + i, size - i);
+
+		
