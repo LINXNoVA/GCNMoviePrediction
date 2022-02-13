@@ -1931,4 +1931,8 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 			if (j) {
 				work.size = i + j;
 				if (do_render && rndr->cb.blockhtml)
-					rndr
+					rndr->cb.blockhtml(ob, &work, rndr->opaque);
+				return work.size;
+			}
+		}
+
