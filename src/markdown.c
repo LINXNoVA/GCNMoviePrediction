@@ -1944,4 +1944,7 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 
 			if (i + 1 < size) {
 				i++;
-		
+				j = is_empty(data + i, size - i);
+				if (j) {
+					work.size = i + j;
+					
