@@ -1947,4 +1947,5 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 				j = is_empty(data + i, size - i);
 				if (j) {
 					work.size = i + j;
-					
+					if (do_render && rndr->cb.blockhtml)
+						rndr->cb.blockhtml(ob, &work, rndr->opaque)
