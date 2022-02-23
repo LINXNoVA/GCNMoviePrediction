@@ -1954,4 +1954,8 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 			}
 		}
 
-		/* no special case recognised
+		/* no special case recognised */
+		return 0;
+	}
+
+	/* looking for an unindented matching closing tag *
