@@ -1963,4 +1963,5 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	tag_end = htmlblock_end(curtag, rndr, data, size, 1);
 
 	/* if not found, trying a second pass looking for indented match */
-	/* but not if tag is "ins" or "del" (following original Ma
+	/* but not if tag is "ins" or "del" (following original Markdown.pl) */
+	if (!tag_end && strcmp(curtag, "ins") != 0 && strcmp(curt
