@@ -1962,4 +1962,5 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	/*	followed by a blank line */
 	tag_end = htmlblock_end(curtag, rndr, data, size, 1);
 
-	/* if not found, trying a second pass looking for indente
+	/* if not found, trying a second pass looking for indented match */
+	/* but not if tag is "ins" or "del" (following original Ma
