@@ -1960,4 +1960,6 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 
 	/* looking for an unindented matching closing tag */
 	/*	followed by a blank line */
-	tag_end = htmlblock_end(curtag, rnd
+	tag_end = htmlblock_end(curtag, rndr, data, size, 1);
+
+	/* if not found, trying a second pass looking for indente
