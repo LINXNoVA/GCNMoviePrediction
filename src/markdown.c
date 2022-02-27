@@ -1971,4 +1971,7 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	if (!tag_end)
 		return 0;
 
-	/* the end of the bl
+	/* the end of the block has been found */
+	work.size = tag_end;
+	if (do_render && rndr->cb.blockhtml)
+		rndr-
