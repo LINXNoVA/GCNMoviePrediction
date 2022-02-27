@@ -1979,4 +1979,8 @@ parse_htmlblock(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t 
 	return tag_end;
 }
 
-stati
+static void
+parse_table_row(
+	struct buf *ob,
+	struct sd_markdown *rndr,
+	uint8_t 
