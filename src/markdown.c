@@ -1983,4 +1983,10 @@ static void
 parse_table_row(
 	struct buf *ob,
 	struct sd_markdown *rndr,
-	uint8_t 
+	uint8_t *data,
+	size_t size,
+	size_t columns,
+	int *col_data,
+	int header_flag)
+{
+	
