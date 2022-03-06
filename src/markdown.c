@@ -1989,4 +1989,7 @@ parse_table_row(
 	int *col_data,
 	int header_flag)
 {
-	
+	size_t i = 0, col;
+	struct buf *row_work = 0;
+
+	if (!rndr->cb.table_cell || !rndr-
