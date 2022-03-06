@@ -1995,4 +1995,9 @@ parse_table_row(
 	if (!rndr->cb.table_cell || !rndr->cb.table_row)
 		return;
 
-	row_work = rndr_newbuf(rndr, BUFFER_S
+	row_work = rndr_newbuf(rndr, BUFFER_SPAN);
+
+	if (i < size && data[i] == '|')
+		i++;
+
+	for (col = 0; col < colum
