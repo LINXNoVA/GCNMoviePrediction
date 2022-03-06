@@ -1992,4 +1992,7 @@ parse_table_row(
 	size_t i = 0, col;
 	struct buf *row_work = 0;
 
-	if (!rndr->cb.table_cell || !rndr-
+	if (!rndr->cb.table_cell || !rndr->cb.table_row)
+		return;
+
+	row_work = rndr_newbuf(rndr, BUFFER_S
