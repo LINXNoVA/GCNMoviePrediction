@@ -2016,4 +2016,5 @@ parse_table_row(
 
 		cell_end = i - 1;
 
-		while (cell
+		while (cell_end > cell_start && _isspace(data[cell_end]))
+			cell_end--;
