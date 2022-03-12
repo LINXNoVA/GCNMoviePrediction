@@ -2006,4 +2006,9 @@ parse_table_row(
 
 		cell_work = rndr_newbuf(rndr, BUFFER_SPAN);
 
-		while (i
+		while (i < size && _isspace(data[i]))
+			i++;
+
+		cell_start = i;
+
+		while (i < s
