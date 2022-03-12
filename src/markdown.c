@@ -2011,4 +2011,9 @@ parse_table_row(
 
 		cell_start = i;
 
-		while (i < s
+		while (i < size && data[i] != '|')
+			i++;
+
+		cell_end = i - 1;
+
+		while (cell
