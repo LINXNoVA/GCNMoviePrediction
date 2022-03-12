@@ -2000,4 +2000,6 @@ parse_table_row(
 	if (i < size && data[i] == '|')
 		i++;
 
-	for (col = 0; col < colum
+	for (col = 0; col < columns && i < size; ++col) {
+		size_t cell_start, cell_end;
+		struct buf *cell_work
