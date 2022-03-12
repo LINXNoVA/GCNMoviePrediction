@@ -2002,4 +2002,8 @@ parse_table_row(
 
 	for (col = 0; col < columns && i < size; ++col) {
 		size_t cell_start, cell_end;
-		struct buf *cell_work
+		struct buf *cell_work;
+
+		cell_work = rndr_newbuf(rndr, BUFFER_SPAN);
+
+		while (i
