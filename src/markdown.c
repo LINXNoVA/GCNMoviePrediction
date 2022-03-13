@@ -2018,3 +2018,6 @@ parse_table_row(
 
 		while (cell_end > cell_start && _isspace(data[cell_end]))
 			cell_end--;
+
+		parse_inline(cell_work, rndr, data + cell_start, 1 + cell_end - cell_start);
+		rndr->
