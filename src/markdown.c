@@ -2020,4 +2020,4 @@ parse_table_row(
 			cell_end--;
 
 		parse_inline(cell_work, rndr, data + cell_start, 1 + cell_end - cell_start);
-		rndr->
+		rndr->cb.table_cell(row_work, cell_work, col_data[col] | header_flag, rnd
