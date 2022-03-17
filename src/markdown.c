@@ -2026,4 +2026,6 @@ parse_table_row(
 		i++;
 	}
 
-	for (
+	for (; col < columns; ++col) {
+		struct buf empty_cell = { 0, 0, 0, 0 };
+		rnd
