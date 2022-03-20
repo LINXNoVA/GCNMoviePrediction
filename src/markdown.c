@@ -2028,4 +2028,9 @@ parse_table_row(
 
 	for (; col < columns; ++col) {
 		struct buf empty_cell = { 0, 0, 0, 0 };
-		rndr->cb.table_cell(row_work, &empty_cell, col_data[col] | header_flag, rn
+		rndr->cb.table_cell(row_work, &empty_cell, col_data[col] | header_flag, rndr->opaque);
+	}
+
+	rndr->cb.table_row(ob, row_work, rndr->opaque);
+
+	rndr_popb
