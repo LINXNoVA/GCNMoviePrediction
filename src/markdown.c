@@ -2039,4 +2039,8 @@ parse_table_row(
 static size_t
 parse_table_header(
 	struct buf *ob,
-	str
+	struct sd_markdown *rndr,
+	uint8_t *data,
+	size_t size,
+	size_t *columns,
+	int **
