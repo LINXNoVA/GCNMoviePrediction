@@ -2033,4 +2033,10 @@ parse_table_row(
 
 	rndr->cb.table_row(ob, row_work, rndr->opaque);
 
-	rndr_popb
+	rndr_popbuf(rndr, BUFFER_SPAN);
+}
+
+static size_t
+parse_table_header(
+	struct buf *ob,
+	str
