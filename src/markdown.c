@@ -2046,4 +2046,8 @@ parse_table_header(
 	int **column_data)
 {
 	int pipes;
-	size_t i = 0, col, header_end, und
+	size_t i = 0, col, header_end, under_end;
+
+	pipes = 0;
+	while (i < size && data[i] != '\n')
+		if (data[i+
