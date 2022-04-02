@@ -2059,3 +2059,9 @@ parse_table_header(
 	header_end = i;
 
 	while (header_end > 0 && _isspace(data[header_end - 1]))
+		header_end--;
+
+	if (data[0] == '|')
+		pipes--;
+
+	if (header_end && data[header
