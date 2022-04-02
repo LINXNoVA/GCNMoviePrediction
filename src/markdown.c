@@ -2050,4 +2050,8 @@ parse_table_header(
 
 	pipes = 0;
 	while (i < size && data[i] != '\n')
-		if (data[i+
+		if (data[i++] == '|')
+			pipes++;
+
+	if (i == size || pipes == 0)
+		return 
