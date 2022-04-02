@@ -2054,4 +2054,8 @@ parse_table_header(
 			pipes++;
 
 	if (i == size || pipes == 0)
-		return 
+		return 0;
+
+	header_end = i;
+
+	while (header_end > 0 && _isspace(data[header_end - 1]))
