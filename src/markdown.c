@@ -2068,4 +2068,8 @@ parse_table_header(
 		pipes--;
 
 	*columns = pipes + 1;
-	*column_data = calloc(*column
+	*column_data = calloc(*columns, sizeof(int));
+
+	/* Parse the header underline */
+	i++;
+	if (i < size && data
