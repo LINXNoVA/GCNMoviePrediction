@@ -2072,4 +2072,8 @@ parse_table_header(
 
 	/* Parse the header underline */
 	i++;
-	if (i < size && data
+	if (i < size && data[i] == '|')
+		i++;
+
+	under_end = i;
+	while (under_end < size && data[under_end] != '\n')
