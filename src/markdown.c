@@ -2077,3 +2077,6 @@ parse_table_header(
 
 	under_end = i;
 	while (under_end < size && data[under_end] != '\n')
+		under_end++;
+
+	for (col = 0; col < *columns && i < under_end; ++col) {
