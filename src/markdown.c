@@ -2093,3 +2093,6 @@ parse_table_header(
 		while (i < under_end && data[i] == '-') {
 			i++; dashes++;
 		}
+
+		if (i < under_end && data[i] == ':') {
+			i++; (*column_data)[col] |= MKD_TABLE_
