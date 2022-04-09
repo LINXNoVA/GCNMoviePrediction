@@ -2086,4 +2086,10 @@ parse_table_header(
 			i++;
 
 		if (data[i] == ':') {
-			i++; (*column_data)[col] |= MKD_TABLE_ALIGN_L
+			i++; (*column_data)[col] |= MKD_TABLE_ALIGN_L;
+			dashes++;
+		}
+
+		while (i < under_end && data[i] == '-') {
+			i++; dashes++;
+		}
