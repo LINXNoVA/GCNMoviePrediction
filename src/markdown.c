@@ -2085,4 +2085,5 @@ parse_table_header(
 		while (i < under_end && data[i] == ' ')
 			i++;
 
-	
+		if (data[i] == ':') {
+			i++; (*column_data)[col] |= MKD_TABLE_ALIGN_L
