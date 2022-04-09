@@ -2080,3 +2080,9 @@ parse_table_header(
 		under_end++;
 
 	for (col = 0; col < *columns && i < under_end; ++col) {
+		size_t dashes = 0;
+
+		while (i < under_end && data[i] == ' ')
+			i++;
+
+	
