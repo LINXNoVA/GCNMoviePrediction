@@ -2095,4 +2095,11 @@ parse_table_header(
 		}
 
 		if (i < under_end && data[i] == ':') {
-			i++; (*column_data)[col] |= MKD_TABLE_
+			i++; (*column_data)[col] |= MKD_TABLE_ALIGN_R;
+			dashes++;
+		}
+
+		while (i < under_end && data[i] == ' ')
+			i++;
+
+		if 
