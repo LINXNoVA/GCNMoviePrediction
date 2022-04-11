@@ -2115,4 +2115,8 @@ parse_table_header(
 		return 0;
 
 	parse_table_row(
-		ob, rndr
+		ob, rndr, data,
+		header_end,
+		*columns,
+		*column_data,
+		MKD_TABLE_HEADE
