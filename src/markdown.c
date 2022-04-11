@@ -2106,4 +2106,13 @@ parse_table_header(
 			break;
 
 		if (dashes < 3)
-			bre
+			break;
+
+		i++;
+	}
+
+	if (col < *columns)
+		return 0;
+
+	parse_table_row(
+		ob, rndr
