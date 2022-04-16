@@ -2119,4 +2119,12 @@ parse_table_header(
 		header_end,
 		*columns,
 		*column_data,
-		MKD_TABLE_HEADE
+		MKD_TABLE_HEADER
+	);
+
+	return under_end + 1;
+}
+
+static size_t
+parse_table(
+	struc
