@@ -2138,4 +2138,7 @@ parse_table(
 	struct buf *body_work = 0;
 
 	size_t columns;
-	int
+	int *col_data = NULL;
+
+	header_work = rndr_newbuf(rndr, BUFFER_SPAN);
+	body_work = 
