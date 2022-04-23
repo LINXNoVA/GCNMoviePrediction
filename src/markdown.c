@@ -2141,4 +2141,6 @@ parse_table(
 	int *col_data = NULL;
 
 	header_work = rndr_newbuf(rndr, BUFFER_SPAN);
-	body_work = 
+	body_work = rndr_newbuf(rndr, BUFFER_BLOCK);
+
+	i = parse_table_header(header_work, rndr, data, si
