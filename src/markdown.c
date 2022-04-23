@@ -2134,4 +2134,8 @@ parse_table(
 {
 	size_t i;
 
-	stru
+	struct buf *header_work = 0;
+	struct buf *body_work = 0;
+
+	size_t columns;
+	int
