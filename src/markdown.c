@@ -2152,4 +2152,8 @@ parse_table(
 
 			row_start = i;
 
-			while (i < size && data[i] != 
+			while (i < size && data[i] != '\n')
+				if (data[i++] == '|')
+					pipes++;
+
+			if (pipes == 0 
