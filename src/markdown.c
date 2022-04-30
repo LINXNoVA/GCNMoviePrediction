@@ -2156,4 +2156,10 @@ parse_table(
 				if (data[i++] == '|')
 					pipes++;
 
-			if (pipes == 0 
+			if (pipes == 0 || i == size) {
+				i = row_start;
+				break;
+			}
+
+			parse_table_row(
+				body_wo
