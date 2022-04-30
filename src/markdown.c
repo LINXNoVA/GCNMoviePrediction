@@ -2147,4 +2147,9 @@ parse_table(
 	if (i > 0) {
 
 		while (i < size) {
-			size_t row
+			size_t row_start;
+			int pipes = 0;
+
+			row_start = i;
+
+			while (i < size && data[i] != 
