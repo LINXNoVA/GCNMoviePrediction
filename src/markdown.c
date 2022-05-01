@@ -2174,4 +2174,8 @@ parse_table(
 		}
 
 		if (rndr->cb.table)
-			rndr->cb.ta
+			rndr->cb.table(ob, header_work, body_work, rndr->opaque);
+	}
+
+	free(col_data);
+	rndr_popbu
