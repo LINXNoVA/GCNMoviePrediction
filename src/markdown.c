@@ -2167,4 +2167,11 @@ parse_table(
 				data + row_start,
 				i - row_start,
 				columns,
-	
+				col_data, 0
+			);
+
+			i++;
+		}
+
+		if (rndr->cb.table)
+			rndr->cb.ta
