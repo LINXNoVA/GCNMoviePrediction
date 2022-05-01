@@ -2162,4 +2162,9 @@ parse_table(
 			}
 
 			parse_table_row(
-				body_wo
+				body_work,
+				rndr,
+				data + row_start,
+				i - row_start,
+				columns,
+	
