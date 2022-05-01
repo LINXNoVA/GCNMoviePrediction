@@ -2178,4 +2178,9 @@ parse_table(
 	}
 
 	free(col_data);
-	rndr_popbu
+	rndr_popbuf(rndr, BUFFER_SPAN);
+	rndr_popbuf(rndr, BUFFER_BLOCK);
+	return i;
+}
+
+/* p
