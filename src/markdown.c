@@ -2183,4 +2183,6 @@ parse_table(
 	return i;
 }
 
-/* parse_block • parsing of one block, returning next uint8_t to pa
+/* parse_block • parsing of one block, returning next uint8_t to parse */
+static void
+parse_block(struct buf *ob, struct sd_markdown *rndr, uint8_t *d
