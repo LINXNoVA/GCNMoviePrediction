@@ -2183,4 +2183,4 @@ parse_table(
 	return i;
 }
 
-/* p
+/* parse_block • parsing of one block, returning next uint8_t to pa
