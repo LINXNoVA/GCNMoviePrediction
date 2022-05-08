@@ -2185,4 +2185,10 @@ parse_table(
 
 /* parse_block • parsing of one block, returning next uint8_t to parse */
 static void
-parse_block(struct buf *ob, struct sd_markdown *rndr, uint8_t *d
+parse_block(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size)
+{
+	size_t beg, end, i;
+	uint8_t *txt_data;
+	beg = 0;
+
+	if (
