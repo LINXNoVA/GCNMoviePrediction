@@ -2197,4 +2197,7 @@ parse_block(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 
 	while (beg < size) {
 		txt_data = data + beg;
-		end
+		end = size - beg;
+
+		if (is_atxheader(rndr, txt_data, end))
+			beg +=
