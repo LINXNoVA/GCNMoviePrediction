@@ -2202,4 +2202,5 @@ parse_block(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 		if (is_atxheader(rndr, txt_data, end))
 			beg += parse_atxheader(ob, rndr, txt_data, end);
 
-		else if (data[beg] == '<' && r
+		else if (data[beg] == '<' && rndr->cb.blockhtml &&
+				(i = parse_htmlblock(ob, rndr, txt_data, end, 1)) != 0
