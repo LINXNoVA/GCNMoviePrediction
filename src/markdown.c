@@ -2200,4 +2200,6 @@ parse_block(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 		end = size - beg;
 
 		if (is_atxheader(rndr, txt_data, end))
-			beg +=
+			beg += parse_atxheader(ob, rndr, txt_data, end);
+
+		else if (data[beg] == '<' && r
