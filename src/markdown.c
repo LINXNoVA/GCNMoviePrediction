@@ -2211,4 +2211,7 @@ parse_block(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 
 		else if (is_hrule(txt_data, end)) {
 			if (rndr->cb.hrule)
-				rndr->cb.hrule(ob
+				rndr->cb.hrule(ob, rndr->opaque);
+
+			while (beg < size && data[beg] != '\n')
+				beg++
