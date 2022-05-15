@@ -2209,4 +2209,6 @@ parse_block(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 		else if ((i = is_empty(txt_data, end)) != 0)
 			beg += i;
 
-		else i
+		else if (is_hrule(txt_data, end)) {
+			if (rndr->cb.hrule)
+				rndr->cb.hrule(ob
