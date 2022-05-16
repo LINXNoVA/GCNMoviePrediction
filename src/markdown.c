@@ -2214,4 +2214,9 @@ parse_block(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 				rndr->cb.hrule(ob, rndr->opaque);
 
 			while (beg < size && data[beg] != '\n')
-				beg++
+				beg++;
+
+			beg++;
+		}
+
+		else if ((rndr->ext_flags & MKDEXT_FENCE
