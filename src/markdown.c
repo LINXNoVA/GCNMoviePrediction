@@ -2220,4 +2220,7 @@ parse_block(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 		}
 
 		else if ((rndr->ext_flags & MKDEXT_FENCED_CODE) != 0 &&
-			(i = parse_fencedcode(ob, rndr, txt_data, end)) 
+			(i = parse_fencedcode(ob, rndr, txt_data, end)) != 0)
+			beg += i;
+
+		else if ((rndr->ext_flags & MK
