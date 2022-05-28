@@ -2224,4 +2224,8 @@ parse_block(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 			beg += i;
 
 		else if ((rndr->ext_flags & MKDEXT_TABLES) != 0 &&
-			(i = parse_table(ob, rndr, txt_data, end)) != 
+			(i = parse_table(ob, rndr, txt_data, end)) != 0)
+			beg += i;
+
+		else if (prefix_quote(txt_data, end))
+			beg += parse_blockquot
