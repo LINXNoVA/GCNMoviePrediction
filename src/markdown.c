@@ -2233,4 +2233,7 @@ parse_block(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 		else if (prefix_code(txt_data, end))
 			beg += parse_blockcode(ob, rndr, txt_data, end);
 
-		else if (prefix_uli
+		else if (prefix_uli(txt_data, end))
+			beg += parse_list(ob, rndr, txt_data, end, 0);
+
+		else if (prefix
