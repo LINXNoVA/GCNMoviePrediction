@@ -2237,4 +2237,13 @@ parse_block(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 			beg += parse_list(ob, rndr, txt_data, end, 0);
 
 		else if (prefix_oli(txt_data, end))
-			beg += parse_list(ob, rndr, txt_data, end, MKD_LIST_O
+			beg += parse_list(ob, rndr, txt_data, end, MKD_LIST_ORDERED);
+
+		else
+			beg += parse_paragraph(ob, rndr, txt_data, end);
+	}
+}
+
+
+
+/******
