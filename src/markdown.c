@@ -2246,4 +2246,8 @@ parse_block(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
 
 
 
-/******
+/*********************
+ * REFERENCE PARSING *
+ *********************/
+
+/* 
