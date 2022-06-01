@@ -2250,4 +2250,6 @@ parse_block(struct buf *ob, struct sd_markdown *rndr, uint8_t *data, size_t size
  * REFERENCE PARSING *
  *********************/
 
-/* 
+/* is_ref • returns whether a line is a reference or not */
+static int
+is_ref(const uint
