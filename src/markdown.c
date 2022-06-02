@@ -2255,4 +2255,7 @@ static int
 is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_ref **refs)
 {
 /*	int n; */
-	s
+	size_t i = 0;
+	size_t id_offset, id_end;
+	size_t link_offset, link_end;
+	siz
