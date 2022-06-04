@@ -2258,4 +2258,7 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	size_t i = 0;
 	size_t id_offset, id_end;
 	size_t link_offset, link_end;
-	siz
+	size_t title_offset, title_end;
+	size_t line_end;
+
+	/* up to 3 optional 
