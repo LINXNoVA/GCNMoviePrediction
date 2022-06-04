@@ -2263,4 +2263,7 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 
 	/* up to 3 optional leading spaces */
 	if (beg + 3 >= end) return 0;
-	if (data[beg] == ' ') { 
+	if (data[beg] == ' ') { i = 1;
+	if (data[beg + 1] == ' ') { i = 2;
+	if (data[beg + 2] == ' ') { i = 3;
+	if (
