@@ -2261,4 +2261,6 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	size_t title_offset, title_end;
 	size_t line_end;
 
-	/* up to 3 optional 
+	/* up to 3 optional leading spaces */
+	if (beg + 3 >= end) return 0;
+	if (data[beg] == ' ') { 
