@@ -2269,4 +2269,7 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	if (data[beg + 3] == ' ') return 0; } } }
 	i += beg;
 
-	/* id part: anything but a ne
+	/* id part: anything but a newline between brackets */
+	if (data[i] != '[') return 0;
+	i++;
+	id_offset = i;
