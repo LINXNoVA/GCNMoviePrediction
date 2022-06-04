@@ -2266,4 +2266,7 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	if (data[beg] == ' ') { i = 1;
 	if (data[beg + 1] == ' ') { i = 2;
 	if (data[beg + 2] == ' ') { i = 3;
-	if (
+	if (data[beg + 3] == ' ') return 0; } } }
+	i += beg;
+
+	/* id part: anything but a ne
