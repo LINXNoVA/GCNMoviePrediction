@@ -2275,4 +2275,7 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	id_offset = i;
 	while (i < end && data[i] != '\n' && data[i] != '\r' && data[i] != ']')
 		i++;
-	if (i >
+	if (i >= end || data[i] != ']') return 0;
+	id_end = i;
+
+	/* spacer: colon (space | tab)* newli
