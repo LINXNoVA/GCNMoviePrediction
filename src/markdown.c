@@ -2282,4 +2282,7 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	i++;
 	if (i >= end || data[i] != ':') return 0;
 	i++;
-	while (i < en
+	while (i < end && data[i] == ' ') i++;
+	if (i < end && (data[i] == '\n' || data[i] == '\r')) {
+		i++;
+		
