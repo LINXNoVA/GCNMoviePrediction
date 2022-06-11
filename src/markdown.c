@@ -2278,4 +2278,8 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	if (i >= end || data[i] != ']') return 0;
 	id_end = i;
 
-	/* spacer: colon (space | tab)* newli
+	/* spacer: colon (space | tab)* newline? (space | tab)* */
+	i++;
+	if (i >= end || data[i] != ':') return 0;
+	i++;
+	while (i < en
