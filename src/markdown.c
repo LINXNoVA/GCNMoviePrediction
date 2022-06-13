@@ -2286,4 +2286,7 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	if (i < end && (data[i] == '\n' || data[i] == '\r')) {
 		i++;
 		if (i < end && data[i] == '\r' && data[i - 1] == '\n') i++; }
-	while (i < end && data[i]
+	while (i < end && data[i] == ' ') i++;
+	if (i >= end) return 0;
+
+	/* link: whitespace-free s
