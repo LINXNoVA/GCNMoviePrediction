@@ -2296,4 +2296,9 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	link_offset = i;
 
 	while (i < end && data[i] != ' ' && data[i] != '\n' && data[i] != '\r')
-	
+		i++;
+
+	if (data[i - 1] == '>') link_end = i - 1;
+	else link_end = i;
+
+	/* optional
