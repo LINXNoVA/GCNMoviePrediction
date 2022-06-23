@@ -2301,4 +2301,5 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	if (data[i - 1] == '>') link_end = i - 1;
 	else link_end = i;
 
-	/* optional
+	/* optional spacer: (space | tab)* (newline | '\'' | '"' | '(' ) */
+	while (i < e
