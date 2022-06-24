@@ -2303,4 +2303,7 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 
 	/* optional spacer: (space | tab)* (newline | '\'' | '"' | '(' ) */
 	while (i < end && data[i] == ' ') i++;
-	if (i < end && data[i] != '\n' && data[i] != '\r
+	if (i < end && data[i] != '\n' && data[i] != '\r'
+			&& data[i] != '\'' && data[i] != '"' && data[i] != '(')
+		return 0;
+	line_end 
