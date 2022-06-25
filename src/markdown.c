@@ -2306,4 +2306,6 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	if (i < end && data[i] != '\n' && data[i] != '\r'
 			&& data[i] != '\'' && data[i] != '"' && data[i] != '(')
 		return 0;
-	line_end 
+	line_end = 0;
+	/* computing end-of-line */
+	if (i >= end || data[i] == '\r' || data
