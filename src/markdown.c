@@ -2312,4 +2312,7 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	if (i + 1 < end && data[i] == '\n' && data[i + 1] == '\r')
 		line_end = i + 1;
 
-	/* optional (space|tab)* space
+	/* optional (space|tab)* spacer after a newline */
+	if (line_end) {
+		i = line_end + 1;
+		while (i < end
