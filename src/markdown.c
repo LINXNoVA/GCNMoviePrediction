@@ -2317,4 +2317,6 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 		i = line_end + 1;
 		while (i < end && data[i] == ' ') i++; }
 
-	/* optional title: any non-newline sequence enc
+	/* optional title: any non-newline sequence enclosed in '"()
+					alone on its line */
+	title_offset = title_end = 
