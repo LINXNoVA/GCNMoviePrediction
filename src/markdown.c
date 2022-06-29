@@ -2309,4 +2309,7 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	line_end = 0;
 	/* computing end-of-line */
 	if (i >= end || data[i] == '\r' || data[i] == '\n') line_end = i;
-	if (i + 1 < end && data[i] == '\n' && 
+	if (i + 1 < end && data[i] == '\n' && data[i + 1] == '\r')
+		line_end = i + 1;
+
+	/* optional (space|tab)* space
