@@ -2321,4 +2321,8 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 					alone on its line */
 	title_offset = title_end = 0;
 	if (i + 1 < end
-	&& (data[i] == '\'' || data[i] == '"' || data[i] == '(
+	&& (data[i] == '\'' || data[i] == '"' || data[i] == '(')) {
+		i++;
+		title_offset = i;
+		/* looking for EOL */
+		while 
