@@ -2325,4 +2325,5 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 		i++;
 		title_offset = i;
 		/* looking for EOL */
-		while 
+		while (i < end && data[i] != '\n' && data[i] != '\r') i++;
+		if (i + 1 < end && data[i] =
