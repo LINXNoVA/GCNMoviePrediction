@@ -2339,4 +2339,6 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 			title_end = i; } }
 
 	if (!line_end || link_end == link_offset)
-		return 0; /* garbage after the
+		return 0; /* garbage after the link empty link */
+
+	/* a valid ref has been found, filling-in return st
