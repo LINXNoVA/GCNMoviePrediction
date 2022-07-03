@@ -2338,4 +2338,5 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 			line_end = title_end;
 			title_end = i; } }
 
-	if (
+	if (!line_end || link_end == link_offset)
+		return 0; /* garbage after the
