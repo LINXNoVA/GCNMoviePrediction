@@ -2341,4 +2341,9 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	if (!line_end || link_end == link_offset)
 		return 0; /* garbage after the link empty link */
 
-	/* a valid ref has been found, filling-in return st
+	/* a valid ref has been found, filling-in return structures */
+	if (last)
+		*last = line_end;
+
+	if (refs) {
+		struct link_ref 
