@@ -2348,4 +2348,8 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	if (refs) {
 		struct link_ref *ref;
 
-		ref = add_link_ref(refs, data + id_offset, id_end - id_offset
+		ref = add_link_ref(refs, data + id_offset, id_end - id_offset);
+		if (!ref)
+			return 0;
+
+		ref->link = bufnew(link_end - link_offs
