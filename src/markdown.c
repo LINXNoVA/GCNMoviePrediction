@@ -2352,4 +2352,7 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 		if (!ref)
 			return 0;
 
-		ref->link = bufnew(link_end - link_offs
+		ref->link = bufnew(link_end - link_offset);
+		bufput(ref->link, data + link_offset, link_end - link_offset);
+
+		if (ti
