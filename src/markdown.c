@@ -2357,4 +2357,11 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 
 		if (title_end > title_offset) {
 			ref->title = bufnew(title_end - title_offset);
-	
+			bufput(ref->title, data + title_offset, title_end - title_offset);
+		}
+	}
+
+	return 1;
+}
+
+stat
