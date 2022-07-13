@@ -2364,4 +2364,6 @@ is_ref(const uint8_t *data, size_t beg, size_t end, size_t *last, struct link_re
 	return 1;
 }
 
-stat
+static void expand_tabs(struct buf *ob, const uint8_t *line, size_t size)
+{
+	size_t 
