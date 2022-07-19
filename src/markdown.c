@@ -2376,4 +2376,10 @@ static void expand_tabs(struct buf *ob, const uint8_t *line, size_t size)
 		}
 
 		if (i > org)
-			bufput(ob, line + org
+			bufput(ob, line + org, i - org);
+
+		if (i >= size)
+			break;
+
+		do {
+			bufputc(ob, ' '); tab++;
