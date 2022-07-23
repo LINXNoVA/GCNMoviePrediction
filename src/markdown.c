@@ -2390,4 +2390,8 @@ static void expand_tabs(struct buf *ob, const uint8_t *line, size_t size)
 }
 
 /**********************
- 
+ * EXPORTED FUNCTIONS *
+ **********************/
+
+struct sd_markdown *
+sd_ma
