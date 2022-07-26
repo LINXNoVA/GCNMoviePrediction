@@ -2394,4 +2394,7 @@ static void expand_tabs(struct buf *ob, const uint8_t *line, size_t size)
  **********************/
 
 struct sd_markdown *
-sd_ma
+sd_markdown_new(
+	unsigned int extensions,
+	size_t max_nesting,
+	const struct sd_callbac
