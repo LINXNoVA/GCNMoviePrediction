@@ -2402,4 +2402,6 @@ sd_markdown_new(
 {
 	struct sd_markdown *md = NULL;
 
-	assert(m
+	assert(max_nesting > 0 && callbacks);
+
+	md = malloc(sizeof(stru
