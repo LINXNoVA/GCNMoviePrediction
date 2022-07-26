@@ -2397,4 +2397,9 @@ struct sd_markdown *
 sd_markdown_new(
 	unsigned int extensions,
 	size_t max_nesting,
-	const struct sd_callbac
+	const struct sd_callbacks *callbacks,
+	void *opaque)
+{
+	struct sd_markdown *md = NULL;
+
+	assert(m
