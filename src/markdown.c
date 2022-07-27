@@ -2408,4 +2408,7 @@ sd_markdown_new(
 	if (!md)
 		return NULL;
 
-	memcpy(&md->cb, callbacks,
+	memcpy(&md->cb, callbacks, sizeof(struct sd_callbacks));
+
+	stack_init(&md->work_bufs[BUFFER_BLOCK], 4);
+	stack_
