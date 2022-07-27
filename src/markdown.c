@@ -2404,4 +2404,8 @@ sd_markdown_new(
 
 	assert(max_nesting > 0 && callbacks);
 
-	md = malloc(sizeof(stru
+	md = malloc(sizeof(struct sd_markdown));
+	if (!md)
+		return NULL;
+
+	memcpy(&md->cb, callbacks,
