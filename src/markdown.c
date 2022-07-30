@@ -2411,4 +2411,6 @@ sd_markdown_new(
 	memcpy(&md->cb, callbacks, sizeof(struct sd_callbacks));
 
 	stack_init(&md->work_bufs[BUFFER_BLOCK], 4);
-	stack_
+	stack_init(&md->work_bufs[BUFFER_SPAN], 8);
+
+	memset(md->act
