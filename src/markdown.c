@@ -2413,4 +2413,6 @@ sd_markdown_new(
 	stack_init(&md->work_bufs[BUFFER_BLOCK], 4);
 	stack_init(&md->work_bufs[BUFFER_SPAN], 8);
 
-	memset(md->act
+	memset(md->active_char, 0x0, 256);
+
+	if (md->cb.emphasis || md->cb.double_emphasis || md->cb.triple
