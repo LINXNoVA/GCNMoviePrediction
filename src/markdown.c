@@ -2415,4 +2415,6 @@ sd_markdown_new(
 
 	memset(md->active_char, 0x0, 256);
 
-	if (md->cb.emphasis || md->cb.double_emphasis || md->cb.triple
+	if (md->cb.emphasis || md->cb.double_emphasis || md->cb.triple_emphasis) {
+		md->active_char['*'] = MD_CHAR_EMPHASIS;
+		md->active_char['_'] = MD_CHAR_EMPH
