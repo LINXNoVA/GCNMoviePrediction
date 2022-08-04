@@ -2419,4 +2419,8 @@ sd_markdown_new(
 		md->active_char['*'] = MD_CHAR_EMPHASIS;
 		md->active_char['_'] = MD_CHAR_EMPHASIS;
 		if (extensions & MKDEXT_STRIKETHROUGH)
-			md->active_char['~
+			md->active_char['~'] = MD_CHAR_EMPHASIS;
+	}
+
+	if (md->cb.codespan)
+		md->active_
