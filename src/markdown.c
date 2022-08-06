@@ -2423,4 +2423,7 @@ sd_markdown_new(
 	}
 
 	if (md->cb.codespan)
-		md->active_
+		md->active_char['`'] = MD_CHAR_CODESPAN;
+
+	if (md->cb.linebreak)
+		md->active_char['
