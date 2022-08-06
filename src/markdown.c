@@ -2426,4 +2426,7 @@ sd_markdown_new(
 		md->active_char['`'] = MD_CHAR_CODESPAN;
 
 	if (md->cb.linebreak)
-		md->active_char['
+		md->active_char['\n'] = MD_CHAR_LINEBREAK;
+
+	if (md->cb.image || md->cb.link)
+		md->
