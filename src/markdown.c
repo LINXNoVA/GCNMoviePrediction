@@ -2432,4 +2432,7 @@ sd_markdown_new(
 		md->active_char['['] = MD_CHAR_LINK;
 
 	md->active_char['<'] = MD_CHAR_LANGLE;
-	md->active_ch
+	md->active_char['\\'] = MD_CHAR_ESCAPE;
+	md->active_char['&'] = MD_CHAR_ENTITITY;
+
+	if 
