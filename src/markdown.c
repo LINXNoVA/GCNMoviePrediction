@@ -2429,4 +2429,7 @@ sd_markdown_new(
 		md->active_char['\n'] = MD_CHAR_LINEBREAK;
 
 	if (md->cb.image || md->cb.link)
-		md->
+		md->active_char['['] = MD_CHAR_LINK;
+
+	md->active_char['<'] = MD_CHAR_LANGLE;
+	md->active_ch
