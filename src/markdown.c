@@ -2435,4 +2435,5 @@ sd_markdown_new(
 	md->active_char['\\'] = MD_CHAR_ESCAPE;
 	md->active_char['&'] = MD_CHAR_ENTITITY;
 
-	if 
+	if (extensions & MKDEXT_AUTOLINK) {
+		md->active_char[':'] = MD_CHAR_AUTOLIN
