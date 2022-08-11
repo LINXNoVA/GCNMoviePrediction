@@ -2441,4 +2441,7 @@ sd_markdown_new(
 		md->active_char['w'] = MD_CHAR_AUTOLINK_WWW;
 	}
 
-	if (extensions & MKDEXT_SUPERSCRI
+	if (extensions & MKDEXT_SUPERSCRIPT)
+		md->active_char['^'] = MD_CHAR_SUPERSCRIPT;
+
+	/* Ext
