@@ -2444,4 +2444,7 @@ sd_markdown_new(
 	if (extensions & MKDEXT_SUPERSCRIPT)
 		md->active_char['^'] = MD_CHAR_SUPERSCRIPT;
 
-	/* Ext
+	/* Extension data */
+	md->ext_flags = extensions;
+	md->opaque = opaque;
+	md->max_
