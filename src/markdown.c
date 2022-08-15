@@ -2447,4 +2447,11 @@ sd_markdown_new(
 	/* Extension data */
 	md->ext_flags = extensions;
 	md->opaque = opaque;
-	md->max_
+	md->max_nesting = max_nesting;
+	md->in_link_body = 0;
+
+	return md;
+}
+
+void
+sd_ma
