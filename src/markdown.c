@@ -2454,4 +2454,4 @@ sd_markdown_new(
 }
 
 void
-sd_ma
+sd_markdown_render(struct buf *ob, const uint8_t *document, size_t
