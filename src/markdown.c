@@ -2454,4 +2454,6 @@ sd_markdown_new(
 }
 
 void
-sd_markdown_render(struct buf *ob, const uint8_t *document, size_t
+sd_markdown_render(struct buf *ob, const uint8_t *document, size_t doc_size, struct sd_markdown *md)
+{
+#define MARKDOWN_GROW(x) ((x) 
