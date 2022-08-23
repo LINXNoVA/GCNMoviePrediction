@@ -2464,4 +2464,6 @@ sd_markdown_render(struct buf *ob, const uint8_t *document, size_t doc_size, str
 
 	text = bufnew(64);
 	if (!text)
-		retu
+		return;
+
+	/* Preallocate enough space for our buffer to avoid expanding whil
