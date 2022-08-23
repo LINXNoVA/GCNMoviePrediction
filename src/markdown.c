@@ -2457,4 +2457,11 @@ void
 sd_markdown_render(struct buf *ob, const uint8_t *document, size_t doc_size, struct sd_markdown *md)
 {
 #define MARKDOWN_GROW(x) ((x) + ((x) >> 1))
-	static const char UTF8_BOM[] = {0xEF, 0xBB, 
+	static const char UTF8_BOM[] = {0xEF, 0xBB, 0xBF};
+
+	struct buf *text;
+	size_t beg, end;
+
+	text = bufnew(64);
+	if (!text)
+		retu
