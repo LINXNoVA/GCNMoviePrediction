@@ -2466,4 +2466,7 @@ sd_markdown_render(struct buf *ob, const uint8_t *document, size_t doc_size, str
 	if (!text)
 		return;
 
-	/* Preallocate enough space for our buffer to avoid expanding whil
+	/* Preallocate enough space for our buffer to avoid expanding while copying */
+	bufgrow(text, doc_size);
+
+	/* reset the references table 
