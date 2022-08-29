@@ -2472,4 +2472,5 @@ sd_markdown_render(struct buf *ob, const uint8_t *document, size_t doc_size, str
 	/* reset the references table */
 	memset(&md->refs, 0x0, REF_TABLE_SIZE * sizeof(void *));
 
-	/* first p
+	/* first pass: looking for references, copying everything else */
+	beg = 0
