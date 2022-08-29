@@ -2476,4 +2476,5 @@ sd_markdown_render(struct buf *ob, const uint8_t *document, size_t doc_size, str
 	beg = 0;
 
 	/* Skip a possible UTF-8 BOM, even though the Unicode standard
-	 * disco
+	 * discourages having these in UTF-8 documents */
+	if (doc_size >= 3 && memcmp(docum
