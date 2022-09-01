@@ -2481,4 +2481,7 @@ sd_markdown_render(struct buf *ob, const uint8_t *document, size_t doc_size, str
 		beg += 3;
 
 	while (beg < doc_size) /* iterating over lines */
-		if (is_ref(document, beg, doc_size, &end, md-
+		if (is_ref(document, beg, doc_size, &end, md->refs))
+			beg = end;
+		else { /* skipping to the next line */
+		
