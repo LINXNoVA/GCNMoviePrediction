@@ -2485,4 +2485,9 @@ sd_markdown_render(struct buf *ob, const uint8_t *document, size_t doc_size, str
 			beg = end;
 		else { /* skipping to the next line */
 			end = beg;
-			while (end < doc_size && document[end] != '\n' && document[end] != '\
+			while (end < doc_size && document[end] != '\n' && document[end] != '\r')
+				end++;
+
+			/* adding the line body if present */
+			if (end > beg)
+				e
