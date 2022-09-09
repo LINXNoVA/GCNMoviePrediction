@@ -2495,4 +2495,11 @@ sd_markdown_render(struct buf *ob, const uint8_t *document, size_t doc_size, str
 			while (end < doc_size && (document[end] == '\n' || document[end] == '\r')) {
 				/* add one \n per newline */
 				if (document[end] == '\n' || (end + 1 < doc_size && document[end + 1] != '\n'))
-					bufput
+					bufputc(text, '\n');
+				end++;
+			}
+
+			beg = end;
+		}
+
+	/* pre-grow the output 
