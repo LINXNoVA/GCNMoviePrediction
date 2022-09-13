@@ -2503,4 +2503,8 @@ sd_markdown_render(struct buf *ob, const uint8_t *document, size_t doc_size, str
 		}
 
 	/* pre-grow the output buffer to minimize allocations */
-	bufgrow(ob, MARKDOWN_GROW(te
+	bufgrow(ob, MARKDOWN_GROW(text->size));
+
+	/* second pass: actual rendering */
+	if (md->cb.doc_header)
+		md->cb.doc_hea
