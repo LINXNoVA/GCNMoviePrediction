@@ -2507,4 +2507,7 @@ sd_markdown_render(struct buf *ob, const uint8_t *document, size_t doc_size, str
 
 	/* second pass: actual rendering */
 	if (md->cb.doc_header)
-		md->cb.doc_hea
+		md->cb.doc_header(ob, md->opaque);
+
+	if (text->size) {
+		/* adding a final newline if no
