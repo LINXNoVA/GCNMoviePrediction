@@ -2533,4 +2533,5 @@ sd_markdown_free(struct sd_markdown *md)
 {
 	size_t i;
 
-	for (i = 0; i < (siz
+	for (i = 0; i < (size_t)md->work_bufs[BUFFER_SPAN].asize; ++i)
+		bufrelease(md->work_bufs[BUFFER_SP
