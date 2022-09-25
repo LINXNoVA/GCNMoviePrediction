@@ -2527,3 +2527,10 @@ sd_markdown_render(struct buf *ob, const uint8_t *document, size_t doc_size, str
 	assert(md->work_bufs[BUFFER_SPAN].size == 0);
 	assert(md->work_bufs[BUFFER_BLOCK].size == 0);
 }
+
+void
+sd_markdown_free(struct sd_markdown *md)
+{
+	size_t i;
+
+	for (i = 0; i < (siz
