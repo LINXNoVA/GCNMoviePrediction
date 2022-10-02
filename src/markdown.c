@@ -2540,4 +2540,10 @@ sd_markdown_free(struct sd_markdown *md)
 		bufrelease(md->work_bufs[BUFFER_BLOCK].item[i]);
 
 	stack_free(&md->work_bufs[BUFFER_SPAN]);
-	stack_free(&md->w
+	stack_free(&md->work_bufs[BUFFER_BLOCK]);
+
+	free(md);
+}
+
+void
+sd_version(int *ver_major, int *ve
