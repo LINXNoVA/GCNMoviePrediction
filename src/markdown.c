@@ -2546,4 +2546,7 @@ sd_markdown_free(struct sd_markdown *md)
 }
 
 void
-sd_version(int *ver_major, int *ve
+sd_version(int *ver_major, int *ver_minor, int *ver_revision)
+{
+	*ver_major = SUNDOWN_VER_MAJOR;
+	*ver_minor = 
