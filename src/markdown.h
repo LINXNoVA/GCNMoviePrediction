@@ -19,4 +19,8 @@
 #ifndef UPSKIRT_MARKDOWN_H
 #define UPSKIRT_MARKDOWN_H
 
-#i
+#include "buffer.h"
+#include "autolink.h"
+
+#ifdef __cplusplus
+extern "C" 
