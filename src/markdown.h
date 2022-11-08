@@ -23,4 +23,9 @@
 #include "autolink.h"
 
 #ifdef __cplusplus
-extern "C" 
+extern "C" {
+#endif
+
+#define SUNDOWN_VERSION "1.16.0"
+#define SUNDOWN_VER_MAJOR 1
+#define 
