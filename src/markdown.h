@@ -28,4 +28,8 @@ extern "C" {
 
 #define SUNDOWN_VERSION "1.16.0"
 #define SUNDOWN_VER_MAJOR 1
-#define 
+#define SUNDOWN_VER_MINOR 16
+#define SUNDOWN_VER_REVISION 0
+
+/********************
+ * 
