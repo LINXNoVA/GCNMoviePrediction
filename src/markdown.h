@@ -32,4 +32,8 @@ extern "C" {
 #define SUNDOWN_VER_REVISION 0
 
 /********************
- * 
+ * TYPE DEFINITIONS *
+ ********************/
+
+/* mkd_autolink - type of autolink */
+enum 
