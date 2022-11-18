@@ -36,4 +36,5 @@ extern "C" {
  ********************/
 
 /* mkd_autolink - type of autolink */
-enum 
+enum mkd_autolink {
+	MKDA_NOT_AUTOLINK,	/* used internally when it is not an autolin
