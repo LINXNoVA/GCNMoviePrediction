@@ -50,4 +50,6 @@ enum mkd_tableflags {
 	MKD_TABLE_HEADER = 4
 };
 
-enum mkd_
+enum mkd_extensions {
+	MKDEXT_NO_INTRA_EMPHASIS = (1 << 0),
+	MKDEXT_TABLES = 
