@@ -57,4 +57,5 @@ enum mkd_extensions {
 	MKDEXT_AUTOLINK = (1 << 3),
 	MKDEXT_STRIKETHROUGH = (1 << 4),
 	MKDEXT_SPACE_HEADERS = (1 << 6),
-	M
+	MKDEXT_SUPERSCRIPT = (1 << 7),
+	MKDEXT_LAX_SPACING = (1 <
