@@ -54,4 +54,7 @@ enum mkd_extensions {
 	MKDEXT_NO_INTRA_EMPHASIS = (1 << 0),
 	MKDEXT_TABLES = (1 << 1),
 	MKDEXT_FENCED_CODE = (1 << 2),
-	MKDEXT_AUTOLINK = (1 << 3)
+	MKDEXT_AUTOLINK = (1 << 3),
+	MKDEXT_STRIKETHROUGH = (1 << 4),
+	MKDEXT_SPACE_HEADERS = (1 << 6),
+	M
