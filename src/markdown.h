@@ -63,4 +63,5 @@ enum mkd_extensions {
 
 /* sd_callbacks - functions for rendering parsed data */
 struct sd_callbacks {
-	/* block level callbacks - NULL skips the bloc
+	/* block level callbacks - NULL skips the block */
+	void (*blockcode)(struct buf *ob, const struct buf *text, const struc
