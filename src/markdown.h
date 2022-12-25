@@ -67,4 +67,5 @@ struct sd_callbacks {
 	void (*blockcode)(struct buf *ob, const struct buf *text, const struct buf *lang, void *opaque);
 	void (*blockquote)(struct buf *ob, const struct buf *text, void *opaque);
 	void (*blockhtml)(struct buf *ob,const  struct buf *text, void *opaque);
-	void (*header)(struct buf *ob, const struc
+	void (*header)(struct buf *ob, const struct buf *text, int level, void *opaque);
+	void (*hrule)(str
