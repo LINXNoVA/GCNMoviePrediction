@@ -69,4 +69,5 @@ struct sd_callbacks {
 	void (*blockhtml)(struct buf *ob,const  struct buf *text, void *opaque);
 	void (*header)(struct buf *ob, const struct buf *text, int level, void *opaque);
 	void (*hrule)(struct buf *ob, void *opaque);
-	void (*list)(struct buf *ob, const struct buf
+	void (*list)(struct buf *ob, const struct buf *text, int flags, void *opaque);
+	void (*listitem)
