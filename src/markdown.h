@@ -71,4 +71,4 @@ struct sd_callbacks {
 	void (*hrule)(struct buf *ob, void *opaque);
 	void (*list)(struct buf *ob, const struct buf *text, int flags, void *opaque);
 	void (*listitem)(struct buf *ob, const struct buf *text, int flags, void *opaque);
-	voi
+	void (*paragraph)(struct buf *ob, const struct buf *text, void *opaque);
