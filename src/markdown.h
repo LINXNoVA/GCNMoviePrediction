@@ -74,4 +74,7 @@ struct sd_callbacks {
 	void (*paragraph)(struct buf *ob, const struct buf *text, void *opaque);
 	void (*table)(struct buf *ob, const struct buf *header, const struct buf *body, void *opaque);
 	void (*table_row)(struct buf *ob, const struct buf *text, void *opaque);
-	void (*table_cell)(struct buf *ob, const 
+	void (*table_cell)(struct buf *ob, const struct buf *text, int flags, void *opaque);
+
+
+	/* span level callb
