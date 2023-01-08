@@ -77,4 +77,5 @@ struct sd_callbacks {
 	void (*table_cell)(struct buf *ob, const struct buf *text, int flags, void *opaque);
 
 
-	/* span level callb
+	/* span level callbacks - NULL or return 0 prints the span verbatim */
+	int (*auto
