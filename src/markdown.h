@@ -78,4 +78,4 @@ struct sd_callbacks {
 
 
 	/* span level callbacks - NULL or return 0 prints the span verbatim */
-	int (*auto
+	int (*autolink)(struct buf *ob, const struct buf *link, enum mkd_au
