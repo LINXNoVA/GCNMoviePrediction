@@ -81,4 +81,5 @@ struct sd_callbacks {
 	int (*autolink)(struct buf *ob, const struct buf *link, enum mkd_autolink type, void *opaque);
 	int (*codespan)(struct buf *ob, const struct buf *text, void *opaque);
 	int (*double_emphasis)(struct buf *ob, const struct buf *text, void *opaque);
-	int (*emphasis)(struct buf *ob, const s
+	int (*emphasis)(struct buf *ob, const struct buf *text, void *opaque);
+	int (*image)(struct buf *ob, const st
