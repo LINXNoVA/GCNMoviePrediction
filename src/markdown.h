@@ -84,4 +84,4 @@ struct sd_callbacks {
 	int (*emphasis)(struct buf *ob, const struct buf *text, void *opaque);
 	int (*image)(struct buf *ob, const struct buf *link, const struct buf *title, const struct buf *alt, void *opaque);
 	int (*linebreak)(struct buf *ob, void *opaque);
-	int (*link)(struct buf *ob, const 
+	int (*link)(struct buf *ob, const struct buf *link, const struct buf *title, const struct buf *content, void *
