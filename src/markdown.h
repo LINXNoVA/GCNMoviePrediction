@@ -87,4 +87,5 @@ struct sd_callbacks {
 	int (*link)(struct buf *ob, const struct buf *link, const struct buf *title, const struct buf *content, void *opaque);
 	int (*raw_html_tag)(struct buf *ob, const struct buf *tag, void *opaque);
 	int (*triple_emphasis)(struct buf *ob, const struct buf *text, void *opaque);
-	int (*strikethrough)(struct buf *ob, const struct buf *text, voi
+	int (*strikethrough)(struct buf *ob, const struct buf *text, void *opaque);
+	int (*superscript)(struct buf *ob, const stru
