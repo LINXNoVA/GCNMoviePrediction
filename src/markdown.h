@@ -92,4 +92,7 @@ struct sd_callbacks {
 
 	/* low level callbacks - NULL copies input directly into the output */
 	void (*entity)(struct buf *ob, const struct buf *entity, void *opaque);
-	void (*normal_text)(struct bu
+	void (*normal_text)(struct buf *ob, const struct buf *text, void *opaque);
+
+	/* header and footer */
+	void (*
