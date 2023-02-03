@@ -90,4 +90,5 @@ struct sd_callbacks {
 	int (*strikethrough)(struct buf *ob, const struct buf *text, void *opaque);
 	int (*superscript)(struct buf *ob, const struct buf *text, void *opaque);
 
-	/* low level callbacks - NULL copies inp
+	/* low level callbacks - NULL copies input directly into the output */
+	void (*entity)(struct buf
