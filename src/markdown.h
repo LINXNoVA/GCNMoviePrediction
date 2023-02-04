@@ -96,4 +96,13 @@ struct sd_callbacks {
 
 	/* header and footer */
 	void (*doc_header)(struct buf *ob, void *opaque);
-	void (*doc_footer)
+	void (*doc_footer)(struct buf *ob, void *opaque);
+};
+
+struct sd_markdown;
+
+/*********
+ * FLAGS *
+ *********/
+
+/
