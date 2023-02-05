@@ -105,4 +105,6 @@ struct sd_markdown;
  * FLAGS *
  *********/
 
-/
+/* list/listitem flags */
+#define MKD_LIST_ORDERED	1
+#define MKD_LI_BLOCK		2  /* <li> 
