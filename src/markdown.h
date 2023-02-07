@@ -111,3 +111,8 @@ struct sd_markdown;
 
 /**********************
  * EXPORTED FUNCTIONS *
+ **********************/
+
+extern struct sd_markdown *
+sd_markdown_new(
+	unsigned int extension
