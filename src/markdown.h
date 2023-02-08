@@ -121,4 +121,7 @@ sd_markdown_new(
 	void *opaque);
 
 extern void
-sd_markdown_render(struct buf *ob, const uint
+sd_markdown_render(struct buf *ob, const uint8_t *document, size_t doc_size, struct sd_markdown *md);
+
+extern void
+sd_markdown_
