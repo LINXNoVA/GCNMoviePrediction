@@ -118,4 +118,7 @@ sd_markdown_new(
 	unsigned int extensions,
 	size_t max_nesting,
 	const struct sd_callbacks *callbacks,
-	void *opaqu
+	void *opaque);
+
+extern void
+sd_markdown_render(struct buf *ob, const uint
