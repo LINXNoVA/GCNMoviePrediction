@@ -127,4 +127,12 @@ extern void
 sd_markdown_free(struct sd_markdown *md);
 
 extern void
-sd_version(int *major, int *minor, in
+sd_version(int *major, int *minor, int *revision);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif
+
+/* vim: set
