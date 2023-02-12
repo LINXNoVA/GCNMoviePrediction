@@ -124,4 +124,7 @@ extern void
 sd_markdown_render(struct buf *ob, const uint8_t *document, size_t doc_size, struct sd_markdown *md);
 
 extern void
-sd_markdown_
+sd_markdown_free(struct sd_markdown *md);
+
+extern void
+sd_version(int *major, int *minor, in
