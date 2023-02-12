@@ -135,4 +135,4 @@ sd_version(int *major, int *minor, int *revision);
 
 #endif
 
-/* vim: set
+/* vim: set filetype=c: */
