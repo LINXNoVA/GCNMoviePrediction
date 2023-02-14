@@ -14,4 +14,9 @@ stack_grow(struct stack *st, size_t new_size)
 		return -1;
 
 	memset(new_st + st->asize, 0x0,
-		(new_size - st->asize) 
+		(new_size - st->asize) * sizeof(void *));
+
+	st->item = new_st;
+	st->asize = new_size;
+
+	if 
