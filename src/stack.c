@@ -10,4 +10,8 @@ stack_grow(struct stack *st, size_t new_size)
 		return 0;
 
 	new_st = realloc(st->item, new_size * sizeof(void *));
-	if (new_st =
+	if (new_st == NULL)
+		return -1;
+
+	memset(new_st + st->asize, 0x0,
+		(new_size - st->asize) 
