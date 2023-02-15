@@ -19,4 +19,11 @@ stack_grow(struct stack *st, size_t new_size)
 	st->item = new_st;
 	st->asize = new_size;
 
-	if 
+	if (st->size > new_size)
+		st->size = new_size;
+
+	return 0;
+}
+
+void
+stack_fr
