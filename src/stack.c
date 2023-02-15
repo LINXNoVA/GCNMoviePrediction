@@ -33,4 +33,10 @@ stack_free(struct stack *st)
 
 	free(st->item);
 
-	st->item
+	st->item = NULL;
+	st->size = 0;
+	st->asize = 0;
+}
+
+int
+stack_init(struct stac
