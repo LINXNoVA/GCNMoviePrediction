@@ -39,4 +39,8 @@ stack_free(struct stack *st)
 }
 
 int
-stack_init(struct stac
+stack_init(struct stack *st, size_t initial_size)
+{
+	st->item = NULL;
+	st->size = 0;
+	st->
