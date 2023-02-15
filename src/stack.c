@@ -26,4 +26,11 @@ stack_grow(struct stack *st, size_t new_size)
 }
 
 void
-stack_fr
+stack_free(struct stack *st)
+{
+	if (!st)
+		return;
+
+	free(st->item);
+
+	st->item
