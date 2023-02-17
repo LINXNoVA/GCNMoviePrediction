@@ -57,4 +57,8 @@ stack_pop(struct stack *st)
 	if (!st->size)
 		return NULL;
 
-	
+	return st->item[--st->size];
+}
+
+int
+stack_push(struct stack *st, void *it
