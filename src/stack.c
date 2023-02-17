@@ -43,4 +43,9 @@ stack_init(struct stack *st, size_t initial_size)
 {
 	st->item = NULL;
 	st->size = 0;
-	st->
+	st->asize = 0;
+
+	if (!initial_size)
+		initial_size = 8;
+
+	return stack_grow(st, initial_
