@@ -48,4 +48,13 @@ stack_init(struct stack *st, size_t initial_size)
 	if (!initial_size)
 		initial_size = 8;
 
-	return stack_grow(st, initial_
+	return stack_grow(st, initial_size);
+}
+
+void *
+stack_pop(struct stack *st)
+{
+	if (!st->size)
+		return NULL;
+
+	
