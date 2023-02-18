@@ -66,4 +66,9 @@ stack_push(struct stack *st, void *item)
 	if (stack_grow(st, st->size * 2) < 0)
 		return -1;
 
-	s
+	st->item[st->size++] = item;
+	return 0;
+}
+
+void *
+stack_top(struct s
