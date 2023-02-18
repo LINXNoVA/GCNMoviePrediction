@@ -61,4 +61,9 @@ stack_pop(struct stack *st)
 }
 
 int
-stack_push(struct stack *st, void *it
+stack_push(struct stack *st, void *item)
+{
+	if (stack_grow(st, st->size * 2) < 0)
+		return -1;
+
+	s
