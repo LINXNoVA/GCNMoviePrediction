@@ -2,3 +2,9 @@ LIBRARY SUNDOWN
 EXPORTS
 	sdhtml_renderer
 	sdhtml_toc_renderer
+	sdhtml_smartypants
+	bufgrow
+	bufnew
+	bufcstr
+	bufprefix
+	bu
