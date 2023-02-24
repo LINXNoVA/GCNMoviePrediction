@@ -7,4 +7,9 @@ EXPORTS
 	bufnew
 	bufcstr
 	bufprefix
-	bu
+	bufput 
+	bufputs
+	bufputc
+	bufrelease
+	bufreset
+	bufslurp
