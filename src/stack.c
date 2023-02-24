@@ -71,4 +71,11 @@ stack_push(struct stack *st, void *item)
 }
 
 void *
-stack_top(struct s
+stack_top(struct stack *st)
+{
+	if (!st->size)
+		return NULL;
+
+	return st->item[st->size - 1];
+}
+
