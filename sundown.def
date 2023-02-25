@@ -13,3 +13,8 @@ EXPORTS
 	bufrelease
 	bufreset
 	bufslurp
+	bufprintf
+	sd_markdown_new
+	sd_markdown_render
+	sd_markdown_free
+	sd_version
